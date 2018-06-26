@@ -8,19 +8,19 @@ use App\Http\Requests;
 
 class ShopsController extends Controller
 {
-  public function index()
+  public function show()
   {
       return view('shops.index');
   }
 
-  public function search()
+  public function mapsearch()
   {
-      return view('currys.search');
+      return view('shops.mapsearch');
   }
 
   public function create()
   {
-      return view('currys.create');
+      return view('shops.create');
   }
 
   public function store()

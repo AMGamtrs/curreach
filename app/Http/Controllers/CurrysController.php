@@ -8,9 +8,9 @@ use App\Http\Requests;
 
 class CurrysController extends Controller
 {
-  public function index()
+  public function show()
   {
-      return view('currys.index');
+      return view('currys.show');
   }
 
   public function search()
