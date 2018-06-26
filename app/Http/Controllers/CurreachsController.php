@@ -13,8 +13,4 @@ class CurreachsController extends Controller
       return view('curreachs.index');
   }
 
-  public function show()
-  {
-      return view('curreachs.show');
-  }
 }
