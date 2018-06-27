@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="contents row">
-        {{ Form::open(['url' => '/curries', 'method' => 'post']) }}
+        {{ Form::open(['url' => '/curries', 'method' => 'post', 'files' => true]) }}
             <h3>
                     カレーを登録する
             </h3>
@@ -13,7 +13,9 @@
         </div>
         <div class="field">
             <label>写真</label><br>
-            <input type="text" name="picture" placeholder="写真を入力してください">
+              <div class="field">
+                {{ Form::file('picture') }}
+              </div>
         </div>
         <div class="field">
             <label>値段</label><br>
