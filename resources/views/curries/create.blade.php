@@ -1,26 +1,28 @@
-<html>
+@extends('layout')
 
-<div>
-  <form action="/test" method="post">
-    <h3>
-      サンプルフォーム
-    </h3>
-    <div>
-      <label>Name:</label>
-      <input placeholder="Name" type="text" id="name">
-    </div>
-    <div>
-      <label>E-mail:</label>
-      <input placeholder="E-mail" type="email" id="mail">
-    </div>
-    <div>
-      <label>Message:</label>
-      <textarea placeholder="Message" id="message"></textarea>
-    </div>
-    <div>
-      <input type="submit">
-    </div>
-  </form>
+@section('content')
+<div class="contents row">
+        {{ Form::open(['url' => '/curries', 'method' => 'post']) }}
+            <h3>
+                    カレーを登録する
+            </h3>
+
+        <div class="field">
+            <label>メニュー名</label><br>
+            <input type="text" name="name" placeholder="メニュー名を入力してください">
+        </div>
+        <div class="field">
+            <label>写真</label><br>
+            <input type="text" name="picture" placeholder="写真を入力してください">
+        </div>
+        <div class="field">
+            <label>値段</label><br>
+            <input type="text" name="price" placeholder="値段を入力してください">
+        </div>
+
+        <div class="actions">
+            <input type="submit" value="登録">
+        </div>
+        {{ Form::close() }}
 </div>
-
-</html>
+@endsection
