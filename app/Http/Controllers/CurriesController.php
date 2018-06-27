@@ -5,28 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Shop;
+use App\Curry;
 
-class ShopsController extends Controller
+class CurriesController extends Controller
 {
   /*public function __construct()
   {
-    $this->middleware('auth', ['except' => ['show', 'mapsearch']]);
+    $this->middleware('auth', ['except' => ['show', 'search']]);
   }*/
 
   public function show()
   {
-      return view('shops.index');
+      return view('curries.show');
   }
 
-  public function mapsearch()
+  public function search()
   {
-      return view('shops.mapsearch');
+      return view('curries.search');
   }
 
   public function create()
   {
-      return view('shops.create');
+      return view('curries.create');
   }
 
   public function store()
