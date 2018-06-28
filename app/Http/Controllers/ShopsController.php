@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Shop;
 
 class ShopsController extends Controller
 {
-  public function show()
+  /*public function __construct()
   {
-      return view('shops.index');
+    $this->middleware('auth', ['except' => ['show', 'mapsearch']]);
+  }*/
+
+  public function show($id)
+  {
+      $shop = Shop::find($id);
+      return view('shops.show')->with('shop', $shop);
   }
 
   public function mapsearch()
@@ -25,6 +32,9 @@ class ShopsController extends Controller
 
   public function store()
   {
+      $shop = new Shop();
+      //DBに入力
+      $shop->name = $request->name;
       //return redirect('/');
   }
 }
