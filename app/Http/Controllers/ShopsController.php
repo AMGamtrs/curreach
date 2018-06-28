@@ -14,9 +14,10 @@ class ShopsController extends Controller
     $this->middleware('auth', ['except' => ['show', 'mapsearch']]);
   }*/
 
-  public function show()
+  public function show($id)
   {
-      return view('shops.index');
+      $shop = Shop::find($id);
+      return view('shops.show')->with('shop', $shop);
   }
 
   public function mapsearch()
@@ -31,6 +32,9 @@ class ShopsController extends Controller
 
   public function store()
   {
+      $shop = new Shop();
+      //DBに入力
+      $shop->name = $request->name;
       //return redirect('/');
   }
 }
