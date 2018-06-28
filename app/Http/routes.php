@@ -19,12 +19,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', 'CurreachesController@index');
     Route::get('/mapsearch', 'ShopsController@mapsearch');
-    Route::post('/shops/store', 'ShopsController@store');
+    Route::get('/users/{id}', 'UserController@show');
+    Route::post('/shops', 'ShopsController@store');
     Route::get('/shops/create', 'ShopsController@create');
-    Route::get('/shops/{id}', 'ShopsController@show');
-    Route::post('/curries/store', 'CurriesController@store');
-    Route::get('/curries/create', 'CurriesController@create');
-    Route::get('/curries/{id}', 'CurriesController@show');
+    Route::get('/shops/{id1}', 'ShopsController@show');
+    Route::post('/shops/{id1}/curries', 'CurriesController@store');
+    Route::get('/shops/{id1}/curries/create', 'CurriesController@create');
+    Route::get('/shops/{id1}/curries/{id2}', 'CurriesController@show');
     //Route::resource('products.reviews', 'RmeviewsController', ['only' => ['create', 'store']]);
     //Route::resource('users', 'UsersController', ['only' => 'show']);
 });
