@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', 'CurreachesController@index');
     Route::get('/mapsearch', 'ShopsController@mapsearch');
+    Route::get('/mapajax', 'ShopsController@mapajax');
     Route::get('/users/{id}', 'UsersController@show');
     Route::post('/shops', 'ShopsController@store');
     Route::get('/shops/create', 'ShopsController@create');
