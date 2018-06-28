@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Curry;
 use App\Shop;
+use App\Photo;
 use Image;
 
 class CurriesController extends Controller
@@ -33,20 +34,27 @@ class CurriesController extends Controller
       return view('curries.create')->with('shop', $shop);
   }
 
-  public function store(Request $request)
+  public function store(Request $request, $id2)
   {
-      //$fileName = $request->picture->getClientOriginalName();
-      //Image::make($request->picture)->save(public_path() . '/images/' . $fileName);
+      // 写真を保存
+      $fileName = $request->picture->getClientOriginalName();
+      Image::make($request->picture)->save(public_path() . '/images/curry/' . $fileName);
+
       $recipe = new Curry();
-      //DBに入力
+      //カレーDBに入力
       $recipe->curry_name = $request->name;
       $recipe->price = $request->price;
       $pr_url = url()->previous();
       $sl = explode("shops/", $pr_url);
       $sl = explode("/curries", $sl[1]);
       $recipe->shop_id = $sl[0];
-      //$recipe => $fileName,
       $recipe->save();
+
+      //写真DBに入力
+      $photo = new Photo();
+      $photo->image = $fileName;
+      $photo->curry_id = $id2;
+      $photo->save();
       //return redirect('/');
   }
 }
