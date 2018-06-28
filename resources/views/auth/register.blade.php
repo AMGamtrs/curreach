@@ -14,6 +14,8 @@
             <label>メールアドレス</label><br>
             <input type="email" name="email">
         </div>
+          <label for="date">生年月日:</label><br>
+  <input type="date" name="calendar" max="9999-12-31" required><br>
 
 <form>
   <div>
