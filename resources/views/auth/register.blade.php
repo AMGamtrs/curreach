@@ -1,37 +1,54 @@
+@extends('layout')
 
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<style>
-  #errorMessage {
-    color: red;
-  }
-</style>
-<form>
-  <div id="errorMessage"></div>
-  <label for="name">お名前:</label>
-  <input name="name" id="name" required><br>
-  <label for="date">生年月日:</label>
+@section('content')
+<div class="contents row">
+    <h2>新規登録</h2>
+
+    {{ Form::open() }}
+        <div class="field">
+            <label>ユーザID(ニックネーム)<label><br>
+            <input type='text' name="name" autofocus="autofocus">
+        </div>
+
+        <div class="field">
+            <label>メールアドレス</label><br>
+            <input type="email" name="email">
+        </div>
+          <label for="date">生年月日:</label><br>
   <input type="date" name="calendar" max="9999-12-31" required><br>
-  <label for="password">パスワード:</label>
-  <input type="password" name="password" id="password" required><br>
-  <label for="passwordConfirm">パスワード（確認）:</label>
-  <input type="password" name="passwordConfirm" id="passwordConfirm" required><br>
-  <input type="submit" value="送信">
+
+<form>
+  <div>
+    <label for="password_1">パスワード:</label>
+  </div>
+  <div>
+    <input type="password" id="password_1" required />
+  </div>
+  <div>
+    <label for="passwordConfirm_1">メーパスワード確認用:</label>
+  </div>
+  <div>
+    <input type="password" id="passwordConfirm_2" required oninput="CheckPassword_1(this)" />
+  </div>
+  <p>
+    <input type="submit" id="submit">
+  </p>
 </form>
-<script>
-  var form = document.forms[0];
-  form.onsubmit = function() {
-    // エラーメッセージをクリアする
-    form.password.setCustomValidity("");
+
+<script language="JavaScript" type="text/javascript">
+<!--
+  function CheckPassword_1(input){
+    var password = password_1.value; //パスワードフォームの値を取得
+    var passwordConfirm = input.value; //パスワード確認用フォームの値を取得(引数input)
+
     // パスワードの一致確認
-    if (form.password.value != form.passwordConfirm.value) {
-      // 一致していなかったら、エラーメッセージを表示する
-      form.password.setCustomValidity("パスワードと確認用パスワードが一致しません");
+    if(password != passwordConfirm){
+      input.setCustomValidity('パスワードが一致しません'); // エラーメッセージのセット
+    }else{
+      input.setCustomValidity(''); // エラーメッセージのクリア
     }
-  };
-  // 入力値チェックエラーが発生したときの処理
-  form.addEventListener("invalid", function() {
-    document.getElementById("errorMessage").innerHTML = "入力値にエラーがあります";
-  }, false);
+  }
+// -->
 </script>
-</html>
+
+@endsection
