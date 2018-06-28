@@ -27,6 +27,17 @@ class ShopsController extends Controller
       return view('shops.mapsearch');
   }
 
+  public function mapajax(Request $request)
+  {
+    $shops = Shop::where([
+       [‘lat’, ‘<=’, $request[‘map_ne_lat’]],
+       [‘lat’, ‘>=’, $request[‘map_sw_lat’]],
+       [‘lng’, ‘<=’, $request[‘map_ne_lng’]],
+       [‘lng’, ‘>=’, $request[‘map_sw_lng’]]
+     ])->orderBy(‘id’, ‘DESC’)->take(10)->get();
+     return response()->json($shops);
+  }
+
   public function create()
   {
       return view('shops.create');
@@ -47,7 +58,7 @@ class ShopsController extends Controller
       //写真DBに入力
       $photo = new Photo();
       $photo->image = $fileName;
-      $photo->shop_id=$shop->id;
+      $photo->shop_id = $shop->id;
       $photo->save();
       //return redirect('/');
   }
