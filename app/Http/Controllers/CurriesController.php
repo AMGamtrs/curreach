@@ -38,7 +38,7 @@ class CurriesController extends Controller
   {
       // 写真を保存
       $fileName = $request->picture->getClientOriginalName();
-      Image::make($request->picture)->save(public_path() . '/images/curry/' . $fileName);
+      Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
 
       $recipe = new Curry();
       //カレーDBに入力
