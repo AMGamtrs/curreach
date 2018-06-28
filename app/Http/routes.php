@@ -19,7 +19,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', 'CurreachesController@index');
     Route::get('/mapsearch', 'ShopsController@mapsearch');
-    Route::get('/users/{id}', 'UserController@show');
+    Route::get('/users/{id}', 'UsersController@show');
     Route::post('/shops', 'ShopsController@store');
     Route::get('/shops/create', 'ShopsController@create');
     Route::get('/shops/{id1}', 'ShopsController@show');

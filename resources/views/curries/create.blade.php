@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="contents row">
-        {{ Form::open(['url' => '/curries', 'method' => 'post', 'files' => true]) }}
+        {{ Form::open(['url' => "/shops/$shop->id/curries", 'method' => 'post', 'files' => true]) }}
             <h3>
                     カレーを登録する
             </h3>
