@@ -30,11 +30,11 @@ class ShopsController extends Controller
   public function mapajax(Request $request)
   {
     $shops = Shop::where([
-       [‘lat’, ‘<=’, $request[‘map_ne_lat’]],
-       [‘lat’, ‘>=’, $request[‘map_sw_lat’]],
-       [‘lng’, ‘<=’, $request[‘map_ne_lng’]],
-       [‘lng’, ‘>=’, $request[‘map_sw_lng’]]
-     ])->orderBy(‘id’, ‘DESC’)->take(10)->get();
+       ['lat', '<=', $request['map_ne_lat']],
+       ['lat', '>=', $request['map_sw_lat']],
+       ['lng', '<=', $request['map_ne_lng']],
+       ['lng', '>=', $request['map_sw_lng']]
+     ])->orderBy('id', 'DESC')->take(10)->get();
      return response()->json($shops);
   }
 
