@@ -73,14 +73,14 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">登録する <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="#">カレー情報</a></li>
-                  <li><a href="#">店舗情報</a></li>
+                  <li><a href="/shops/create">店舗情報</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
               </li>
               <li><a href="#">マイページ</a></li>
-              <li><a href="#">ログアウト</a></li>
+              <li><a href="/logout">ログアウト</a></li>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
@@ -91,8 +91,8 @@
 
         @else
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">新規登録</a></li>
-              <li><a href="#">ログイン</a></li>
+              <li><a href="/register">新規登録</a></li>
+              <li><a href="/login">ログイン</a></li>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
@@ -108,7 +108,7 @@
 
 <footer class="footer">
   <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
+    <p class="text-muted">Copyright © 2018 curreach製作委員会 All Rights Reserved.</p>
   </div>
 </footer>
 
