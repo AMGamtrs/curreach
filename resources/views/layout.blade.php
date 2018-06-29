@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>curreach</title>
-        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap-theme.css">
+        <link rel="stylesheet" href="/css/style.css">
   </head>
 
   <body>
@@ -90,8 +90,8 @@
 
 
 
-      <script src="assets/javascripts/jquery-3.1.1.js"></script>
-      <script src="assets/javascripts/bootstrap.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="/assets/javascripts/bootstrap.js"></script>
 
 
 
