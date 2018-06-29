@@ -4,7 +4,7 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center">
+          <div class="text-center">
 
 <div class="contents row">
     <h2>ログイン</h2>

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap-theme.css">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/sticky-footer.css">
   </head>
 
   <body>
@@ -44,7 +45,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">crreach</a>
+            <a class="navbar-brand" href="/">crreach</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,30 +66,51 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+
+        @if (Auth::check())
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">登録する <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">カレー情報</a></li>
+                  <li><a href="#">店舗情報</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
               </li>
+              <li><a href="#">マイページ</a></li>
+              <li><a href="#">ログアウト</a></li>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">検索</button>
+            </form>
             </ul>
+
+        @else
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">新規登録</a></li>
+              <li><a href="#">ログイン</a></li>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">検索</button>
+            </form>
+            </ul>
+        @endif
+
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
 
-
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Place sticky footer content here.</p>
+  </div>
+</footer>
 
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/assets/javascripts/bootstrap.js"></script>
