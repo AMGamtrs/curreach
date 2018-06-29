@@ -56,17 +56,6 @@
           });
         }
 
-
-        onload=function(){
-          console.log("onload");
-          $(function(){
-              $('li').click(function(){
-                  var index = $(this).index();
-                  google.maps.event.trigger(markers[index], "click");
-              });
-          });
-        }
-
         function setPointMarker(){
           console.log("setPointMarker");
           //古いマーカを削除
@@ -74,8 +63,6 @@
             for (i = 0; i <  markers.length; i++) {
               markers[i].setMap(null);
             }
-            //店舗リスト削除
-            $('ul.shop_list').empty();
             //配列削除
             markers = [];
           }
@@ -95,7 +82,7 @@
             data: map_latlng
           }).done(function(responseData) {
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
-            //$('ul.shop_list').empty();
+            $('ul.shop_list').empty();
             console.log("ajax");
             var menu_n = 0;
             responseData.forEach(function(response){
@@ -103,6 +90,11 @@
               //ここでリスト表示する
               ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
               menu_n = menu_n + 1;
+            });
+            //リストクリック時にマーカを大きくする
+            $('li').click(function(){
+                var index = $(this).index();
+                google.maps.event.trigger(markers[index], "click");
             });
           }).fail(function(error) {
             console.log(error);
