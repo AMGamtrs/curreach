@@ -79,7 +79,7 @@
                   <li><a href="#">Separated link</a></li>
                 </ul>
               </li>
-              <li><a href="#">マイページ</a></li>
+              <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
               <li><a href="/logout">ログアウト</a></li>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
