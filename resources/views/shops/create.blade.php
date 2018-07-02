@@ -23,6 +23,13 @@
 
 <div id="map" style="width: 90%; height: 300px"></div>
 
+<div class="field">
+  <div class="form-group">
+    {{Form::hidden('lat', '35.6808586', ['id' => 'poslat'])}}
+    {{Form::hidden('lng', '139.7669568', ['id' => 'poslng'])}}
+  </div>
+</div>
+
 <div class="actions">
     <input type="submit" value="登録">
 </div>
@@ -54,7 +61,9 @@
       var pos = marker.getPosition();
       var poslat = pos.lat();
       var poslng = pos.lng();
-      console.log(poslat);
+      //formに取得した座標を入れる
+      document.getElementById( "poslat" ).value = poslat;
+      document.getElementById( "poslng" ).value = poslng;
     });
 
   }
