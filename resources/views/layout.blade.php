@@ -79,7 +79,7 @@
                   <li><a href="#">Separated link</a></li>
                 </ul>
               </li>
-              <li><a href="#">マイページ</a></li>
+              <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
               <li><a href="/logout">ログアウト</a></li>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group">
@@ -106,8 +106,10 @@
         </div><!-- /.container-fluid -->
       </nav>
 
+      @yield('content')
+
 <footer class="footer">
-  <div class="container">
+  <div class="container text-center">
     <p class="text-muted">Copyright © 2018 curreach製作委員会 All Rights Reserved.</p>
   </div>
 </footer>
@@ -115,8 +117,5 @@
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/assets/javascripts/bootstrap.js"></script>
 
-
-
-    @yield('content')
   </body>
 </html>
