@@ -51,8 +51,8 @@ class ShopsController extends Controller
       $shop = new Shop();
       //店舗DBに入力
       $shop->shop_name = $request->name;
-      $shop->lat = "";
-      $shop->lng = "";
+      $shop->lat = $request->lat;
+      $shop->lng = $request->lng;
       $shop->save();
 
       //写真DBに入力
