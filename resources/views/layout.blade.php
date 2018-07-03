@@ -45,7 +45,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">curreach</a>
+            <a class="navbar-brand" href="/"><img class="logo" src="images/logo.png" alt="カレーリーチ"></a>
           </div>
 
         @if (Auth::check())
