@@ -35,7 +35,7 @@
       </div>
     </header>-->
 
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-curry">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -45,7 +45,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img class="logo" src="images/logo.png" alt="カレーリーチ"></a>
+            <a class="navbar-brand" href="/"><img class="logo" src="/images/logo.png" alt="カレーリーチ"></a>
           </div>
 
         @if (Auth::check())
