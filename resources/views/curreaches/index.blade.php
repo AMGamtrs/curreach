@@ -4,9 +4,9 @@
 
 @section('content')
 <!--　▼ ジャンボトロン　 -->
-    <div class="jumbotron">
+    <div class="jumbotron topimg">
       <div class="text-center container">
-        <h1 class="text-white">Welcom to curreach</h1>
+        <h1>Welcom to curreach</h1>
         <p>curreachはカレー好きの皆様に寄り添う専門情報サイトです</p>
         <a class="btn btn-warning btn-lg" href="#" role="button">Learn more »</a>
       </div>
@@ -28,39 +28,32 @@
       <div class="panel panel-default">
         <div>
           <h2 class="lead">人気の店舗</h2>
-<!--          <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top img-responsive" src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div>-->
+          <ul class="slick-box3">
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/shops/PAK65_torinosutennai20130825_TP_V4.jpg" alt=""/></li>
+          </ul>
         </div>
         <hr>
-        <div><h2 class="lead">人気のカレー</h2></div>
+        <div>
+          <h2 class="lead">人気のカレー</h2>
+          <ul class="slick-box3">
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+            <li><img src="images/curries/SAWA_karesarada_TP_V4.jpg" alt=""/></li>
+          </ul>
+        </div>
       </div>
 
     </div>
   </div>
 </div>
+
 
 @endsection
