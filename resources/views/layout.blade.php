@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap-theme.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/sticky-footer.css">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   </head>
 
   <body>
@@ -94,6 +96,36 @@
 
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/assets/javascripts/bootstrap.js"></script>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      <script type="text/javascript">
+      $(function() {
+  $('.slick-box3').slick({
+    dots: true, // スライダー下部に表示される、ドット状のページネーションです
+    infinite: true, // 無限ループ
+    speed: 300, // 切り替わりのスピード
+    slidesToShow: 4, //通常 1024px以上の領域では4画像表示
+    slidesToScroll: 4,
+    responsive: [{
+      breakpoint: 1300,settings: { //601px～1024pxでは3画像表示
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 600,settings: { //481px～600pxでは2画像表示
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,settings: {//480px以下では1画像表示
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  });
+});
+      </script>
 
   </body>
 </html>
