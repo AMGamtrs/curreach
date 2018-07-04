@@ -8,7 +8,7 @@ body{
   background-color: #F7E7B0;
 }
 
-.jumbotron{
+.topimg{
   margin-top: -20px;
   height: 300px;
   background: url("/images/topimg.jpg") center no-repeat;
@@ -28,4 +28,14 @@ body{
   background-color: #DAB180;
   background-image: none;
   border: #FFFFAA;
+}
+
+.slick-slider{
+  padding-left: 20px;
+}
+
+.slick-slider img{
+  object-fit: cover;
+  width: 200px;
+  height: 120px;
 }
