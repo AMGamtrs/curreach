@@ -3,14 +3,16 @@
 @section('content')
 
 <div class="row">
-  <div class="col-xs-2"><!-- 左メニュー -->
-    <p>検索結果</p>
-    <ul class="shop_list">
-    </ul>
+  <div class="col-md-2 col-md-offset-1 sidebar"><!-- 左メニュー -->
+    <div class="panel panel-default">
+      <p>検索結果</p>
+      <ul class="shop_list sideMenu nav nav-sidebar">
+      </ul>
+    </div>
   </div>
-  <div class="col-xs-10"><!-- 右地図表示領域 -->
+  <div class="col-md-8"><!-- 右地図表示領域 -->
     <!-- 地図を表示する -->
-    <div id="map" style="width: 90%; height: 500px"></div>
+    <div id="map" style="width: 100%; height: 500px"></div>
 
     <script>
       var markers = Array();
