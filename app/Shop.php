@@ -15,4 +15,8 @@ class Shop extends Model
     public function curries(){
       return $this->hasMany(Curry::class);
     }
+
+    public function reviews(){
+      return $this->hasMany(Review::class);
+    }
 }

@@ -15,4 +15,8 @@ class Curry extends Model
     public function shop(){
       return $this->belongsTo(Shop::class);
     }
+
+    public function reviews(){
+      return $this->hasMany(Review::class);
+    }
 }
