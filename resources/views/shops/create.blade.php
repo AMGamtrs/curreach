@@ -73,7 +73,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
   async defer
-  src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvoocj2Tn6Kc08gKXjZT5sUYfJ1KPqOwg&callback=initMap">
+  src ="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&callback=initMap">
 </script>
 
 @endsection
