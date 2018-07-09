@@ -15,4 +15,8 @@ class Photo extends Model
     public function curry(){
       return $this->belongsTo(Curry::class);
     }
+
+    public function review(){
+      return $this->belongsTo(Review::class);
+    }
 }

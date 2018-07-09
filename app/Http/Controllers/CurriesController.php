@@ -12,10 +12,10 @@ use Image;
 
 class CurriesController extends Controller
 {
-  /*public function __construct()
+  public function __construct()
   {
     $this->middleware('auth', ['except' => ['show', 'search']]);
-  }*/
+  }
 
   public function show($id1)
   {
@@ -23,9 +23,13 @@ class CurriesController extends Controller
       return view('curries.show')->with('curry', $curry);
   }
 
-  public function search()
+  public function search(Request $request)
   {
-      return view('curries.search');
+      // 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
+      $word = $request->keyword;
+      $curries = Curry::where('curry_name', 'LIKE', "%$word%")->paginate(15);
+      //$products = array();
+      return view('curries.search')->with(array('curries' => $curries, 'word' => $word));
   }
 
   public function create($id1)
@@ -55,6 +59,6 @@ class CurriesController extends Controller
       $photo->image = $fileName;
       $photo->curry_id = $id2;
       $photo->save();
-      //return redirect('/');
+      return redirect('/shops/'.$id2);
   }
 }
