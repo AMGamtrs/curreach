@@ -16,15 +16,33 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-2 col-md-offset-1 sidebar">
+
+<div class="col-md-2 col-md-offset-1 sidebar">
+      <div class="panel panel-default">
+      <p>Sidebar</p>
+      <ul class="sideMenu nav nav-sidebar">
+        <li><a href="/mapsearch/">地図から探す</a></li>
+        <li>カレーの種類から探す</li>
+        <li>メインの食材から探す</li>
+        <li>カレー/ナンから探す</li>
+        <li><a href="/detailedsearch/">カレーを検索</a></li>
+      </ul>
+    </div>
+    </div>
+
+<!--    <div class="col-md-2 col-md-offset-1 sidebar">
       <div class="panel panel-default">
       <p>Sidebar</p>
       <ul class="sideMenu nav nav-sidebar">
         <li><a href="/mapsearch/">地図から探す</a></li>
         <li><a href="/detailedsearch/">カレーを検索</a></li>
+
       </ul>
     </div>
-    </div>
+    </div> -->
+
+
+
 
     <div class="col-md-8">
       <div class="panel panel-default">
