@@ -27,6 +27,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/shops/{id1}/curries', 'CurriesController@store');
     Route::get('/shops/{id1}/curries/create', 'CurriesController@create');
     Route::get('/shops/{id1}/curries/{id2}', 'CurriesController@show');
-    //Route::resource('products.reviews', 'RmeviewsController', ['only' => ['create', 'store']]);
-    //Route::resource('users', 'UsersController', ['only' => 'show']);
+    Route::get('/search', 'CurriesController@search');
+    Route::get('/shopreview', 'ReviwsController@shopreview');
+    Route::get('/curryreview', 'ReviwsController@curryreview');
 });

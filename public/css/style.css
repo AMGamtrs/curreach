@@ -39,3 +39,23 @@ body{
   width: 200px;
   height: 120px;
 }
+
+.slick-dots {
+	text-align: center;
+  right: 0;
+}
+
+.thumbnail img{
+  object-fit: cover;
+  height: 120px;
+  width: 180px;
+}
+
+.pagination li a, .pagination li a:hover{
+  color: #eb9316;
+}
+
+.pagination .active span,.pagination .active span:hover{
+  background-color: #eb9316;
+  border-color: #eb9316;
+}

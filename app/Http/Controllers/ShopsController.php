@@ -11,10 +11,10 @@ use Image;
 
 class ShopsController extends Controller
 {
-  /*public function __construct()
+  public function __construct()
   {
-    $this->middleware('auth', ['except' => ['show', 'mapsearch']]);
-  }*/
+    $this->middleware('auth', ['except' => ['show', 'mapsearch', 'mapajax']]);
+  }
 
   public function show($id)
   {
@@ -60,6 +60,6 @@ class ShopsController extends Controller
       $photo->image = $fileName;
       $photo->shop_id = $shop->id;
       $photo->save();
-      //return redirect('/');
+      return redirect('/');
   }
 }
