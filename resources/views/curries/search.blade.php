@@ -1,8 +1,14 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
   <div class="row">
+
+    <div class="col-md-2 col-md-offset-1 sidebar2 sideover">
+      @include('sidebar')
+    </div>
+
+    <div class="col-md-8">
 
     <div class="page-header">
       <h1><small>「{{$word}}」の検索結果</small></h1>
@@ -20,11 +26,12 @@
           <h3>{{$curry->curry_name}}</h3>
           <p>{{$curry->shop->shop_name}}</p>
           <p>{{$curry->price}}円</p>
-          <p><a href="#" class="btn btn-warning" role="button">詳しくみる</a></p>
+          <p><a href="/shops/{{$curry->shop_id}}/curries/{{$curry->id}}" class="btn btn-warning" role="button">詳しくみる</a></p>
         </div>
       </div>
     </div>
     @endforeach
+  </div>
   </div>
 
 </div>
