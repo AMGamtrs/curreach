@@ -6,7 +6,7 @@
 <!--　▼ ジャンボトロン　 -->
     <div class="jumbotron topimg">
       <div class="text-center container">
-        <h1>Welcom to curreach</h1>
+        <h1>Welcome to curreach</h1>
         <p>curreachはカレー好きの皆様に寄り添う専門情報サイトです</p>
         <a class="btn btn-warning btn-lg" href="#" role="button">Learn more »</a>
       </div>
