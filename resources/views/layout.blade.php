@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/show.css">
   </head>
 
   <body>
@@ -66,6 +67,16 @@
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
       <script type="text/javascript">
       $(function() {
+
+    $('.single-item').slick({
+      accessibility: true,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      infinite: true,
+      dots: true,
+      fade: true,
+    });
+
   $('.slick-box3').slick({
     dots: true, // スライダー下部に表示される、ドット状のページネーションです
     infinite: true, // 無限ループ
