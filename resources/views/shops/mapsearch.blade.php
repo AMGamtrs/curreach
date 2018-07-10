@@ -33,8 +33,12 @@
         //マーカを表示する
         function newMark(response){
             var i = markers.length;
+            //緯度経度を型変換
+            var marker_lat = parseFloat(response['lat']);
+            var marker_lng = parseFloat(response['lng']);
+            //マーカ作成
             markers[i] = new google.maps.Marker({
-              position: {lat: response['lat'], lng: response['lng']},
+              position: {lat: marker_lat, lng: marker_lng},
               map: map,
               icon: "{{ asset('assets/images/marker_small.png') }}"
           });
