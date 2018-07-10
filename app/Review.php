@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-  protected $fillable = ['shop_id', 'curry_id', 'rate', 'review'];
+  protected $fillable = ['shop_id', 'curry_id', 'rate', 'review', 'user_id'];
 
     public function shop(){
       return $this->belongsTo(Shops::class);
