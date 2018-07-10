@@ -60,6 +60,6 @@ class ShopsController extends Controller
       $photo->image = $fileName;
       $photo->shop_id = $shop->id;
       $photo->save();
-      return redirect('/');
+      return redirect('/shops/'.$shop->id);
   }
 }
