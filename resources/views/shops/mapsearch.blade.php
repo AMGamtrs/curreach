@@ -48,12 +48,12 @@
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
-                markers[i].setIcon("{{asset('assets/images/marker_big.png')}}");
                 //先に開いた情報ウィンドウがあれば、closeする iconも戻す
                 if (currentInfoWindow) {
                   currentInfoWindow.close();
                   nowM.setIcon( "{{asset('assets/images/marker_small.png')}}" );
                 }
+                markers[i].setIcon("{{asset('assets/images/marker_big.png')}}");
                 //情報ウィンドウを開く
                 infoWnd.open(map, markers[i]);
                 //開いた情報ウィンドウを記録しておく マーカも記録
