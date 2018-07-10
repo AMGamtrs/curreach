@@ -57,8 +57,8 @@ class CurriesController extends Controller
       //写真DBに入力
       $photo = new Photo();
       $photo->image = $fileName;
-      $photo->curry_id = $id2;
+      $photo->curry_id = $recipe->id;
       $photo->save();
-      return redirect('/shops/'.$id2);
+      return redirect('/shops/'.$id2.'/curries/'.$recipe->id);
   }
 }
