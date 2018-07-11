@@ -85,7 +85,7 @@
       </ul>
     </li>
 
-    <li><a>カレー/ナンから探す</a>
+    <li><a>ライス/ナンから探す</a>
       <ul>
         <li>
           <form name="rice" action='/search'>
