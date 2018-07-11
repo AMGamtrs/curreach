@@ -55,22 +55,13 @@ body{
   color: #eb9316;
 }
 
-.pagination .active span,.pagination .active span:hover{
+.pagination .active span, .pagination .active span:hover{
   background-color: #eb9316;
   border-color: #eb9316;
 }
 
 
 
-.col-md-2 col-md-offset-1 sidebar {
-  overflow: hidden;
-  width: 750px;
-  height: 300px;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-}
 .sidenav {
   width: 150px;
   margin: 0;
@@ -156,4 +147,10 @@ body{
 }
 .sideover{
   z-index: 2;
+}
+
+@media (min-width: 992px){
+  .sidebar2{
+    margin-top: 100px;
+  }
 }

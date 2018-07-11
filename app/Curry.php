@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curry extends Model
 {
-    protected $fillable = ['curry_name', 'price', 'shop_id'];
+    //protected $fillable = ['curry_name', 'price', 'shop_id'];
+    protected $guarded = ['id'];
 
     public function photos(){
       return $this->hasMany(Photo::class);

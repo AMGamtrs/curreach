@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
-    protected $fillable = ['shop_name', 'lat', 'lng', 'address'];
-
+    //protected $fillable = ['shop_name', 'lat', 'lng', 'address'];
+    protected $guarded = ['id'];
+    
     public function photos(){
       return $this->hasMany(Photo::class);
     }
