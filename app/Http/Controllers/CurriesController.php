@@ -17,9 +17,9 @@ class CurriesController extends Controller
     $this->middleware('auth', ['except' => ['show', 'search']]);
   }
 
-  public function show($id1)
+  public function show($id1, $id2)
   {
-      $curry = Curry::find($id1);
+      $curry = Curry::where('shop_id', $id1)->find($id2);
       return view('curries.show')->with('curry', $curry);
   }
 
@@ -38,7 +38,7 @@ class CurriesController extends Controller
       return view('curries.create')->with('shop', $shop);
   }
 
-  public function store(Request $request, $id2)
+  public function store(Request $request, $id1)
   {
       // 写真を保存
       $fileName = $request->picture->getClientOriginalName();
@@ -49,16 +49,14 @@ class CurriesController extends Controller
       $recipe->curry_name = $request->name;
       $recipe->price = $request->price;
       $pr_url = url()->previous();
-      $sl = explode("shops/", $pr_url);
-      $sl = explode("/curries", $sl[1]);
-      $recipe->shop_id = $sl[0];
+      $recipe->shop_id = $id1;
       $recipe->save();
 
       //写真DBに入力
       $photo = new Photo();
       $photo->image = $fileName;
-      $photo->curry_id = $id2;
+      $photo->curry_id = $recipe->id;
       $photo->save();
-      return redirect('/shops/'.$id2);
+      return redirect('/shops/'.$id1.'/curries/'.$recipe->id);
   }
 }
