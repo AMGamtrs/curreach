@@ -66,6 +66,7 @@ body{
   width: 150px;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 .sidenav li {
   position: relative;
@@ -103,8 +104,8 @@ body{
   background: #afc6e2;
   transition: 0.5s;
 }
-.sidenav > li li:hover > a {/*layer-2*/
-  color: olive;
+.sidenav li ul li:hover a {/*layer-2*/
+  color: orange;
   background: #afc6e2;
 }
 .sidenav li:hover > ul > li {
