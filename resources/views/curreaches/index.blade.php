@@ -42,11 +42,20 @@
           <ul class="slick-box3">
             @foreach ($shops as $shop)
               <li><a href="/shops/{{$shop->id}}">
+                <div class="textonphoto">
                 @if($shop->photos()->exists())
                   <img src="/images/shops/{{$shop->photos()->first()->image}}" alt="{{$shop->shop_name}}"/>
                 @else
                   <img src="/images/noimage.png"/>
                 @endif
+                  <p>
+                    {{$shop->shop_name}}<br/>
+                    <span class="star-rating">
+                      <span class="star-rating-front" style="width: {{(round($shop->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                      <span class="star-rating-back">★★★★★</span>
+                    </span>
+                  </p>
+                </div>
               </a></li>
             @endforeach
           </ul>
@@ -57,11 +66,20 @@
           <ul class="slick-box3">
             @foreach ($curries as $curry)
               <li><a href="/shops/{{$curry->shop_id}}/curries/{{$curry->id}}">
+                <div class="textonphoto">
                 @if($curry->photos()->exists())
                   <img src="/images/curries/{{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
                 @else
                   <img src="/images/noimage.png"/>
                 @endif
+                  <p>
+                    {{$curry->curry_name}}<br/>
+                    <span class="star-rating">
+                      <span class="star-rating-front" style="width: {{(round($curry->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                      <span class="star-rating-back">★★★★★</span>
+                    </span>
+                  </p>
+                </div>
               </a></li>
             @endforeach
           </ul>
