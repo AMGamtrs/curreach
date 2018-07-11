@@ -163,12 +163,12 @@ body{
 .textonphoto p {
   position: absolute;
   font-size: 12px;
+  width: 200px;
   top: 0;/*画像の左上に配置*/
   left: 0;
   margin: 0; /*余計な隙間を除く*/
   color: white;/*文字を白に*/
-  background: black;/*背景色*/
-  opacity: 0.5;
+  background: rgba(0,0,0,0.4);/*背景色*/
   line-height: 1;/*行高は1に*/
   padding: 5px 10px;/*文字周りの余白*/
 }
