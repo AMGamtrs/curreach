@@ -8,14 +8,15 @@ use App\Http\Requests;
 use App\Review;
 use App\Photo;
 use Auth;
+use Image;
 
 class ReviewsController extends Controller
 {
   public function curryreview(Request $request)
   {
       // 写真を保存
-      // $fileName = $request->picture->getClientOriginalName();
-      // Image::make($request->picture)->save(public_path() . '/images/reviews/' . $fileName);
+      $fileName = $request->picture->getClientOriginalName();
+      Image::make($request->picture)->save(public_path() . '/images/reviews/' . $fileName);
 
       $reviewdb = new Review();
       //レビューDBに入力
@@ -26,10 +27,10 @@ class ReviewsController extends Controller
       $reviewdb->save();
 
       //写真DBに入力
-      // $photo = new Photo();
-      // $photo->image = $fileName;
-      // $photo->review_id = $reviewdb->id;
-      // $photo->save();
+      $photo = new Photo();
+      $photo->image = $fileName;
+      $photo->review_id = $reviewdb->id;
+      $photo->save();
       return redirect('/');
   }
 

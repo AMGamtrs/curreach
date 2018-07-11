@@ -22,3 +22,14 @@
 .slick-next:before{
   color:black;
 }
+
+.review_img img{
+  max-width: 100%;
+  max-height: 100px;
+}
+
+.review_box{
+  margin: 8px 1px;
+  padding: 5px;
+  background-color: #FCFCFC;
+}
