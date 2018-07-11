@@ -190,3 +190,7 @@ body{
 .star-rating-back {
   color: #ccc;
 }
+
+.wrap {
+  overflow: hidden;
+}
