@@ -14,21 +14,22 @@ class ReviewsController extends Controller
   public function curryreview(Request $request)
   {
       // 写真を保存
-      $fileName = $request->picture->getClientOriginalName();
-      Image::make($request->picture)->save(public_path() . '/images/reviews/' . $fileName);
+      // $fileName = $request->picture->getClientOriginalName();
+      // Image::make($request->picture)->save(public_path() . '/images/reviews/' . $fileName);
 
-      $reviewdb = new Reviews();
+      $reviewdb = new Review();
       //レビューDBに入力
       $reviewdb->review = $request->review;
       $reviewdb->rate = $request->rate;
+      $reviewdb->curry_id = $request->curry_id;
       $reviewdb->user_id = Auth::user()->id;
       $reviewdb->save();
 
       //写真DBに入力
-      $photo = new Photo();
-      $photo->image = $fileName;
-      $photo->review_id = $reviewdb->id;
-      $photo->save();
+      // $photo = new Photo();
+      // $photo->image = $fileName;
+      // $photo->review_id = $reviewdb->id;
+      // $photo->save();
       return redirect('/');
   }
 
