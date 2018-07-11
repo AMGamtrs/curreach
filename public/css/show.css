@@ -33,3 +33,12 @@
   padding: 5px;
   background-color: #FCFCFC;
 }
+
+.details table{
+}
+
+.details td{
+  background-color: #EEE;
+  border: solid 2px #FFF;
+  padding: 2px;
+}

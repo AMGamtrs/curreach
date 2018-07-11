@@ -4,7 +4,7 @@
 
 <div class="contents row">
   <div class="col-xs-12">
-    {{ $curry->curry_name }}
+    <h1>{{ $curry->curry_name }}</h1>
     <p>
       <a href="/shops/{{ $curry->shop->id }}">{{ $curry->shop->shop_name }}</a>
     </p>
@@ -24,6 +24,9 @@
   <div class="col-xs-6">
     詳細情報
     <table class="details">
+      <tr>
+        <td>価格</td><td>{{ $curry->price }}</td>
+      </tr>
       <tr>
         <td>種類</td><td>{{ $curry->curry_type }}</td>
       </tr>
