@@ -63,7 +63,6 @@
         }
 
         function setPointMarker(){
-          console.log("setPointMarker");
           //古いマーカを削除
           if(markers.length > 0){
             for (i = 0; i <  markers.length; i++) {
@@ -89,7 +88,6 @@
           }).done(function(responseData) {
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
             $('ul.shop_list').empty();
-            console.log("ajax");
             var menu_n = 0;
             responseData.forEach(function(response){
               newMark(response);
