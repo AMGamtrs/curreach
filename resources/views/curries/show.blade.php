@@ -62,6 +62,11 @@
         <div class="review_box">
           <div class="review_name">投稿者：{{ $review->user->name }}</div>
           <div class="review_rate">評価：{{$review->rate}}</div>
+<!-- 星で表示したい -->
+            <span class="star-rating">
+              <span class="star-rating-front" style="width: {{ ($review->rate)*2 }}0%">★★★★★</span>
+              <span class="star-rating-back">★★★★★</span>
+            </span>
           <div class="review_review">{{ $review->review }} </div>
           @foreach($review->photos()->get() as $photo)
             <div class="review_img"><img src="/images/reviews/{{ $photo->image }}"></div>
@@ -81,7 +86,14 @@
           {{Form::hidden('curry_id', "$curry->id")}}
           <div class="field">
             <label>評価(5段階)</label>
-            {{Form::select('rate', ['1', '2', '3', '4', '5'])}}
+            {{Form::select('rate', [
+              '1' => '1:★',
+              '2' => '2:★★',
+              '3' => '3:★★★',
+              '4' => '4:★★★★',
+              '5' => '5:★★★★★'
+            ], ['class' => 'rate_form'])}}
+
           </div>
           <div class="field">
             <label>感想</label><br>
