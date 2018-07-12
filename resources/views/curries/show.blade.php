@@ -84,22 +84,22 @@
           <div class="review_form_name">投稿者名:{{ Auth::user()->name }}</div>
           {{Form::hidden('curry_id', "$curry->id")}}
           <div class="field">
-            <label>評価(5段階)</label>
+            <label>おいしさ(5段階)</label>
             {{Form::select('rate',
               [
-                '1' => '1:★     好きじゃない',
-                '2' => '2:★★    いまいち',
-                '3' => '3:★★★   ふつう',
-                '4' => '4:★★★★  おいしい',
-                '5' => '5:★★★★★ サイコー'
+                '1' => '★',
+                '2' => '★★',
+                '3' => '★★★',
+                '4' => '★★★★',
+                '5' => '★★★★★'
               ], null,
-              ['id' => 'rate_form', 'onchange' => 'selectChange()']
+              ['id' => 'rate_form', 'onchange' => 'selectChange("rate_form")']
             )}}
 
           </div>
           <div class="field">
             <label>感想</label><br>
-            {{Form::textarea('review')}}
+            {{Form::textarea('review', "【おいしさ】\n【辛さ】")}}
           </div>
           <div class="field">
             <label>写真</label><br>
@@ -120,12 +120,24 @@
 
 
 <script lang="JavaScript">
-function selectChange() {
+function selectChange(id) {
   //選択した評価をテキストボックスに入れる
-  var obj = document.getElementById("rate_form");
+  var obj = document.getElementById(id);
   var idx = obj.selectedIndex;//インデックス番号を取得
+  console.log(idx);
   var str = obj.options[idx].text;
-  document.rform.review.value = str;
+  if(idx == 0){
+    str =  "\nいまいち";
+  }else if (idx == 1){
+    str =  "\nふつう";
+  }else if (idx == 2){
+    str = "\nまあまあおいしい";
+  }else if (idx == 3){
+    str = "\nおいしい";
+  }else if (idx == 4){
+    str = "\nサイコー！";
+  }
+  document.rform.review.value = "【おいしさ】" + str + "\n\n【辛さ】";
 }
 </script>
 
