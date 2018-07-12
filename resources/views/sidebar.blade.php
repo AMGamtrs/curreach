@@ -38,7 +38,7 @@
       </ul>
     </li>
 
-    <li><a>メイン食材から探す</a>
+    <li><a>メイン具材から探す</a>
       <ul>
         <li>
           <form name="chicken" action='/search'>
@@ -107,6 +107,6 @@
         </li>
       </ul>
     </li>
-    
+
   </ul>
 </div>
