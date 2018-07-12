@@ -62,7 +62,6 @@
         <div class="review_box">
           <div class="review_name">投稿者：{{ $review->user->name }}</div>
           <div class="review_rate">評価：{{$review->rate}}</div>
-<!-- 星で表示したい -->
             <span class="star-rating">
               <span class="star-rating-front" style="width: {{ ($review->rate)*2 }}0%">★★★★★</span>
               <span class="star-rating-back">★★★★★</span>
@@ -81,18 +80,21 @@
     <h2>レビューを投稿する</h2>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
-        {{ Form::open(['url' => "/curryreview", 'method' => 'post', 'files' => true]) }}
+        {{ Form::open(['url' => "/curryreview", 'method' => 'post', 'files' => true, 'name' => "rform"]) }}
           <div class="review_form_name">投稿者名:{{ Auth::user()->name }}</div>
           {{Form::hidden('curry_id', "$curry->id")}}
           <div class="field">
             <label>評価(5段階)</label>
-            {{Form::select('rate', [
-              '1' => '1:★',
-              '2' => '2:★★',
-              '3' => '3:★★★',
-              '4' => '4:★★★★',
-              '5' => '5:★★★★★'
-            ], ['class' => 'rate_form'])}}
+            {{Form::select('rate',
+              [
+                '1' => '1:★     好きじゃない',
+                '2' => '2:★★    いまいち',
+                '3' => '3:★★★   ふつう',
+                '4' => '4:★★★★  おいしい',
+                '5' => '5:★★★★★ サイコー'
+              ], null,
+              ['id' => 'rate_form', 'onchange' => 'selectChange()']
+            )}}
 
           </div>
           <div class="field">
@@ -115,5 +117,16 @@
 
   </div>
 </div>
+
+
+<script lang="JavaScript">
+function selectChange() {
+  //選択した評価をテキストボックスに入れる
+  var obj = document.getElementById("rate_form");
+  var idx = obj.selectedIndex;//インデックス番号を取得
+  var str = obj.options[idx].text;
+  document.rform.review.value = str;
+}
+</script>
 
 @endsection
