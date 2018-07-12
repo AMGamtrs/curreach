@@ -44,7 +44,7 @@
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: response['shop_name'] + "<p>その他の情報<p>",
+            content: response['shop_name'] + "<p>その他の情報<p><p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>",
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
