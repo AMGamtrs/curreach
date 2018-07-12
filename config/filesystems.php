@@ -28,7 +28,8 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    //'cloud' => 's3',
+    'cloud' => 'google', // Optional: set Google Drive as default cloud storage
 
     /*
     |--------------------------------------------------------------------------
@@ -62,6 +63,21 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'curries_google' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_CURRIES_ID'),
+        ],
+
+        'shops_google' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_SHOPS_ID'),
+        ],
     ],
 
 ];
