@@ -93,7 +93,7 @@
                 '4' => '★★★★',
                 '5' => '★★★★★'
               ], null,
-              ['id' => 'rate_form', 'onchange' => 'selectChange("rate_form")']
+              ['id' => 'rate_form']
             )}}
 
           </div>
@@ -117,28 +117,5 @@
 
   </div>
 </div>
-
-
-<script lang="JavaScript">
-function selectChange(id) {
-  //選択した評価をテキストボックスに入れる
-  var obj = document.getElementById(id);
-  var idx = obj.selectedIndex;//インデックス番号を取得
-  console.log(idx);
-  var str = obj.options[idx].text;
-  if(idx == 0){
-    str =  "\nいまいち";
-  }else if (idx == 1){
-    str =  "\nふつう";
-  }else if (idx == 2){
-    str = "\nまあまあおいしい";
-  }else if (idx == 3){
-    str = "\nおいしい";
-  }else if (idx == 4){
-    str = "\nサイコー！";
-  }
-  document.rform.review.value = "【おいしさ】" + str + "\n\n【辛さ】";
-}
-</script>
 
 @endsection
