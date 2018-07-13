@@ -4,10 +4,20 @@
 {{ $shop->shop_name }}
 <div class="contents row">
   <div class="col-xs-6">
+      <div class="showtop_img single-item">
     @foreach($shop->photos()->get() as $photo)
+
+    <h3>
+      <img src="/images/shops/{{ $photo->image }}">
+      </h3>
+
       <img src="/images/shops/{{ $photo->image }}" style="width: 100%; height: 300px;">
       <br>
+
     @endforeach
+  </div>
+
+
 
 
 
@@ -48,6 +58,62 @@
     </tbody>
   </table>
 </div><!--/table-responsive-->
+
+
+  </div>
+
+  <div class="col-xs-12">
+
+    <h2>メニュー</h2>
+    <table class="table table-sm ">
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">値段</th>
+      <th scope="col">写真</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($shop->curries()->get() as $curry)
+    <tr class="menu-table">
+
+      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->curry_name}} </td>
+      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}}</td>
+      <td class="col-md-4 lead" >
+        @if($curry->photos()->exists())
+          <img src="/images/curries/{{ $curry->photos()->first()->image }}" style="width: 70%; height:120px;">
+        @else
+          <img src="/images/noimage.png" style="width: 70%; height: 120px "/>
+        @endif
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+
+    <h2>アクセス</h2>
+      <p>{{$shop->address}}</p>
+      <div id="map" style="width: 90%; height: 500px;"></div>
+
+    <h2>レビュー</h2>
+          {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
+          <div style="margin: 8px 0">
+            {{ Form::label('rate', '評価', ['style' =>  'margin-right:8;']) }}
+            {{ Form::selectRange('rate', 1, 10, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
+          </div>
+          <div style="margin: 8px 0">
+            {{ Form::file('picture') }}
+          </div>
+          <div style="margin: 8px 0">
+            {{ Form::textarea('review', '', ['placeholder' => 'レビューを書いてね！', 'style' => 'width: 100%;height: 300px;']) }}
+          </div>
+          <div class="row">
+            <div class="col10 push1">
+              {{ Form::submit('投稿する', ['class' => 'btn btn-default']) }}
+            </div>
+          </div>
+          {!! Form::close() !!}
+  </div>
 
 
   </div>
