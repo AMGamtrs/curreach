@@ -18,9 +18,9 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         @if($curry->photos()->exists())
-          <img src="/images/curries/{{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
+          <img src="http://drive.google.com/uc?export=view&id={{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
         @else
-          <img src="/images/noimage.png"/>
+          <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
         @endif
         <div class="caption">
           <h3>{{$curry->curry_name}}</h3>

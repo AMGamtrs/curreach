@@ -9,6 +9,8 @@ use App\Curry;
 use App\Shop;
 use App\Photo;
 use Image;
+use Storage;
+use FIle;
 
 class CurriesController extends Controller
 {
@@ -95,9 +97,12 @@ class CurriesController extends Controller
 
   public function store(Request $request, $id1)
   {
-      // 写真を保存
       $fileName = $request->picture->getClientOriginalName();
-      Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+      // 写真をローカルに保存
+      //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+      // 写真をドライブに保存
+      $fileData = File::get($request->picture);
+      Storage::disk('curries_google')->put($fileName, $image);
 
       $recipe = new Curry();
       //カレーDBに入力
@@ -109,7 +114,10 @@ class CurriesController extends Controller
 
       //写真DBに入力
       $photo = new Photo();
-      $photo->image = $fileName;
+      //$photo->image = $fileName;
+      $drivename = Storage::disk('curries_google')->url($fileName);
+      $drivename = substr($drivename, 31, -13);
+      $photo->image = $drivename;
       $photo->curry_id = $recipe->id;
       $photo->save();
       return redirect('/shops/'.$id1.'/curries/'.$recipe->id);
