@@ -9,6 +9,8 @@ use App\Curry;
 use App\Shop;
 use App\Photo;
 use Image;
+use Storage;
+use FIle;
 
 class CurriesController extends Controller
 {
@@ -25,10 +27,65 @@ class CurriesController extends Controller
 
   public function search(Request $request)
   {
-      // 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
+      // 検索フォームのキーワードあいまい検索
       $word = $request->keyword;
-      $curries = Curry::where('curry_name', 'LIKE', "%$word%")->paginate(15);
-      //$products = array();
+      // ジャンルで検索(カレー種類)
+      $type = $request->curry_type;
+      if(!empty($type)){
+        $curries = Curry::where('curry_type', $type)->paginate(15);
+        switch ($type){
+          case 1:
+          $word = "洋風カレー";break;
+          case 2:
+          $word = "スープカレー";break;
+          case 3:
+          $word = "インドカレー";break;
+          case 4:
+          $word = "ご当地カレー";break;
+          case 5:
+          $word = "その他";break;
+        }
+        $word = 'カレー種類：'.$word;
+      }
+      // ジャンルで検索(メイン具材)
+      $type = $request->main_type;
+      if(!empty($type)){
+        $curries = Curry::where('main_ingredien', $type)->paginate(15);
+        switch ($type){
+          case 1:
+          $word = "チキン";break;
+          case 2:
+          $word = "ビーフ";break;
+          case 3:
+          $word = "ポーク";break;
+          case 4:
+          $word = "マトン";break;
+          case 5:
+          $word = "シーフード";break;
+          case 6:
+          $word = "野菜";break;
+          case 7:
+          $word = "その他";break;
+        }
+        $word = 'メイン具材：'.$word;
+      }
+      // ジャンルで検索(ライスorナン)
+      $type = $request->ricenaan_type;
+      if(!empty($type)){
+        $curries = Curry::where('naan_rice', $type)->paginate(15);
+        switch ($type){
+          case 1:
+          $word = "ライス";break;
+          case 2:
+          $word = "ナン";break;
+          case 3:
+          $word = "その他";break;
+        }
+        $word = 'ライス/ナン：'.$word;
+      }
+      else{
+        $curries = Curry::where('curry_name', 'LIKE', "%$word%")->paginate(15);
+      }
       return view('curries.search')->with(array('curries' => $curries, 'word' => $word));
   }
 
@@ -40,9 +97,12 @@ class CurriesController extends Controller
 
   public function store(Request $request, $id1)
   {
-      // 写真を保存
       $fileName = $request->picture->getClientOriginalName();
-      Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+      // 写真をローカルに保存
+      //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+      // 写真をドライブに保存
+      $fileData = File::get($request->picture);
+      Storage::disk('curries_google')->put($fileName, $image);
 
       $recipe = new Curry();
       //カレーDBに入力
@@ -54,7 +114,10 @@ class CurriesController extends Controller
 
       //写真DBに入力
       $photo = new Photo();
-      $photo->image = $fileName;
+      //$photo->image = $fileName;
+      $drivename = Storage::disk('curries_google')->url($fileName);
+      $drivename = substr($drivename, 31, -13);
+      $photo->image = $drivename;
       $photo->curry_id = $recipe->id;
       $photo->save();
       return redirect('/shops/'.$id1.'/curries/'.$recipe->id);

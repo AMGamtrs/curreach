@@ -17,6 +17,10 @@
     <script>
       var markers = Array();
       var currentInfoWindow;
+      var nowM = null;
+      var shopIds = Array();
+      var nowShop = null;
+
       function initMap(){
 
         var map_center = {lat: 35.6808586, lng: 139.7669568};
@@ -33,18 +37,19 @@
         //マーカを表示する
         function newMark(response){
             var i = markers.length;
+            shopIds[i] = response['id'];//ajax移動対策
             //緯度経度を型変換
             var marker_lat = parseFloat(response['lat']);
             var marker_lng = parseFloat(response['lng']);
             //マーカ作成
-            markers[i] = new google.maps.Marker({
+          markers[i] = new google.maps.Marker({
               position: {lat: marker_lat, lng: marker_lng},
               map: map,
               icon: "{{ asset('assets/images/marker_small.png') }}"
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: response['shop_name'] + "<p>その他の情報<p>",
+            content: response['shop_name'] + "<p>その他の情報<p><p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>",
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
@@ -56,14 +61,14 @@
                 markers[i].setIcon("{{asset('assets/images/marker_big.png')}}");
                 //情報ウィンドウを開く
                 infoWnd.open(map, markers[i]);
-                //開いた情報ウィンドウを記録しておく マーカも記録
+                //開いた情報ウィンドウを記録しておく マーカも記録,移動対策に店舗IDを保存
                 currentInfoWindow = infoWnd;
                 nowM = markers[i];
+                nowShop = response['id'];
           });
         }
 
         function setPointMarker(){
-          console.log("setPointMarker");
           //古いマーカを削除
           if(markers.length > 0){
             for (i = 0; i <  markers.length; i++) {
@@ -89,10 +94,16 @@
           }).done(function(responseData) {
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
             $('ul.shop_list').empty();
-            console.log("ajax");
             var menu_n = 0;
             responseData.forEach(function(response){
               newMark(response);
+              //移動前にクリックしたアイコンが存在すれば表示したい////////////////////////
+              if (nowM !== null){
+                if (response['id'] == nowShop){
+                  var openId = shopIds.indexOf(nowShop);
+                  google.maps.event.trigger(markers[openId], "click");
+                }
+              }
               //ここでリスト表示する
               ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
               menu_n = menu_n + 1;

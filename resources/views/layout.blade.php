@@ -13,7 +13,7 @@
   </head>
 
   <body>
-
+    <div class="wrap">
       <nav class="navbar navbar-default navbar-curry">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,19 +49,18 @@
               <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true" style="font-size:14px;"></span></button>
             </form>
             </ul>
-
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
+          </div><!-- /.container-fluid -->
+        </nav>
 
       @yield('content')
 
-<footer class="footer">
-  <div class="container text-center">
-    <p class="text-muted">Copyright © 2018 curreach製作委員会 All Rights Reserved.</p>
-  </div>
-</footer>
-
+      <footer class="footer">
+        <div class="container text-center">
+          <p class="text-muted">Copyright © 2018 curreach製作委員会 All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+    
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/assets/javascripts/bootstrap.js"></script>
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
