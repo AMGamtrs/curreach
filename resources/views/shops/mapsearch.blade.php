@@ -100,8 +100,6 @@
               //移動前にクリックしたアイコンが存在すれば表示したい////////////////////////
               if (nowM !== null){
                 if (response['id'] == nowShop){
-                  console.log(nowShop);
-                  console.log(shopIds.indexOf(nowShop));
                   var openId = shopIds.indexOf(nowShop);
                   google.maps.event.trigger(markers[openId], "click");
                 }
