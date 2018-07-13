@@ -4,10 +4,13 @@
 {{ $shop->shop_name }}
 <div class="contents row">
   <div class="col-xs-6">
+      <div class="showtop_img single-item">
     @foreach($shop->photos()->get() as $photo)
+    <h3>
       <img src="/images/shops/{{ $photo->image }}">
-      <br>
+      </h3>
     @endforeach
+  </div>
 
     <!-- 地図を表示 -->
     <p>アクセス</p>
