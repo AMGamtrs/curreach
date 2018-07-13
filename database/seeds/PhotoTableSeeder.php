@@ -14,11 +14,11 @@ class PhotoTableSeeder extends Seeder
       DB::table('photos')->truncate();
       $photos = array(
 
-        array('shop_id' => '', 'curry_id' => '1', 'review_id' => '', 'image' => 'SAWA_karesarada_TP_V4.jpg'),
-        array('shop_id' => '', 'curry_id' => '2', 'review_id' => '', 'image' => 'adpDSC_6546.jpg'),
-        array('shop_id' => '', 'curry_id' => '3', 'review_id' => '', 'image' => 'yun_12716.jpg'),
-        array('shop_id' => '1', 'curry_id' => '', 'review_id' => '', 'image' => 'PAK65_torinosutennai20130825_TP_V4.jpg'),
-        array('shop_id' => '2', 'curry_id' => '', 'review_id' => '', 'image' => 'cafe-gourmande.jpg'),
+        array('shop_id' => '', 'curry_id' => '1', 'review_id' => '', 'image' => '1HSxvQ2U--3jTv8Y_bebYZA-P7JOD4l24'),
+        array('shop_id' => '', 'curry_id' => '2', 'review_id' => '', 'image' => '1VDHCCBbr__-7HRpFLz9hyFDesJ4YHbfJ'),
+        array('shop_id' => '', 'curry_id' => '3', 'review_id' => '', 'image' => '1oL52yJ9gkceam-pstegoHTnCO_FulHQO'),
+        array('shop_id' => '1', 'curry_id' => '', 'review_id' => '', 'image' => '1X_cTZGTMj5ZRDJ1qx5bcIv4eDDBq-qJS'),
+        array('shop_id' => '2', 'curry_id' => '', 'review_id' => '', 'image' => '1kfYl_xrJQrM8NOxCmkKlGbFyqXUV9oRr'),
       );
 
       DB::table('photos')->insert($photos);

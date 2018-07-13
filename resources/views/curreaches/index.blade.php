@@ -41,13 +41,24 @@
           <h2 class="lead">人気の店舗</h2>
           <ul class="slick-box3">
             @foreach ($shops as $shop)
-              <li><a href="/shops/{{$shop->id}}">
-                @if($shop->photos()->exists())
-                  <img src="/images/shops/{{$shop->photos()->first()->image}}" alt="{{$shop->shop_name}}"/>
-                @else
-                  <img src="/images/noimage.png"/>
-                @endif
-              </a></li>
+              <li>
+                <div class="textonphoto">
+                  <a href="/shops/{{$shop->id}}">
+                    @if($shop->photos()->exists())
+                      <img src="http://drive.google.com/uc?export=view&id={{$shop->photos()->first()->image}}" alt="{{$shop->shop_name}}"/>
+                    @else
+                      <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+                    @endif
+                    <p>
+                      {{$shop->shop_name}}<br/>
+                      <span class="star-rating">
+                        <span class="star-rating-front" style="width: {{(round($shop->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                        <span class="star-rating-back">★★★★★</span>
+                      </span>
+                    </p>
+                  </a>
+                </div>
+              </li>
             @endforeach
           </ul>
         </div>
@@ -56,13 +67,24 @@
           <h2 class="lead">人気のカレー</h2>
           <ul class="slick-box3">
             @foreach ($curries as $curry)
-              <li><a href="/shops/{{$curry->shop_id}}/curries/{{$curry->id}}">
-                @if($curry->photos()->exists())
-                  <img src="/images/curries/{{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
-                @else
-                  <img src="/images/noimage.png"/>
-                @endif
-              </a></li>
+              <li>
+                <div class="textonphoto">
+                  <a href="/shops/{{$curry->shop_id}}/curries/{{$curry->id}}">
+                    @if($curry->photos()->exists())
+                      <img src="http://drive.google.com/uc?export=view&id={{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
+                    @else
+                      <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+                    @endif
+                    <p>
+                      {{$curry->curry_name}}<br/>
+                      <span class="star-rating">
+                        <span class="star-rating-front" style="width: {{(round($curry->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                        <span class="star-rating-back">★★★★★</span>
+                      </span>
+                    </p>
+                  </a>
+                </div>
+              </li>
             @endforeach
           </ul>
         </div>

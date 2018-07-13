@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Review;
 use App\Photo;
 use Auth;
+use Image;
 
 class ReviewsController extends Controller
 {
@@ -17,10 +18,11 @@ class ReviewsController extends Controller
       $fileName = $request->picture->getClientOriginalName();
       Image::make($request->picture)->save(public_path() . '/images/reviews/' . $fileName);
 
-      $reviewdb = new Reviews();
+      $reviewdb = new Review();
       //レビューDBに入力
       $reviewdb->review = $request->review;
       $reviewdb->rate = $request->rate;
+      $reviewdb->curry_id = $request->curry_id;
       $reviewdb->user_id = Auth::user()->id;
       $reviewdb->save();
 

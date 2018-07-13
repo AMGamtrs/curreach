@@ -68,6 +68,11 @@ body{
   padding: 0;
   list-style: none;
 }
+@media (min-width: 992px){
+  .sidenav {
+    height: 360px;
+  }
+}
 .sidenav li {
   position: relative;
   left: 8px;
@@ -154,4 +159,43 @@ body{
   .sidebar2{
     margin-top: 100px;
   }
+}
+
+.textonphoto {
+  position: relative;/*相対配置*/
+  }
+
+.textonphoto p {
+  position: absolute;
+  font-size: 12px;
+  width: 200px;
+  top: 0;/*画像の左上に配置*/
+  left: 0;
+  margin: 0; /*余計な隙間を除く*/
+  color: white;/*文字を白に*/
+  background: rgba(0,0,0,0.4);/*背景色*/
+  line-height: 1;/*行高は1に*/
+  padding: 5px 10px;/*文字周りの余白*/
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 12px;
+
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+.star-rating-back {
+  color: #ccc;
+}
+
+.wrap {
+  overflow: hidden;
 }
