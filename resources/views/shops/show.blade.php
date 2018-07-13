@@ -18,17 +18,36 @@
   <div class="col-xs-6">
     <!-- この中にお店の詳細情報を追加していく -->
 
-    <ul>
-      <li>営業時間  {{$shop->business_hours}}</li>
-      <li>席数 {{$shop->seats}}</li>
-      <li>タバコ {{$shop->smoking}}</li>
-      <li>公式HP・SNS {{$shop->homepage}}</li>
-      <li>充電 {{$shop->charging}}</li>
-      <li>Wi-Fi {{$shop->wifi}}</li>
-      <li>メニュー・値段</li>
-      <li>客層 {{$shop->customer}}</li>
-      <li>ピーク時間 {{$shop->peak_time}}</li>
-    </ul>
+<div class="table-responsive">
+  <h3>詳細情報</h3>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+
+    </thead>
+    <tbody>
+      <tr>
+        <td>営業時間</td><td>{{$shop->business_hours}}</td>
+      </tr>
+      <tr>
+        <td>席数</td><td>{{$shop->seats}}</td>
+      </tr>
+      <tr>
+        <td>タバコ</td><td>{{$shop->smoking}}</td>
+      </tr>
+      <td>公式HP・SNS</td><td>{{$shop->homepage}}</td>
+      </tr>
+      <td>充電</td><td>{{$shop->charging}}</td>
+      </tr>
+      <td>Wi-Fi</td><td>{{$shop->wifi}}</td>
+      </tr>
+      <td>客層</td><td>{{$shop->customer}}</td>
+      </tr>
+      <td>ピーク時間</td><td>{{$shop->peak_time}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div><!--/table-responsive-->
 
 
   </div>
@@ -39,8 +58,7 @@
     <table class="table table-sm ">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">メニュー名</th>
+      <th scope="col">商品名</th>
       <th scope="col">値段</th>
       <th scope="col">写真</th>
     </tr>
@@ -48,14 +66,14 @@
   <tbody>
     @foreach($shop->curries()->get() as $curry)
     <tr class="menu-table">
-      <th  scope="row " class="lead" style="vertical-align: middle;">1</th>
+
       <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->curry_name}} </td>
       <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}}</td>
       <td class="col-md-4 lead" >
         @if($curry->photos()->exists())
-          <img src="/images/curries/{{ $curry->photos()->first()->image }}" style="width: 70%; height:100px;">
+          <img src="/images/curries/{{ $curry->photos()->first()->image }}" style="width: 70%; height:120px;">
         @else
-          <img src="/images/noimage.png" style="width: 20%; height: 100px "/>
+          <img src="/images/noimage.png" style="width: 70%; height: 120px "/>
         @endif
       </td>
     </tr>
