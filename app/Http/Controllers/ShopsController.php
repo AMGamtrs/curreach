@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Shop;
 use App\Photo;
 use Image;
+use Storage;
+use File;
 
 class ShopsController extends Controller
 {
@@ -45,9 +47,13 @@ class ShopsController extends Controller
 
   public function store(Request $request)
   {
-    // 写真を保存
       $fileName = $request->picture->getClientOriginalName();
-      Image::make($request->picture)->save(public_path() . '/images/shops/' . $fileName);
+      // 写真をローカルに保存
+      //Image::make($request->picture)->save(public_path() . '/images/shops/' . $fileName);
+      // 写真をドライブに保存
+      $fileData = File::get($request->picture);
+      Storage::disk('shops_google')->put($fileName, $fileData);
+
       $shop = new Shop();
       //店舗DBに入力
       $shop->shop_name = $request->name;
@@ -57,7 +63,10 @@ class ShopsController extends Controller
 
       //写真DBに入力
       $photo = new Photo();
-      $photo->image = $fileName;
+      //$photo->image = $fileName;
+      $drivename = Storage::disk('shops_google')->url($fileName);
+      $drivename = substr($drivename, 31, -13);
+      $photo->image = $drivename;
       $photo->shop_id = $shop->id;
       $photo->save();
       return redirect('/shops/'.$shop->id);

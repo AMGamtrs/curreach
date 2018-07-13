@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="contents row">
-        {{ Form::open(['url' => "/shops/$shop->id/curries", 'method' => 'post', 'files' => true]) }}
+        {{ Form::open(['url' => "/shops/$shop->id/curries", 'method' => 'post', 'files' => true, 'class' => 'form-horizontal']) }}
             <h3>
                     カレーを登録する
             </h3>
 
         <div class="field">
             <label>メニュー名</label><br>
-            <input type="text" name="name" placeholder="メニュー名を入力してください">
+            <input type="text" name="name" placeholder="メニュー名を入力してください" required>
         </div>
 
         <div class="field">
@@ -21,27 +21,36 @@
 
         <div class="field">
             <label>値段</label><br>
-            <input type="text" name="price" placeholder="値段を入力してください">
+            <input type="text" name="price" placeholder="値段を入力してください" required>
         </div>
 
         <div class="field">
             <label>カレーの種類</label><br>
-            <input type="text" name="curry_type" placeholder="カレーの種類を入力してください">
+            <select name="curry_type">
+              <option value="1">洋風カレー</option>
+              <option value="2">スープカレー</option>
+              <option value="3">インドカレー</option>
+              <option value="4">ご当地カレー</option>
+              <option value="5">その他</option>
+            </select>
         </div>
 
         <div class="field">
             <label>メイン具材の種類</label><br>
-            <input type="text" name="main_type" placeholder="メイン具材の種類を入力してください">
+            <select name="main_type">
+              <option value="1">チキン</option>
+              <option value="2">ビーフ</option>
+              <option value="3">ポーク</option>
+              <option value="4">マトン</option>
+              <option value="5">シーフード</option>
+              <option value="6">野菜</option>
+              <option value="7">その他</option>
+            </select>
         </div>
 
         <div class="field">
             <label>カロリー</label><br>
             <input type="text" name="kcal" placeholder="カロリーを入力してください">
-        </div>
-
-        <div class="field">
-            <label>店舗名</label><br>
-            <input type="text" name="store_name" placeholder="店舗名を入力してください">
         </div>
 
         <div class="field">
@@ -65,8 +74,12 @@
         </div>
 
         <div class="field">
-            <label>ナン・ライス</label><br>
-            <input type="text" name="nannrice" placeholder="ナン・ライスを入力してください">
+            <label>ライス・ナン</label><br>
+            <select name="naanrice">
+              <option value="1">ライス</option>
+              <option value="2">ナン</option>
+              <option value="3">その他</option>
+            </select>
         </div>
 
         <div class="actions">
