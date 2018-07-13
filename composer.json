@@ -10,7 +10,7 @@
         "laravelcollective/html": "5.2",
         "intervention/image": "^2.4",
         "nao-pon/flysystem-google-drive": "~1.1",
-        "ext-gd": "*",
+        "ext-gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
