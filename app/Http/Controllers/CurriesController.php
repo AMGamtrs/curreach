@@ -10,7 +10,7 @@ use App\Shop;
 use App\Photo;
 use Image;
 use Storage;
-use FIle;
+use File;
 
 class CurriesController extends Controller
 {
@@ -102,7 +102,7 @@ class CurriesController extends Controller
       //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
       // 写真をドライブに保存
       $fileData = File::get($request->picture);
-      Storage::disk('curries_google')->put($fileName, $image);
+      Storage::disk('curries_google')->put($fileName, $fileData);
 
       $recipe = new Curry();
       //カレーDBに入力
