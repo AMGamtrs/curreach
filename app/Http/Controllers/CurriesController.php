@@ -110,14 +110,54 @@ class CurriesController extends Controller
       $recipe->price = $request->price;
       $pr_url = url()->previous();
       $recipe->shop_id = $id1;
-      $recipe->curry_type = $request->curry_type;
-      $recipe->main_ingredien = $request->main_type;
-      $recipe->calorie = $request->kcal;
-      $recipe->allergies = $request->allergy;
-      $recipe->hot_rate = $request->hotflavor;
-      $recipe->topping = $request->topping;
-      $recipe->amount = $request->size;
-      $recipe->naan_rice = $request->naanrice;
+      if(!empty($recipe->curry_type)){
+        $recipe->curry_type = $request->curry_type;
+      }
+      else{
+        $recipe->curry_type = null;
+      }
+      if(!empty($recipe->main_ingredien)){
+        $recipe->main_ingredien = $request->main_type;
+      }
+      else{
+        $recipe->main_ingredien = null;
+      }
+      if(!empty($recipe->calorie)){
+        $recipe->calorie = $request->kcal;
+      }
+      else{
+        $recipe->calorie = null;
+      }
+      if(!empty($recipe->allergies)){
+        $recipe->allergies = $request->allergy;
+      }
+      else{
+        $recipe->allergies = null;
+      }
+      if(!empty($recipe->hot_rate)){
+        $recipe->hot_rate = $request->hotflavor;
+      }
+      else{
+        $recipe->hot_rate = null;
+      }
+      if(!empty($recipe->topping)){
+        $recipe->topping = $request->topping;
+      }
+      else{
+        $recipe->topping = null;
+      }
+      if(!empty($recipe->amount)){
+        $recipe->amount = $request->size;
+      }
+      else{
+        $recipe->amount = null;
+      }
+      if(!empty($recipe->naan_rice)){
+        $recipe->naan_rice = $request->naanrice;
+      }
+      else{
+        $recipe->naan_rice = null;
+      }
       $recipe->save();
 
       //写真DBに入力
