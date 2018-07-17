@@ -22,7 +22,7 @@
         @else
           <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
         @endif
-        <div class="caption">
+        <div class="caption overflow-hidden">
           <h3>{{$curry->curry_name}}</h3>
           <p>{{$curry->shop->shop_name}}</p>
           <p>{{$curry->price}}円</p>

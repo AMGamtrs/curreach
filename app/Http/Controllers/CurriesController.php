@@ -29,11 +29,13 @@ class CurriesController extends Controller
   {
       // 検索フォームのキーワードあいまい検索
       $word = $request->keyword;
+      $ctype = $request->curry_type;
+      $mtype = $request->main_type;
+      $rtype = $request->ricenaan_type;
       // ジャンルで検索(カレー種類)
-      $type = $request->curry_type;
-      if(!empty($type)){
-        $curries = Curry::where('curry_type', $type)->paginate(15);
-        switch ($type){
+      if(!empty($ctype)){
+        $curries = Curry::where('curry_type', $ctype)->paginate(15);
+        switch ($ctype){
           case 1:
           $word = "洋風カレー";break;
           case 2:
@@ -48,10 +50,9 @@ class CurriesController extends Controller
         $word = 'カレー種類：'.$word;
       }
       // ジャンルで検索(メイン具材)
-      $type = $request->main_type;
-      if(!empty($type)){
-        $curries = Curry::where('main_ingredien', $type)->paginate(15);
-        switch ($type){
+      elseif(!empty($mtype)){
+        $curries = Curry::where('main_ingredien', $mtype)->paginate(15);
+        switch ($mtype){
           case 1:
           $word = "チキン";break;
           case 2:
@@ -70,10 +71,9 @@ class CurriesController extends Controller
         $word = 'メイン具材：'.$word;
       }
       // ジャンルで検索(ライスorナン)
-      $type = $request->ricenaan_type;
-      if(!empty($type)){
-        $curries = Curry::where('naan_rice', $type)->paginate(15);
-        switch ($type){
+      elseif(!empty($rtype)){
+        $curries = Curry::where('naan_rice', $rtype)->paginate(15);
+        switch ($rtype){
           case 1:
           $word = "ライス";break;
           case 2:
