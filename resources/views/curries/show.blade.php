@@ -16,7 +16,7 @@
     <div class="container">
       <div class="showtop_img single-item">
         @foreach($curry->photos()->get() as $photo)
-          <h3><img src="/images/curries/{{ $photo->image }}"></h3>
+          <h3><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></h3>
         @endforeach
       </div>
     </div>
