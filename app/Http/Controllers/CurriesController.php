@@ -114,13 +114,13 @@ class CurriesController extends Controller
         $recipe->curry_type = $request->curry_type;
       }
       else{
-        $recipe->curry_type = null;
+        $recipe->curry_type = 0;
       }
       if(!empty($recipe->main_ingredien)){
         $recipe->main_ingredien = $request->main_type;
       }
       else{
-        $recipe->main_ingredien = null;
+        $recipe->main_ingredien = 0;
       }
       if(!empty($recipe->calorie)){
         $recipe->calorie = $request->kcal;
@@ -156,7 +156,7 @@ class CurriesController extends Controller
         $recipe->naan_rice = $request->naanrice;
       }
       else{
-        $recipe->naan_rice = null;
+        $recipe->naan_rice = 0;
       }
       $recipe->save();
 
