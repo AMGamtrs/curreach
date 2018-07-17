@@ -110,6 +110,14 @@ class CurriesController extends Controller
       $recipe->price = $request->price;
       $pr_url = url()->previous();
       $recipe->shop_id = $id1;
+      $recipe->curry_type = $request->curry_type;
+      $recipe->main_ingredien = $request->main_type;
+      $recipe->calorie = $request->kcal;
+      $recipe->allergies = $request->allergy;
+      $recipe->hot_rate = $request->hotflavor;
+      $recipe->topping = $request->topping;
+      $recipe->amount = $request->size;
+      $recipe->naan_rice = $request->naanrice;
       $recipe->save();
 
       //写真DBに入力

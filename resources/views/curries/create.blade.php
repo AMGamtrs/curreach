@@ -27,6 +27,7 @@
         <div class="field">
             <label>カレーの種類</label><br>
             <select name="curry_type">
+              <option value="0">カレーの種類を選択してください</option>
               <option value="1">洋風カレー</option>
               <option value="2">スープカレー</option>
               <option value="3">インドカレー</option>
@@ -38,6 +39,7 @@
         <div class="field">
             <label>メイン具材の種類</label><br>
             <select name="main_type">
+              <option value="0">メイン具材を選択してください</option>
               <option value="1">チキン</option>
               <option value="2">ビーフ</option>
               <option value="3">ポーク</option>
@@ -76,6 +78,7 @@
         <div class="field">
             <label>ライス・ナン</label><br>
             <select name="naanrice">
+              <option value="0">ライス又はナンを選択してください</option>
               <option value="1">ライス</option>
               <option value="2">ナン</option>
               <option value="3">その他</option>
