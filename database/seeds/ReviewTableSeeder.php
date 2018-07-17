@@ -53,17 +53,6 @@ class ReviewTableSeeder extends Seeder
         array('shop_id' => '7', 'curry_id' => null, 'rate' => '5', 'review' => 'こんにちは', 'user_id' => '1'),
         array('shop_id' => '8', 'curry_id' => null, 'rate' => '2', 'review' => 'こめがうまい', 'user_id' => '2'),
         array('shop_id' => '9', 'curry_id' => null, 'rate' => '5', 'review' => 'チーズもりもり', 'user_id' => '3'),
-        array('shop_id' => '10', 'curry_id' => null, 'rate' => '4', 'review' => 'ぴかぴか', 'user_id' => '1'),
-        array('shop_id' => '11', 'curry_id' => null, 'rate' => '3', 'review' => 'かぴかぴ', 'user_id' => '2'),
-        array('shop_id' => '12', 'curry_id' => null, 'rate' => '2', 'review' => 'れびゅーれびゅーれびゅーれびゅー', 'user_id' => '3'),
-        array('shop_id' => '13', 'curry_id' => null, 'rate' => '4', 'review' => 'いんど', 'user_id' => '1'),
-        array('shop_id' => '14', 'curry_id' => null, 'rate' => '5', 'review' => 'なまはげ', 'user_id' => '2'),
-        array('shop_id' => '15', 'curry_id' => null, 'rate' => '1', 'review' => 'みみみ', 'user_id' => '3'),
-        array('shop_id' => '16', 'curry_id' => null, 'rate' => '2', 'review' => 'げげげ', 'user_id' => '1'),
-        array('shop_id' => '17', 'curry_id' => null, 'rate' => '3', 'review' => 'おさかな', 'user_id' => '2'),
-        array('shop_id' => '18', 'curry_id' => null, 'rate' => '4', 'review' => 'ふくじんづじぇ', 'user_id' => '3'),
-        array('shop_id' => '19', 'curry_id' => null, 'rate' => '2', 'review' => 'ねこ', 'user_id' => '1'),
-        array('shop_id' => '20', 'curry_id' => null, 'rate' => '5', 'review' => 'いぬ', 'user_id' => '2'),
       );
 
       DB::table('reviews')->insert($reviews);
