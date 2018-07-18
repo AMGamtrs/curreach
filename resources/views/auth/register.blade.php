@@ -8,11 +8,12 @@
             <div class="panel panel-warning">
                 <div class="panel-heading">新規登録</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ユーザID<br/>(ニックネーム)</label>
+                            {!! Form::open(array('files' => true)) !!}
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
@@ -24,6 +25,22 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
+
+                            <!-- ICONアップロード -->
+                            <label for="icon" class="col-md-4 control-label" style="width:145px; ">プロフィール画像</label>
+
+                            <div class="col-md-6">
+                                <div class="field">
+                                    {{ Form::file('icon') }}
+                                </div>    
+                            </div>
+
+                        </div>
+
+
+                        
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">メールアドレス</label>
