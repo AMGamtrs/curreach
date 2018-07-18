@@ -23,7 +23,7 @@
           <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
         @endif
         <div class="caption overflow-hidden">
-          <h3>{{$curry->curry_name}}</h3>
+          <h4>{{$curry->curry_name}}</h4>
           <p>{{$curry->shop->shop_name}}</p>
           <p>{{$curry->price}}円</p>
           <p><a href="/shops/{{$curry->shop_id}}/curries/{{$curry->id}}" class="btn btn-warning" role="button">詳しくみる</a></p>

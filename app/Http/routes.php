@@ -18,6 +18,7 @@
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', 'CurreachesController@index');
+    Route::get('/about', 'CurreachesController@about');
     Route::get('/mapsearch', 'ShopsController@mapsearch');
     Route::get('/mapajax', 'ShopsController@mapajax');
     Route::get('/users/{id}', 'UsersController@show');
@@ -27,7 +28,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/shops/{id1}/curries', 'CurriesController@store');
     Route::get('/shops/{id1}/curries/create', 'CurriesController@create');
     Route::get('/shops/{id1}/curries/{id2}', 'CurriesController@show');
-    Route::get('/search', 'CurriesController@search');
+    Route::get('/csearch', 'CurriesController@search');
+    Route::get('/ssearch', 'ShopsController@search');
     Route::get('/shopreview', 'ReviewsController@shopreview');
     Route::post('/curryreview', 'ReviewsController@curryreview');
 });

@@ -15,13 +15,18 @@ class ShopsController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth', ['except' => ['show', 'mapsearch', 'mapajax']]);
+    $this->middleware('auth', ['except' => ['show', 'search', 'mapsearch', 'mapajax']]);
   }
 
   public function show($id)
   {
       $shop = Shop::find($id);
       return view('shops.show')->with('shop', $shop);
+  }
+
+  public function search(Request $request)
+  {
+      return;
   }
 
   public function mapsearch()
