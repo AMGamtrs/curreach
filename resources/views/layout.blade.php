@@ -74,6 +74,7 @@
       infinite: true,
       dots: true,
       fade: true,
+      arrows: false,
     });
 
   $('.slick-box3').slick({
@@ -82,6 +83,7 @@
     speed: 300, // 切り替わりのスピード
     slidesToShow: 4, //通常 1024px以上の領域では4画像表示
     slidesToScroll: 4,
+    arrows: false,
     responsive: [{
       breakpoint: 1300,settings: { //601px～1024pxでは3画像表示
         slidesToShow: 3,

@@ -1,30 +1,27 @@
 @extends('layout')
 
 @section('content')
+
 <div class="contents row">
-  <h1>{{ $shop->shop_name }}</h1>
-  <div class="col-xs-6">
-      <div class="showtop_img single-item">
-    @foreach($shop->photos()->get() as $photo)
-
-    <h3>
-      <img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}">
-    </h3>
-
-      <img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}" style="width: 100%; height: 300px;">
-      <br>
-
-    @endforeach
+  <div class="col-xs-12">
+    <h1>{{ $shop->shop_name }}</h1>
   </div>
+</div>
 
-
-
-
+<div class="contents row">
+  <div class="col-xs-6">
+    <div class="container">
+      <div class="showtop_img single-item">
+        @foreach($shop->photos()->get() as $photo)
+        <h3>
+          <img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}">
+        </h3>
+        @endforeach
+      </div>
+    </div>
+  </div>
 
     <!-- 地図を表示 -->
-
-
-  </div>
   <div class="col-xs-6">
     <!-- この中にお店の詳細情報を追加していく -->
 
@@ -77,14 +74,16 @@
     @foreach($shop->curries()->get() as $curry)
     <tr class="menu-table">
 
-      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->curry_name}} </td>
+      <td class="col-md-4 lead " style="vertical-align: middle;"><a href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
       <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}}</td>
       <td class="col-md-4 lead" >
+        <a href="/shops/{{$shop->id}}/curries/{{$curry->id}}">
         @if($curry->photos()->exists())
           <img src="http://drive.google.com/uc?export=view&id={{ $curry->photos()->first()->image }}" style="width: 70%; height:120px;">
         @else
           <img src="/images/noimage.png" style="width: 70%; height: 120px "/>
         @endif
+        </a>
       </td>
     </tr>
     @endforeach
