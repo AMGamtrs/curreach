@@ -86,7 +86,7 @@ class CurriesController extends Controller
       else{
         $curries = Curry::where('curry_name', 'LIKE', "%$word%")->paginate(15);
       }
-      return view('curries.search')->with(array('curries' => $curries, 'word' => $word));
+      return view('curries.search')->with(array('curries' => $curries, 'word' => $word, 'mode' => 0));
   }
 
   public function create($id1)
