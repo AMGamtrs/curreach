@@ -23,4 +23,8 @@ class CurreachesController extends Controller
       return view('curreaches.index')->with(array('shops' => $shops, 'curries' => $curries));
   }
 
+  public function about()
+  {
+      return view('curreaches.about');
+  }
 }

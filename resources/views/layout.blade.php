@@ -42,7 +42,7 @@
               <li><a href="/register">新規登録</a></li>
               <li><a href="/login">ログイン</a></li>
               @endif
-            <form class="navbar-form navbar-right" role="search" action='/search'>
+            <form class="navbar-form navbar-right" role="search" action='/csearch'>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search" name="keyword">
               </div>
@@ -60,7 +60,7 @@
         </div>
       </footer>
     </div>
-    
+
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="/assets/javascripts/bootstrap.js"></script>
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

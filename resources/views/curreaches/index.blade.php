@@ -8,7 +8,7 @@
       <div class="text-center container">
         <h1>Welcome to curreach</h1>
         <p>curreachはカレー好きの皆様に寄り添う専門情報サイトです</p>
-        <a class="btn btn-warning btn-lg" href="#" role="button">Learn more »</a>
+        <a class="btn btn-warning btn-lg" href="/about" role="button">About us »</a>
       </div>
     </div>
 <!--　▲ ジャンボトロン　 -->
