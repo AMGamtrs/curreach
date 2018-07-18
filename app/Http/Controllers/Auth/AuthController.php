@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Image;
 
 class AuthController extends Controller
 {
@@ -64,11 +65,20 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        
+        $fileName = $data['icon']->getClientOriginalName();
+        Image::make($data['icon'])->save(public_path() . '/images/' . $fileName);
+
+
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'birthday' => $data['calendar'],
+            'icon' => $fileName,
+
         ]);
     }
 }

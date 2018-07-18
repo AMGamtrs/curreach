@@ -9,8 +9,9 @@
       
 
       <h4>hello！{{Auth::user()->name}}さん</h4>
+
         
-        <img src="/images/users/matayoshi.jpg" alt="プロフィール写真" class="img-circle" style="width:100px;"> 
+        <img src="/images/{{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px;"> 
         <br>
         <br>
         <hr style="color: black;">
