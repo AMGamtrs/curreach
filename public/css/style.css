@@ -207,3 +207,14 @@ body{
   -webkit-text-overflow: ellipsis; /* Safari */
   -o-text-overflow: ellipsis; /* Opera */
 }
+
+.col-1 {
+    display: inline-block;
+    width: 110px;
+    /* border: solid 1px; */
+}
+.col-2 {
+    display: inline-block;
+    width: 200px;
+    /* border: solid 1px; */
+}
