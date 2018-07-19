@@ -209,3 +209,9 @@ body{
   -o-text-overflow: ellipsis; /* Opera */
   font-weight: bold;
 }
+
+
+.panel-default {
+  height: 500px;
+}
+
