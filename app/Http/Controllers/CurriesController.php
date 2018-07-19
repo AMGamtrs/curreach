@@ -51,7 +51,7 @@ class CurriesController extends Controller
       }
       // ジャンルで検索(メイン具材)
       elseif(!empty($mtype)){
-        $curries = Curry::where('main_ingredien', $mtype)->paginate(15);
+        $curries = Curry::where('main_ingredient', $mtype)->paginate(15);
         switch ($mtype){
           case 1:
           $word = "チキン";break;
@@ -116,11 +116,11 @@ class CurriesController extends Controller
       else{
         $recipe->curry_type = 0;
       }
-      if(!empty($recipe->main_ingredien)){
-        $recipe->main_ingredien = $request->main_type;
+      if(!empty($recipe->main_ingredient)){
+        $recipe->main_ingredient = $request->main_type;
       }
       else{
-        $recipe->main_ingredien = 0;
+        $recipe->main_ingredient = 0;
       }
       if(!empty($recipe->calorie)){
         $recipe->calorie = $request->kcal;
