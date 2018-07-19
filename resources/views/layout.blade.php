@@ -32,7 +32,12 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">登録する <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">カレー情報</a></li>
+                  <li>
+                    <form name="curryregister" action='/ssearch'>
+                      <a href="javascript:curryregister.submit()">カレー情報</a>
+                      <input type="hidden" name="register" value="1">
+                    </form>
+                  </li>
                   <li><a href="/shops/create">店舗情報</a></li>
                 </ul>
               </li>
