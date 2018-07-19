@@ -274,3 +274,11 @@ border-radius: 1px;
     width: 200px;
     /* border: solid 1px; */
 }
+
+.gradation {
+position: relative;
+padding: .5em;
+background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%);
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+}
