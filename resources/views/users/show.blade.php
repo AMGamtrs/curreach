@@ -4,14 +4,14 @@
 
 <div class="container-fulid">
   <div class="row">
-    
+
     <div class="col-md-3 text-center col-md-offset-1" style="background-color: #FFFFF0;">
-      
+
 
       <h4>hello！{{Auth::user()->name}}さん</h4>
 
-        
-        <img src="/images/{{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px;"> 
+
+        <img src="/images/users/{{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px;"> 
         <br>
         <br>
         <hr style="color: black;">
@@ -22,7 +22,7 @@
             <a href="">
               <div class="col-md-4" style="border-right: solid 1px black; height: 40px; ">
                 <div>プロフィール</div>
-              </div> 
+              </div>
             </a>
 
             <a href="">
@@ -39,10 +39,10 @@
 
           </div>
         </div>
-        
+
         <br>
         <br>
-        
+
         <h3>今日のオススメ</h3>
 
             <h4>カレー写真</h4>
@@ -57,7 +57,7 @@
 
     <div class="col-md-6 col-md-offset-1" style="background-color: #FFFFF0;">
       <div class="col-md-offset-1">
-        
+
         <h2>投稿一覧</h2>
 　　　　　<h3>投稿した店舗</h3>
         <table>
