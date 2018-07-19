@@ -99,13 +99,48 @@
           {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
           <div style="margin: 8px 0">
             {{ Form::label('rate', '評価', ['style' =>  'margin-right:8;']) }}
-            {{ Form::selectRange('rate', 1, 10, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
+            {{ Form::selectRange('rate', 1, 5, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
           </div>
           <div style="margin: 8px 0">
-            {{ Form::file('picture') }}
+            <style>
+            label {
+              margin-left: 3em;
+            }
+            .my-file-input {
+              display: inline-block;
+              padding: 5px;
+              width: 200px;
+              text-align: center;
+              white-space: nowrap;
+              overflow: hidden;
+              font-size: 14px;
+              text-overflow: ellipsis;
+              background-color: #ffff;
+              color: black;
+              box-shadow: #888 2px 2px 1px;
+              cursor: pointer;
+            }
+            .my-file-input:hover {
+              background-color: #F7E7B0;
+            }
+            .my-file-input:active {
+              box-shadow: #888 1px 1px 1px;
+              position: relative;
+              top: 1px; left: 1px;
+            }
+            .my-file-input input {
+              display: none;
+            }
+          </style>
+          <label class="my-file-input"><input type="file" id="test3">写真を登録する</label>
+          <script>
+            document.getElementById("test3").addEventListener("change", function(e){
+              e.target.nextSibling.nodeValue = e.target.files.length ? e.target.files[0].name : "ファイルを選ぶぜ！";
+            });
+          </script>
           </div>
           <div style="margin: 8px 0">
-            {{ Form::textarea('review', '', ['placeholder' => 'レビューを書いてね！', 'style' => 'width: 100%;height: 300px;']) }}
+            {{ Form::textarea('review', '', ['placeholder' => '[レビュー内容]', 'style' => 'width: 100%;height: 300px;']) }}
           </div>
           <div class="row">
             <div class="col10 push1">
@@ -117,60 +152,6 @@
 
 
   </div>
-
-  <div class="col-xs-12">
-
-    <h2>メニュー</h2>
-    <table class="table table-sm ">
-  <thead>
-    <tr>
-      <th scope="col">商品名</th>
-      <th scope="col">値段</th>
-      <th scope="col">写真</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($shop->curries()->get() as $curry)
-    <tr class="menu-table">
-
-      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->curry_name}} </td>
-      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}}</td>
-      <td class="col-md-4 lead" >
-        @if($curry->photos()->exists())
-          <img src="/images/curries/{{ $curry->photos()->first()->image }}" style="width: 70%; height:120px;">
-        @else
-          <img src="/images/noimage.png" style="width: 70%; height: 120px "/>
-        @endif
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-
-    <h2>アクセス</h2>
-      <p>{{$shop->address}}</p>
-      <div id="map" style="width: 90%; height: 500px;"></div>
-
-    <h2>レビュー</h2>
-          {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
-          <div style="margin: 8px 0">
-            {{ Form::label('rate', '評価', ['style' =>  'margin-right:8;']) }}
-            {{ Form::selectRange('rate', 1, 10, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
-          </div>
-          <div style="margin: 8px 0">
-            {{ Form::file('picture') }}
-          </div>
-          <div style="margin: 8px 0">
-            {{ Form::textarea('review', '', ['placeholder' => 'レビューを書いてね！', 'style' => 'width: 100%;height: 300px;']) }}
-          </div>
-          <div class="row">
-            <div class="col10 push1">
-              {{ Form::submit('投稿する', ['class' => 'btn btn-default']) }}
-            </div>
-          </div>
-          {!! Form::close() !!}
-  </div>
-
 
 
 
