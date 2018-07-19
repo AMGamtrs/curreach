@@ -26,7 +26,17 @@ class ShopsController extends Controller
 
   public function search(Request $request)
   {
-      return;
+      $word = $request->keyword;
+      $register = $request->register;
+      // カレー登録のための検索時
+      if(!empty($register)){
+        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->paginate(15);
+        return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 1));
+      }
+      else{
+        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->paginate(15);
+        return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 2));
+      }
   }
 
   public function mapsearch()
