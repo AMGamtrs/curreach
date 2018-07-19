@@ -19,37 +19,37 @@
 
 <div class="field">
 <p><span class="col-1">住所</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="address"></span>
 </p>
 </div>
 
 <div class="field">
 <p><span class="col-1">営業時間</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="business_hours"></span>
 </p>
 </div>
 
 <div class="field">
 <p><span class="col-1">定休日</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="regular_holiday"></span>
 </p>
 </div>
 
 <div class="field">
 <p><span class="col-1">座席数</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="seats"></span>
 </p>
 </div>
 
 <div class="field">
 <p><span class="col-1">公式HP・SNS</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="homepage"></span>
 </p>
 </div>
 
 <div class="field">
 <p><span class="col-1">ピーク時間</span>
-  <span class="col-2"><input type="text" name="item"></span>
+  <span class="col-2"><input type="text" name="peak_time"></span>
 </p>
 </div>
 
@@ -57,7 +57,7 @@
 <p><span class="col-1">客層</span>
   <span class="col-2">
     <form action="xxx.php" method="post">
-      <label>男性多め←→女性多め<input type="range" name="range">
+      <label>男性多め←→女性多め<input type="range" name="customer_range">
       </label>
     </form>
   </span>
