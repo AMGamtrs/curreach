@@ -37,7 +37,7 @@
         <td>種類</td><td>{{ $curry->curry_type }}</td>
       </tr>
       <tr>
-        <td>メイン具材</td><td>{{ $curry->main_ingredien }}</td>
+        <td>メイン具材</td><td>{{ $curry->main_ingredient }}</td>
       </tr>
       <tr>
         <td>カロリー</td><td>{{ $curry->calorie }}</td>
