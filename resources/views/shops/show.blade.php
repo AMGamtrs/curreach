@@ -62,6 +62,7 @@
   <div class="col-xs-12">
 
     <h2>メニュー</h2>
+      <a class="btn btn-warning btn-lg" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
     <table class="table table-sm ">
   <thead>
     <tr>
@@ -75,7 +76,7 @@
     <tr class="menu-table">
 
       <td class="col-md-4 lead " style="vertical-align: middle;"><a href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
-      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}}</td>
+      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}} 円</td>
       <td class="col-md-4 lead" >
         <a href="/shops/{{$shop->id}}/curries/{{$curry->id}}">
         @if($curry->photos()->exists())
