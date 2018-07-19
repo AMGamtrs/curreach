@@ -1,5 +1,4 @@
 
-<div class="panel-default">
   <ul class="sidenav">
     <li><a href="/mapsearch/">地図から探す</a></li>
 
@@ -109,4 +108,3 @@
     </li>
 
   </ul>
-</div>
