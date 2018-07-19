@@ -6,8 +6,11 @@
   <div class="col-md-2 col-md-offset-1 sidebar"><!-- 左メニュー -->
     <div class="panel panel-default">
       <p>検索結果</p>
-      <ul class="shop_list sideMenu nav nav-sidebar">
-      </ul>
+      <div class="list_box" >
+        <ul class="shop_list sideMenu nav nav-sidebar">
+        </ul>
+        <p class="no_list"></p>
+      </div>
     </div>
   </div>
   <div class="col-md-8"><!-- 右地図表示領域 -->
@@ -95,19 +98,25 @@
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
             $('ul.shop_list').empty();
             var menu_n = 0;
-            responseData.forEach(function(response){
-              newMark(response);
-              //移動前にクリックしたアイコンが存在すれば表示したい////////////////////////
-              if (nowM !== null){
-                if (response['id'] == nowShop){
-                  var openId = shopIds.indexOf(nowShop);
-                  google.maps.event.trigger(markers[openId], "click");
+            if(responseData.length != 0){ //範囲内に店舗があれば
+              $('p.no_list').text("");
+              responseData.forEach(function(response){
+                newMark(response);
+                //移動前にクリックしたアイコンが存在すれば表示したい////////////////////////
+                if (nowM !== null){
+                  if (response['id'] == nowShop){
+                    var openId = shopIds.indexOf(nowShop);
+                    google.maps.event.trigger(markers[openId], "click");
+                  }
                 }
-              }
-              //ここでリスト表示する
-              ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
-              menu_n = menu_n + 1;
-            });
+                //ここでリスト表示する
+                ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
+                menu_n = menu_n + 1;
+              });
+            }else{
+              //店舗なし文言表示
+              $('p.no_list').text("この付近の店舗は見つかりませんでした");
+            }
             //リストクリック時にマーカを大きくする
             $('li').click(function(){
                 var index = $(this).index();
