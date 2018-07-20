@@ -27,11 +27,17 @@
 
     </div>
   </div>
-  <div class="col-xs-6">
-    詳細情報
-    <table class="details">
+
+<div class="col-xs-6">
+    <!-- この中にお店の詳細情報を追加していく -->
+<div class="table-responsive">
+  <h3>詳細情報</h3>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+    </thead>
+    <tbody>
       <tr>
-        <td>価格</td><td>{{ $curry->price }}</td>
+        <td>価格</td><td>{{ $curry->price }}円</td>
       </tr>
       <tr>
         <td>種類</td><td>{{ $curry->curry_type }}</td>
@@ -57,9 +63,11 @@
       <tr>
         <td>ナンor米</td><td>{{ $curry->naan_rice }}</td>
       </tr>
-    </table>
-  </div>
+    </tbody>
+  </table>
+ </div><!--/table-responsive-->
 </div>
+
 
 <div class="contents row">
   <div class="col-xs-12">
@@ -114,7 +122,7 @@
               </div>
           </div>
           <div class="actions">
-            <input type="submit" value="登録">
+            <input type="submit" value="投稿する">
           </div>
         {{ Form::close() }}
       @else
@@ -122,6 +130,7 @@
       @endif
 
   </div>
+</div>
 </div>
 
 @endsection
