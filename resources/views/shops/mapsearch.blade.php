@@ -52,7 +52,12 @@
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: response['shop_name'] + "<p>その他の情報<p><p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>",
+            content: response['shop_name']
+                     + '<p><img class="img_fukidashi" src="http://drive.google.com/uc?export=view&id="></p>'
+                     + "<p>住所："+ response['address'] +"</p>"
+                     + "<p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
+                     ,
+            maxWidth: 200 ,
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
@@ -95,6 +100,7 @@
             timeout: 1000,
             data: map_latlng
           }).done(function(responseData) {
+            console.log(responseData);
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
             $('ul.shop_list').empty();
             var menu_n = 0;
@@ -110,7 +116,9 @@
                   }
                 }
                 //ここでリスト表示する
-                ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
+                ShopList = $('ul.shop_list').append(
+                  "<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>"
+                );
                 menu_n = menu_n + 1;
               });
             }else{

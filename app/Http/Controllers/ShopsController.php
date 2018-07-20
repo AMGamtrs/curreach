@@ -10,6 +10,7 @@ use App\Photo;
 use Image;
 use Storage;
 use File;
+use DB;
 
 class ShopsController extends Controller
 {
@@ -46,12 +47,26 @@ class ShopsController extends Controller
 
   public function mapajax(Request $request)
   {
-    $shops = Shop::where([
-       ['lat', '<=', $request['map_ne_lat']],
-       ['lat', '>=', $request['map_sw_lat']],
-       ['lng', '<=', $request['map_ne_lng']],
-       ['lng', '>=', $request['map_sw_lng']]
-     ])->orderBy('id', 'DESC')->take(10)->get();
+    // $shops = Shop::where([
+    //    ['lat', '<=', $request['map_ne_lat']],
+    //    ['lat', '>=', $request['map_sw_lat']],
+    //    ['lng', '<=', $request['map_ne_lng']],
+    //    ['lng', '>=', $request['map_sw_lng']]
+    //  ])->orderBy('id', 'DESC')->take(10)->get();
+    $req_ne_lat = $request['map_ne_lat'];
+    $req_sw_lat = $request['map_sw_lat'];
+    $req_ne_lng = $request['map_ne_lng'];
+    $req_sw_lng = $request['map_sw_lng'];
+
+//     $shops = DB::table('shops')
+// //                ->join('photos', 'shop_id', '=', 'photos.shop_id')
+//                 ->select(DB::raw("SELECT s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id"))->get();
+
+//      $shops = DB::select(DB::raw("SELECT s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id"));
+    $shops = DB::select(DB::raw("SELECT s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id
+                                  WHERE lat<$req_ne_lat AND lat>$req_sw_lat AND lng<$req_ne_lng AND lng>$req_sw_lng GROUP BY id ORDER BY id limit 20"));
+
+
      return response()->json($shops);
   }
 
