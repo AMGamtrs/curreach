@@ -56,7 +56,7 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'calendar' => 'required',
-            'icon' => 'nullable|mimes:jpeg,jpg,gif,png',
+            'icon' => 'mimes:jpeg,jpg,gif,png',
         ]);
     }
 
