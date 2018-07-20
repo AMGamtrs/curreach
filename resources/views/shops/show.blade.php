@@ -11,6 +11,7 @@
 <div class="contents row">
   <div class="col-xs-6">
     <div class="container">
+
       <div class="showtop_img single-item">
         @foreach($shop->photos()->get() as $photo)
         <h3>
@@ -54,13 +55,11 @@
       </tr>
     </tbody>
   </table>
-</div><!--/table-responsive-->
+ </div><!--/table-responsive-->
 
-
-  </div>
+</div>
 
   <div class="col-xs-12">
-
     <h2>メニュー</h2>
       <a class="btn btn-warning btn-lg" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
     <table class="table table-sm ">
@@ -95,62 +94,61 @@
       <p>{{$shop->address}}</p>
       <div id="map" style="width: 90%; height: 500px;"></div>
 
-    <h2>レビュー</h2>
+    <h2>投稿されたレビュー</h2>
+      @foreach($shop->reviews()->get() as $review)
+        <div class="review_box">
+          <div class="review_name">投稿者：{{ $review->user->name }}</div>
+          <div class="review_rate">評価：{{$review->rate}}</div>
+            <span class="star-rating">
+              <span class="star-rating-front" style="width: {{ ($review->rate)*2 }}0%">★★★★★</span>
+              <span class="star-rating-back">★★★★★</span>
+            </span>
+          <div class="review_review">{{ $review->review }} </div>
+          @foreach($review->photos()->get() as $photo)
+            <div class="review_img"><img src="/images/reviews/{{ $photo->image }}"></div>
+          @endforeach
+        </div>
+      @endforeach
+
+    <h2>レビューを投稿する</h2>
+        <!-- ここにレビュー投稿フォーム -->
+      @if (Auth::check())
           {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
-          <div style="margin: 8px 0">
-            {{ Form::label('rate', '評価', ['style' =>  'margin-right:8;']) }}
-            {{ Form::selectRange('rate', 1, 5, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
+          <div class="review_form_name">投稿者名:{{ Auth::user()->name }}</div>
+          {{Form::hidden('shop_id', "$shop->id")}}
+          <div class="field">
+            <label>評価(5段階)</label>
+            {{Form::select('rate',
+              [
+                '1' => '★',
+                '2' => '★★',
+                '3' => '★★★',
+                '4' => '★★★★',
+                '5' => '★★★★★'
+              ], null,
+              ['id' => 'rate_form']
+            )}}
+
           </div>
-          <div style="margin: 8px 0">
-            <style>
-            label {
-              margin-left: 3em;
-            }
-            .my-file-input {
-              display: inline-block;
-              padding: 5px;
-              width: 200px;
-              text-align: center;
-              white-space: nowrap;
-              overflow: hidden;
-              font-size: 14px;
-              text-overflow: ellipsis;
-              background-color: #ffff;
-              color: black;
-              box-shadow: #888 2px 2px 1px;
-              cursor: pointer;
-            }
-            .my-file-input:hover {
-              background-color: #F7E7B0;
-            }
-            .my-file-input:active {
-              box-shadow: #888 1px 1px 1px;
-              position: relative;
-              top: 1px; left: 1px;
-            }
-            .my-file-input input {
-              display: none;
-            }
-          </style>
-          <label class="my-file-input"><input type="file" id="test3">写真を登録する</label>
-          <script>
-            document.getElementById("test3").addEventListener("change", function(e){
-              e.target.nextSibling.nodeValue = e.target.files.length ? e.target.files[0].name : "ファイルを選ぶぜ！";
-            });
-          </script>
+          <div class="field">
+            <label>感想</label><br>
+            {{Form::textarea('review', "【雰囲気】\n【衛生面】\n【客対応】")}}
           </div>
-          <div style="margin: 8px 0">
-            {{ Form::textarea('review', '', ['placeholder' => '[レビュー内容]', 'style' => 'width: 100%;height: 300px;']) }}
+          <div class="field">
+            <label>写真</label><br>
+              <div class="field">
+                {{ Form::file('picture') }}
+              </div>
           </div>
-          <div class="row">
-            <div class="col10 push1">
-              {{ Form::submit('投稿する', ['class' => 'btn btn-default']) }}
-            </div>
+          <div class="actions">
+            <input type="submit" value="投稿する">
           </div>
-          {!! Form::close() !!}
+        {{ Form::close() }}
+      @else
+        レビューするにはログインしてください
+      @endif
+
   </div>
-
-
   </div>
 
 
