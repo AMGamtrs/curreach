@@ -68,9 +68,9 @@
 <p><span class="col-1">タバコ</span>
   <span class="col-2">
     <select name="smoking" size="1">
-      <option value="可">可</option>
-      <option value="不可">不可</option>
-      <option value="分煙">分煙</option>
+      <option value="0">可</option>
+      <option value="1">不可</option>
+      <option value="2">分煙</option>
     </select>
   </span>
 </p>
@@ -80,8 +80,8 @@
 <p><span class="col-1">充電</span>
   <span class="col-2">
     <select name="charging" size="1">
-      <option value="あり">あり</option>
-      <option value="なし">なし</option>
+      <option value="0">あり</option>
+      <option value="1">なし</option>
     </select>
   </span>
 </p>
@@ -91,8 +91,8 @@
 <p><span class="col-1">Wi-Fi</span>
   <span class="col-2">
     <select name="wifi" size="1">
-      <option value="あり">あり</option>
-      <option value="なし">なし</option>
+      <option value="0">あり</option>
+      <option value="1">なし</option>
     </select>
   </span>
 </p>
