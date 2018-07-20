@@ -11,7 +11,7 @@
 
     {{ Form::open(['class' => 'form-horizontal']) }}
         <div class="field form-group">
-            <label class="col-md-4 control-label">メールアドレスまたはID</label>
+            <label class="col-md-4 control-label">メールアドレス</label>
             <div class="col-md-6">
               <input class="form-control" type="email" name="email" autofocus="autofocus">
             </div>
@@ -32,11 +32,9 @@
 
 
         <div class="actions form-group">
-          <div class="col-md-6 col-md-offset-4 col-sm-offset-4">
-          <button type="submit" class="btn btn-warning">
+          <button type="submit" class="btn btn-warning center-block">
               <i class="fa fa-btn fa-user"></i> ログイン
           </button>
-          </div>
         </div>
     {{ Form::close() }}
 

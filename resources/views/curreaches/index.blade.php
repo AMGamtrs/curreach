@@ -3,7 +3,7 @@
 
 
 @section('content')
-<!--　▼ ジャンボトロン　 -->
+<!-- ジャンボトロン -->
     <div class="jumbotron topimg">
       <div class="text-center container">
         <h1>Welcome to curreach</h1>
@@ -11,7 +11,7 @@
         <a class="btn btn-warning btn-lg" href="/about" role="button">About us »</a>
       </div>
     </div>
-<!--　▲ ジャンボトロン　 -->
+<!-- ジャンボトロン -->
 
 <div class="container-fluid">
   <div class="row">
