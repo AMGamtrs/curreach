@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-2 col-md-offset-1 sidebar"><!-- 左メニュー -->
     <div class="panel panel-default">
-      <p>検索結果</p>
+      <p class="list_title">検索結果</p>
       <div class="list_box" >
         <ul class="shop_list sideMenu nav nav-sidebar">
         </ul>
@@ -44,6 +44,19 @@
             //緯度経度を型変換
             var marker_lat = parseFloat(response['lat']);
             var marker_lng = parseFloat(response['lng']);
+
+            //店舗画像がないとき用
+            if (response['image'] == null){
+              response['image'] = '<img src="/images/noimage.png" style="width: 100px; height: 80px">';
+            }else{
+              response['image'] = '<img src="http://drive.google.com/uc?export=view&id=' + "response['image']" + '">';
+            }
+
+            //店舗住所がないとき用
+            if (response['address'] == null){
+              response['address'] = '住所情報がありません';
+            }
+
             //マーカ作成
           markers[i] = new google.maps.Marker({
               position: {lat: marker_lat, lng: marker_lng},
@@ -52,7 +65,12 @@
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: response['shop_name'] + "<p>その他の情報<p><p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>",
+            content: '<p class="fukidashi_shopname">' + response['shop_name'] + '</p>'
+                     + '<p class="img_fukidashi">' + response['image'] + '</p>'
+                     + "<p >住所："+ response['address'] +"</p>"
+                     + "<p class='fukidashi_shopname'><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
+                     ,
+            maxWidth: 180 ,
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
@@ -95,6 +113,7 @@
             timeout: 1000,
             data: map_latlng
           }).done(function(responseData) {
+            console.log(responseData);
             //店舗リスト削除(ウィンドウサイズ変更時対策ここに入れるとマーカ大きくならない)
             $('ul.shop_list').empty();
             var menu_n = 0;
@@ -110,7 +129,9 @@
                   }
                 }
                 //ここでリスト表示する
-                ShopList = $('ul.shop_list').append("<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>");
+                ShopList = $('ul.shop_list').append(
+                  "<li id=" + menu_n + "><a href=\"javascript:void(0)\">" + response['shop_name'] + "</a></li>"
+                );
                 menu_n = menu_n + 1;
               });
             }else{

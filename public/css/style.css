@@ -210,12 +210,6 @@ body{
   font-weight: bold;
 }
 
-
-.panel-default {
-  height: 500px;
-  overflow: scroll;
-}
-
 .overflow-hidden .rows3 {
   height: 60px;
 }
@@ -236,7 +230,6 @@ body{
   text-decoration: none;
   background-color: #f5f5f5;
 }
-
 
 .top-h2 {
   position: relative;/*相対位置*/
@@ -281,4 +274,35 @@ padding: .5em;
 background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%);
 -webkit-text-fill-color: transparent;
 -webkit-background-clip: text;
+}
+
+/* mapserch */
+.panel-default {
+  height: 500px;
+  overflow: scroll;
+}
+
+.img_fukidashi{
+  max-height: 80px;
+  text-align: center;
+}
+
+.img_fukidashi img{
+  max-height: 80px;
+  max-width: 150px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #CCC;
+ }
+
+.panel{
+  padding: 5px;
+}
+
+.list_title{
+  padding-top: 5px;
+  padding-left: 3px;
+  font-size: 120%;
+  color: #FFF;
+  background-color: #333;
 }
