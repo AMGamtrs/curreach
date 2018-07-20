@@ -8,8 +8,9 @@
             </h3>
 
         <div class="field">
-            <label>メニュー名</label><br>
-            <input type="text" name="name" placeholder="メニュー名を入力してください" required>
+            <p><span class="col-1">メニュー名</span>
+              <span class="col-2"><input type="text" name="curry_name" value="" required="required" ></span><br>
+            </p>
         </div>
 
         <div class="field">
@@ -20,25 +21,27 @@
         </div>
 
         <div class="field">
-            <label>値段</label><br>
-            <input type="text" name="price" placeholder="値段を入力してください" required>
+            <p><span class="col-1">値段</span>
+              <span class="col-2"><input type="text" name="price" value="" required="required" ></span><br>
+            </p>
         </div>
 
         <div class="field">
-            <label>カレーの種類</label><br>
-            <select name="curry_type">
+            <p><span class="col-1">カレーの種類</span>
+            <span class="col-2"><select name="curry_type">
               <option value="0">カレーの種類を選択してください</option>
               <option value="1">洋風カレー</option>
               <option value="2">スープカレー</option>
               <option value="3">インドカレー</option>
               <option value="4">ご当地カレー</option>
               <option value="5">その他</option>
-            </select>
+            </select></span>
+            </p>
         </div>
 
         <div class="field">
-            <label>メイン具材の種類</label><br>
-            <select name="main_type">
+            <p><span class="col-1">メイン具材の種類</span>
+            <span class="col-2"><select name="main_type">
               <option value="0">メイン具材を選択してください</option>
               <option value="1">チキン</option>
               <option value="2">ビーフ</option>
@@ -47,42 +50,60 @@
               <option value="5">シーフード</option>
               <option value="6">野菜</option>
               <option value="7">その他</option>
-            </select>
+            </select></span>
+            </p>
         </div>
 
         <div class="field">
-            <label>カロリー</label><br>
-            <input type="text" name="kcal" placeholder="カロリーを入力してください">
+            <p><span class="col-1">カロリー</span>
+              <span class="col-2"><input type="text" name="calorie" value="" required="required" ></span><br>
+            </p>
         </div>
 
         <div class="field">
-            <label>アレルギー食品</label><br>
-            <input type="text" name="allergy" placeholder="アレルギー食品を入力してください">
+            <p><span class="col-1">アレルギー食品</span>
+              <span class="col-2"><input type="text" name="allergies" value="" required="required" ></span><br>
+            </p>
         </div>
 
         <div class="field">
-            <label>辛さ</label><br>
-            <input type="text" name="hotflavor" placeholder="辛さを入力してください">
+            <p><span class="col-1">辛さ</span>
+            <span class="col-2"><select name="hot_rate">
+              <option value="0">辛さを選択してください</option>
+              <option value="1">激甘</option>
+              <option value="2">ちょい甘</option>
+              <option value="3">普通</option>
+              <option value="4">ちょい辛</option>
+              <option value="5">激辛</option>
+            </select></span>
+            </p>
         </div>
 
         <div class="field">
-            <label>トッピング</label><br>
-            <input type="text" name=" topping" placeholder="トッピングを入力してください">
+            <p><span class="col-1">トッピング</span>
+              <span class="col-2"><input type="text" name="topping" value="" required="required" ></span><br>
+            </p>
         </div>
 
         <div class="field">
-            <label>大盛り・ハーフ</label><br>
-            <input type="text" name="size" placeholder="大盛り・ハーフを入力してください">
+            <p><span class="col-1">大盛り・ハーフ</span>
+            <span class="col-2"><select name="smoking" size="1">
+              <option value="0">可</option>
+              <option value="1">不可</option>
+            </select></span>
+            </p>
         </div>
 
         <div class="field">
-            <label>ライス・ナン</label><br>
-            <select name="naanrice">
-              <option value="0">ライス又はナンを選択してください</option>
-              <option value="1">ライス</option>
-              <option value="2">ナン</option>
-              <option value="3">その他</option>
-            </select>
+            <p><span class="col-1">ナン・ライス</span>
+            <span class="col-2"><select name="hot_rate">
+              <option value="0">ナン又はライスを選択してください</option>
+              <option value="1">ナン</option>
+              <option value="2">ライス</option>
+              <option value="3">両方</option>
+              <option value="4">その他</option>
+            </select></span>
+            </p>
         </div>
 
         <div class="actions">
