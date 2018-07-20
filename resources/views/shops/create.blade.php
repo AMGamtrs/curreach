@@ -6,19 +6,96 @@
 <h3>店舗を登録する</h3>
 
 <div class="field">
-  <p>店舗名(必須)：
-    <input type="text" name="name" value="" required="required" />
-    <br>
+  <p><span class="col-1">店舗名(必須)</span>
+    <span class="col-2">
+      <input type="text" name="name" value="" required="required" >
+    </span><br>
   </p>
 </div>
 
 <div class="field">
-外観写真：{{ Form::file('picture') }}
+外観写真{{ Form::file('picture') }}
 </div>
 
 <div class="field">
-<p><nobr>他の任意の項目：
-  <input type="text" name="item"><nobr></p>
+<p><span class="col-1">住所</span>
+  <span class="col-2"><input type="text" name="address"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">営業時間</span>
+  <span class="col-2"><input type="text" name="business_hours"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">定休日</span>
+  <span class="col-2"><input type="text" name="regular_holiday"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">座席数</span>
+  <span class="col-2"><input type="text" name="seats"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">公式HP・SNS</span>
+  <span class="col-2"><input type="text" name="homepage"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">ピーク時間</span>
+  <span class="col-2"><input type="text" name="peak_time"></span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">客層</span>
+  <span class="col-2">
+    <form action="xxx.php" method="post">
+      <label>男性多め←→女性多め<input type="range" name="customer_range">
+      </label>
+    </form>
+  </span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">タバコ</span>
+  <span class="col-2">
+    <select name="smoking" size="1">
+      <option value="0">可</option>
+      <option value="1">不可</option>
+      <option value="2">分煙</option>
+    </select>
+  </span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">充電</span>
+  <span class="col-2">
+    <select name="charging" size="1">
+      <option value="0">あり</option>
+      <option value="1">なし</option>
+    </select>
+  </span>
+</p>
+</div>
+
+<div class="field">
+<p><span class="col-1">Wi-Fi</span>
+  <span class="col-2">
+    <select name="wifi" size="1">
+      <option value="0">あり</option>
+      <option value="1">なし</option>
+    </select>
+  </span>
+</p>
 </div>
 
 <div id="map" style="width: 90%; height: 300px"></div>

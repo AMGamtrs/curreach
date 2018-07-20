@@ -14,11 +14,17 @@
 <div class="contents row">
   <div class="col-xs-6">
     <div class="container">
-      <div class="showtop_img single-item">
+
+      @if($curry->photos()->exists())
+            <div class="showtop_img single-item">
         @foreach($curry->photos()->get() as $photo)
           <h3><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></h3>
         @endforeach
       </div>
+      @else
+          <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+      @endif
+
     </div>
   </div>
   <div class="col-xs-6">
@@ -31,7 +37,7 @@
         <td>種類</td><td>{{ $curry->curry_type }}</td>
       </tr>
       <tr>
-        <td>メイン具材</td><td>{{ $curry->main_ingredien }}</td>
+        <td>メイン具材</td><td>{{ $curry->main_ingredient }}</td>
       </tr>
       <tr>
         <td>カロリー</td><td>{{ $curry->calorie }}</td>
