@@ -53,11 +53,11 @@
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
             content: response['shop_name']
-                     + '<p><img class="img_fukidashi" src="http://drive.google.com/uc?export=view&id="></p>'
+                     + '<p class="img_fukidashi"><img src="http://drive.google.com/uc?export=view&id=' + response['image'] + '"></p>'
                      + "<p>住所："+ response['address'] +"</p>"
                      + "<p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
                      ,
-            maxWidth: 200 ,
+            maxWidth: 180 ,
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
