@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-2 col-md-offset-1 sidebar"><!-- 左メニュー -->
     <div class="panel panel-default">
-      <p>検索結果</p>
+      <p class="list_title">検索結果</p>
       <div class="list_box" >
         <ul class="shop_list sideMenu nav nav-sidebar">
         </ul>
@@ -65,10 +65,10 @@
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: response['shop_name']
+            content: '<p class="fukidashi_shopname">' + response['shop_name'] + '</p>'
                      + '<p class="img_fukidashi">' + response['image'] + '</p>'
-                     + "<p>住所："+ response['address'] +"</p>"
-                     + "<p><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
+                     + "<p >住所："+ response['address'] +"</p>"
+                     + "<p class='fukidashi_shopname'><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
                      ,
             maxWidth: 180 ,
           });

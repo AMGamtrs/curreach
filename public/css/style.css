@@ -239,6 +239,7 @@ body{
 
 .img_fukidashi{
   max-height: 80px;
+  text-align: center;
 }
 
 .img_fukidashi img{
@@ -248,3 +249,15 @@ body{
   border-width: 1px;
   border-color: #CCC;
  }
+
+.panel{
+  padding: 5px;
+}
+
+.list_title{
+  padding-top: 5px;
+  padding-left: 3px;
+  font-size: 120%;
+  color: #FFF;
+  background-color: #333;
+}
