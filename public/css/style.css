@@ -80,7 +80,7 @@ body{
   width: 190px;
   height: 40px;
   background-color: white;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
 
 }
 .sidenav > li {
@@ -131,7 +131,7 @@ body{
   transition: 0.2s;
 }
 .sidenav li ul li a {
-  background: #9fb7d4;
+  background: white;
   transition: 0.5s;
 }
 .sidenav li ul:before {
