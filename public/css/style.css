@@ -58,8 +58,12 @@ div.jumbotron.topimg{
 
 .thumbnail img{
   object-fit: cover;
-  height: 120px;
-  width: 180px;
+  width: 100%;
+  height: 180px;
+}
+
+.thumbnail-bookmark img{
+  height: 100px;
 }
 
 .pagination li a, .pagination li a:hover{
@@ -319,4 +323,12 @@ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6
   font-size: 120%;
   color: #FFF;
   background-color: #333;
+}
+
+.grayscale {
+  -webkit-filter: grayscale(95%);
+    -moz-filter: grayscale(95%);
+    -o-filter: grayscale(95%);
+    -ms-filter: grayscale(95%);
+    filter: grayscale(95%);
 }
