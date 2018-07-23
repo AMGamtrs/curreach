@@ -19,6 +19,14 @@ class User extends Authenticatable
       return $this->hasMany(Review::class);
     }
 
+    public function bookmarks(){
+      return $this->hasMany(Bookmark::class);
+    }
+
+    public function favorites(){
+      return $this->hasMany(Favorite::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
