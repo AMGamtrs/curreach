@@ -21,7 +21,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/about', 'CurreachesController@about');
     Route::get('/mapsearch', 'ShopsController@mapsearch');
     Route::get('/mapajax', 'ShopsController@mapajax');
+    Route::get('/users', 'Auth\AuthController@login');
     Route::get('/users/{id}', 'UsersController@show');
+    Route::get('/users/{id}/bookmarks', 'UsersController@bookmarks');
+    Route::get('/users/{id}/likes', 'UsersController@likes');
+    Route::get('/users/{id}/profile', 'UsersController@profile');
     Route::post('/shops', 'ShopsController@store');
     Route::get('/shops/create', 'ShopsController@create');
     Route::get('/shops/{id1}', 'ShopsController@show');

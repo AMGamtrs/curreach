@@ -36,7 +36,7 @@
     @elseif($mode == 1)
     <div class="page-header">
       <div class="alert alert-danger" role="alert">
-        <strong>カレーを登録する店舗を選択してください</strong>
+        <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> カレーを登録する店舗を選択してください</strong>
       </div>
     </div>
     @foreach ($shops as $shop)
