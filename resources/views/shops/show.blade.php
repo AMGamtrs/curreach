@@ -2,13 +2,11 @@
 
 @section('content')
 
-<div class="contents row">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
   <div class="col-xs-12">
     <h1>{{ $shop->shop_name }}</h1>
   </div>
-</div>
 
-<div class="contents row">
   <div class="col-xs-6">
     <div class="container">
 
@@ -29,19 +27,17 @@
 <div class="table-responsive">
   <h3>詳細情報</h3>
 
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
+  <table class="table table-striped table-bordered table-hover table-condensed" style="table-layout:fixed;">
 
-    </thead>
     <tbody>
       <tr>
-        <td>営業時間</td><td>{{$shop->business_hours}}</td>
+        <td class="col-xs-4">営業時間</td><td class="col-xs-8">{{$shop->business_hours}}</td>
       </tr>
       <tr>
         <td>席数</td><td>{{$shop->seats}}</td>
       </tr>
       <tr>
-      <td>公式HP・SNS</td><td>{{$shop->homepage}}</td>
+      <td>公式HP・SNS</td><td><a href="{{$shop->homepage}}" style="word-wrap: break-word;">{{$shop->homepage}}</a></td>
       </tr>
       <td>タバコ</td><td>@if ($shop->smoking == 0)
          可
@@ -72,7 +68,7 @@
       </tr>
       <td>客層</td>
       <td>
-        <div class="progress">
+        <div class="progress" style="margin-bottom:0;">
           @if($shop->customer == 1)
           <div class="progress-bar progress-bar-danger" style="width: 0%">
             <span class="sr-only">35% Complete (success)</span>
@@ -122,7 +118,7 @@
 
   <div class="col-xs-12">
     <h2>メニュー</h2>
-      <a class="btn btn-warning btn-lg" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
+      <a class="btn btn-warning" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
     <table class="table table-sm ">
   <thead>
     <tr>
@@ -135,14 +131,14 @@
     @foreach($shop->curries()->get() as $curry)
     <tr class="menu-table">
 
-      <td class="col-md-4 lead " style="vertical-align: middle;"><a href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
-      <td class="col-md-4 lead " style="vertical-align: middle;"> {{$curry->price}} 円</td>
-      <td class="col-md-4 lead" >
+      <td class="col-md-6 col-sm-6 lead " style="vertical-align: middle;"><a href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
+      <td class="col-md-3 col-sm-3 lead " style="vertical-align: middle;"> {{$curry->price}} 円</td>
+      <td class="col-md-3 col-sm-3 lead" >
         <a href="/shops/{{$shop->id}}/curries/{{$curry->id}}">
         @if($curry->photos()->exists())
-          <img src="http://drive.google.com/uc?export=view&id={{ $curry->photos()->first()->image }}" style="width: 70%; height:120px;">
+          <img src="http://drive.google.com/uc?export=view&id={{ $curry->photos()->first()->image }}" style="width: 100%; height: 120px; object-fit:cover;">
         @else
-          <img src="/images/noimage.png" style="width: 70%; height: 120px "/>
+          <img src="/images/noimage.png" style="width: 100%; height: 120px; object-fit:cover;"/>
         @endif
         </a>
       </td>
@@ -153,7 +149,7 @@
 
     <h2>アクセス</h2>
       <p>{{$shop->address}}</p>
-      <div id="map" style="width: 90%; height: 500px;"></div>
+      <div id="map" style="width: 100%; height: 500px;"></div>
 
     <h2>投稿されたレビュー</h2>
       @foreach($shop->reviews()->get() as $review)

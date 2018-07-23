@@ -2,16 +2,14 @@
 
 @section('content')
 
-<div class="contents row">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
   <div class="col-xs-12">
     <h1>{{ $curry->curry_name }}</h1>
     <p>
       <a href="/shops/{{ $curry->shop->id }}">{{ $curry->shop->shop_name }}</a>
     </p>
   </div>
-</div>
 
-<div class="contents row">
   <div class="col-xs-6">
     <div class="container">
 
@@ -32,12 +30,12 @@
     <!-- この中にお店の詳細情報を追加していく -->
 <div class="table-responsive">
   <h3>詳細情報</h3>
-  <table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered table-hover table-condensed">
     <thead>
     </thead>
     <tbody>
       <tr>
-        <td>価格</td><td>{{ $curry->price }}円</td>
+        <td class="col-xs-5">価格</td><td>{{ $curry->price }}円</td>
       </tr>
       <tr>
         <td>種類</td><td>@if ($curry->curry_type == 0)
@@ -114,21 +112,21 @@
         </td>
       </tr>
       <tr>
-        <td>大盛り・ハーフ</td><td>@if ($curry->hot_rate == 0)
+        <td>大盛り・ハーフ</td><td>@if ($curry->amount == 0)
          不明
-      @elseif ($curry->hot_rate == 1)
+      @elseif ($curry->amount == 1)
         可
-      @elseif ($curry->hot_rate == 2)
+      @elseif ($curry->amount == 2)
         不可
       @endif</td>
       </tr>
       <tr>
-        <td>ナンor米</td><td>@if ($curry->naan_rice == 0)
+        <td>ライスorナン</td><td>@if ($curry->naan_rice == 0)
          不明
       @elseif ($curry->naan_rice == 1)
-        ナン
-      @elseif ($curry->naan_rice == 2)
         ライス
+      @elseif ($curry->naan_rice == 2)
+        ナン
       @elseif ($curry->naan_rice == 3)
         両方
       @elseif ($curry->naan_rice == 4)
@@ -141,7 +139,6 @@
 </div>
 
 
-<div class="contents row">
   <div class="col-xs-12">
     <h2>投稿されたレビュー</h2>
       @foreach($curry->reviews()->get() as $review)
@@ -159,9 +156,8 @@
         </div>
       @endforeach
   </div>
-</div>
 
-<div class="contents row">
+
   <div class="col-xs-12">
     <h2>レビューを投稿する</h2>
         <!-- ここにレビュー投稿フォーム -->
@@ -202,7 +198,7 @@
       @endif
 
   </div>
-</div>
+
 </div>
 
 @endsection

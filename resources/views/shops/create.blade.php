@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="contents row">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
 {{ Form::open(['url' => "/shops", 'method' => 'post', 'files' => true]) }}
 <h3>店舗を登録する</h3>
 
