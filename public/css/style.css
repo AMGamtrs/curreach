@@ -5,7 +5,9 @@
 }
 
 body{
-  background-color: #F7E7B0;
+  background-color: #ffb613;
+  background-image: url("/images/backimage.png");
+  background-repeat: repeat;
 }
 
 .topimg{
@@ -25,10 +27,18 @@ body{
 }
 
 .navbar-curry{
-  background-color: #DAB180;
+  background-color: #211;/*#e2bb1e;/*ナビバーの色*/
   background-image: none;
   border: #FFFFAA;
   border-radius: 0px;
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: #e2e0da;/*ナビバーリンクの色*/
+}
+
+div.jumbotron.topimg{
+  box-shadow: 0px 0px 700px rgba(72,60,56,0.5);/*背景グラデカゲ*/
 }
 
 .slick-slider{
