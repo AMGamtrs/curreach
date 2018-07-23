@@ -15,7 +15,6 @@
   <body>
     <div class="wrap">
       <nav class="navbar navbar-default navbar-curry">
-        <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -27,6 +26,12 @@
             <a class="navbar-brand" href="/"><img class="logo" src="/images/logo.png" alt="カレーリーチ"></a>
           </div>
 
+          <form class="navbar-form navbar-right" role="search" action='/csearch'>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" name="keyword">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true" style="font-size:14px;"></span></button>
+          </form>
             <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
               <li class="dropdown">
@@ -47,14 +52,8 @@
               <li><a href="/register">新規登録</a></li>
               <li><a href="/login">ログイン</a></li>
               @endif
-            <form class="navbar-form navbar-right" role="search" action='/csearch'>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="keyword">
-              </div>
-              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true" style="font-size:14px;"></span></button>
-            </form>
             </ul>
-          </div><!-- /.container-fluid -->
+
         </nav>
 
       @yield('content')

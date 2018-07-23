@@ -166,7 +166,7 @@
             </span>
           <div class="review_review">{{ $review->review }} </div>
           @foreach($review->photos()->get() as $photo)
-            <div class="review_img"><img src="/images/reviews/{{ $photo->image }}"></div>
+            <div class="review_img"><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></div>
           @endforeach
         </div>
       @endforeach

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Image;
-use Strorage;
+use Storage;
 use File;
 
 class AuthController extends Controller
@@ -71,22 +71,22 @@ class AuthController extends Controller
       if(!empty($data['icon'])){
         $fileName = $data['icon']->getClientOriginalName();
         // 写真をローカルに保存
-        Image::make($data['icon'])->save(public_path() . '/images/users/' . $fileName);
+        //Image::make($data['icon'])->save(public_path() . '/images/users/' . $fileName);
         // 写真をドライブに保存
-        //$fileData = File::get($data['icon']);
-        //Storage::disk('userss_google')->put($fileName, $fileData);
-        //$drivename = Storage::disk('users_google')->url($fileName);
-        //$drivename = substr($drivename, 31, -13);
+        $fileData = File::get($data['icon']);
+        Storage::disk('users_google')->put($fileName, $fileData);
+        $drivename = Storage::disk('users_google')->url($fileName);
+        $drivename = substr($drivename, 31, -13);
       }
       else{
-        $fileName=null;
+        $drivename=null;
       }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'birthday' => $data['calendar'],
-            'icon' => $fileName,
+            'icon' => $drivename,
         ]);
     }
 }

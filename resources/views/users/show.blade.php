@@ -5,106 +5,54 @@
 <div class="container-fulid">
   <div class="row">
 
-    <div class="col-md-3 text-center col-md-offset-1" style="background-color: #FFFFF0;">
-
-
-      <h4>hello！{{Auth::user()->name}}さん</h4>
-
-
-        <img src="/images/users/{{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px;"> 
-        <br>
-        <br>
-        <hr style="color: black;">
-        <br>
-        <br>
-        <div class="container-fulid">
-          <div class="row">
-            <a href="">
-              <div class="col-md-4" style="border-right: solid 1px black; height: 40px; ">
-                <div>プロフィール</div>
-              </div>
-            </a>
-
-            <a href="">
-              <div class="col-md-4"  style="border-right: solid 1px black;height: 40px;">
-                <div>投稿一覧</div>
-              </div>
-            </a>
-
-            <a href="https://tech-camp.in">
-              <div class="col-md-4" height: 40px;　vertical-align: middle;>
-                <div>プロフィール編集</div>
-              </div>
-            </a>
-
-          </div>
-        </div>
-
-        <br>
-        <br>
-
-        <h3>今日のオススメ</h3>
-
-            <h4>カレー写真</h4>
-            <h4>カレー写真</h4>
-            <h4>カレー写真</h4>
-            <h4>カレー写真</h4>
-            <h4>カレー写真</h4>
-
-
-
+    <div class="col-md-2 text-center col-md-offset-1" style="background-color: #FFFFF0; border-radius:5px; margin-bottom:20px;">
+      @include('users.profileleft')
     </div>
 
-    <div class="col-md-6 col-md-offset-1" style="background-color: #FFFFF0;">
+    <div class="col-md-7 col-md-offset-1" style="background-color: #FFFFF0; border-radius:5px; margin-bottom:20px;">
       <div class="col-md-offset-1">
 
-        <h2>投稿一覧</h2>
-　　　　　<h3>投稿した店舗</h3>
-        <table>
-          <tr>
-            <th>投稿日</th>
-            <th>店舗名</th>
-          </tr>
-          <tr>
-            <td>2018/07/06</td>
-            <td>店舗名</td>
-          </tr>
-          <tr>
-            <td>2014/10/03</td>
-            <td>店舗名</td>
-          </tr>
-          <tr>
-            <td>2014/09/27</td>
-            <td>店舗名</td>
-          </tr>
-        </table>
+        <div class="page-header"><h2>投稿レビュー</h2></div>
 
+        <h3>店舗のレビュー</h3>
+<div class="col-md-offset-1">
+        @foreach ($shop_reviews as $review)
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+      @if($review->shop->photos()->exists())
+        <img src="http://drive.google.com/uc?export=view&id={{$review->shop->photos()->first()->image}}" alt="{{$review->shop->shop_name}}" style="width:120px;height:120px;object-fit:cover;"/>
+      @else
+        <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+      @endif
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{$review->shop->shop_name}}</h4>
+    <p>{{$review->review}}</p>
+  </div>
+</div>
+@endforeach
+</div>
 
-      <h3>投稿したカレー</h3>
-      <table>
-          <tr>
-            <th>投稿日</th>
-            <th>カレー名</th>
-          </tr>
-          <tr>
-            <td>2018/07/06</td>
-            <td>カレー名</td>
-          </tr>
-          <tr>
-            <td>2014/10/03</td>
-            <td>カレー名</td>
-          </tr>
-          <tr>
-            <td>2014/09/27</td>
-            <td>カレー名</td>
-          </tr>
-        </table>
+        <h3>カレーのレビュー</h3>
 
-      　<h3>どうしましょう</h3>
-       <h3>どうしましょう</h3>
-       <h3>どうしましょう</h3>
-
+        @foreach ($curry_reviews as $review)
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            @if($review->curry->photos()->exists())
+              <img src="http://drive.google.com/uc?export=view&id={{$review->curry->photos()->first()->image}}" alt="{{$review->curry->curry_name}}"/>
+            @else
+              <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+            @endif
+            <div class="caption overflow-hidden">
+              <h4>{{$review->curry->curry_name}}</h4>
+            </div>
+          </div>
+        </div>
+        @endforeach
       </div>
+
     </div>
 
   </div>
