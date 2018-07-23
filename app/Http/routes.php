@@ -34,6 +34,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/shops/{id1}/curries/{id2}', 'CurriesController@show');
     Route::get('/csearch', 'CurriesController@search');
     Route::get('/ssearch', 'ShopsController@search');
-    Route::get('/shopreview', 'ReviewsController@shopreview');
+    Route::post('/shopreview', 'ReviewsController@shopreview');
     Route::post('/curryreview', 'ReviewsController@curryreview');
 });

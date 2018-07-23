@@ -50,6 +50,9 @@ class PhotoTableSeeder extends Seeder
   ['id' => '35', 'shop_id' => '9', 'curry_id' => '0', 'review_id' => '0', 'image' => '1eDa6bpRdHQBFYz-S7wbJMqrUqLJhNAh2', ],
   ['id' => '36', 'shop_id' => '9', 'curry_id' => '0', 'review_id' => '0', 'image' => '1LwM1V3bdNLglGjjRfPfbYfnnXk_MSrfK', ],
   ['id' => '37', 'shop_id' => '0', 'curry_id' => '21', 'review_id' => '0', 'image' => '1D_oyUnQvQvarffvzZHtgIYwdlsPn3bLl', ],
+  ['id' => '38', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '1', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
+  ['id' => '39', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '7', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
+  ['id' => '40', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '16', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
 ];
 
       DB::table('photos')->insert($photos);
