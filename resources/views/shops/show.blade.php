@@ -174,7 +174,7 @@
     <h2>レビューを投稿する</h2>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
-          {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
+          {{Form::open(['url' => "/shopreview", 'method' => 'post', 'files' => true])}}
           <div class="review_form_name">投稿者名:{{ Auth::user()->name }}</div>
           {{Form::hidden('shop_id', "$shop->id")}}
           <div class="field">
