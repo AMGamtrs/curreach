@@ -57,7 +57,7 @@
 <p><span class="col-1">客層</span>
   <span class="col-2">
     <form action="xxx.php" method="post">
-      <label>男性多め←→女性多め<input type="range" name="customer_range">
+      <label>男性多め←→女性多め<input type="range" min="1" max="5" step="1" name="customer_range">
       </label>
     </form>
   </span>
@@ -80,8 +80,10 @@
 <p><span class="col-1">充電</span>
   <span class="col-2">
     <select name="charging" size="1">
-      <option value="0">あり</option>
-      <option value="1">なし</option>
+      <option value="0">不明</option>
+      <option value="1">あり</option>
+      <option value="2">なし</option>
+
     </select>
   </span>
 </p>
@@ -91,8 +93,9 @@
 <p><span class="col-1">Wi-Fi</span>
   <span class="col-2">
     <select name="wifi" size="1">
-      <option value="0">あり</option>
-      <option value="1">なし</option>
+      <option value="0">不明</option>
+      <option value="1">あり</option>
+      <option value="2">なし</option>
     </select>
   </span>
 </p>

@@ -41,20 +41,81 @@
         <td>席数</td><td>{{$shop->seats}}</td>
       </tr>
       <tr>
-        <td>タバコ</td><td>{{$shop->smoking}}</td>
-      </tr>
       <td>公式HP・SNS</td><td>{{$shop->homepage}}</td>
       </tr>
-      <td>充電</td><td>{{$shop->charging}}</td>
+      <td>タバコ</td><td>@if ($shop->smoking == 0)
+         可
+      @elseif ($shop->smoking == 1)
+        不可
+      @else
+        分煙
+      @endif
+      </td>
       </tr>
-      <td>Wi-Fi</td><td>{{$shop->wifi}}</td>
+      <td>充電</td><td>@if ($shop->charging == 0)
+         不明
+      @elseif ($shop->smoking == 1)
+         あり
+      @else ($shop->smoking == 2)
+         なし
+      @endif
+      </td>
       </tr>
-      <td>客層</td><td>{{$shop->customer}}</td>
+      <td>Wi-Fi</td><td>@if ($shop->wifi == 0)
+         不明
+      @elseif ($shop->wifi == 1)
+         あり
+      @else ($shop->wifi == 2)
+         なし
+      @endif
+      </td>
+      </tr>
+      <td>客層</td>
+      <td>
+        <div class="progress">
+          @if($shop->customer == 1)
+          <div class="progress-bar progress-bar-danger" style="width: 0%">
+            <span class="sr-only">35% Complete (success)</span>
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 100%">
+            男性 9割以上
+          </div>
+          @elseif($shop->customer == 2)
+          <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 25%">
+            女性 3割
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 75%">
+            男性 7割
+          </div>
+          @elseif($shop->customer == 3)
+          <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 50%">
+            女性 5割
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 50%">
+            男性 5割
+          </div>
+          @elseif($shop->customer == 4)
+          <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 75%">
+            女性 7割
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%">
+            男性 3割
+          </div>
+          @elseif($shop->customer == 5)
+          <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 100%">
+            女性 9割以上
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 0%">
+          </div>
+          @endif
+        </div>
+      </td>
       </tr>
       <td>ピーク時間</td><td>{{$shop->peak_time}}</td>
       </tr>
     </tbody>
   </table>
+
  </div><!--/table-responsive-->
 
 </div>
@@ -113,7 +174,7 @@
     <h2>レビューを投稿する</h2>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
-          {{Form::open(['url' => "/shopreview/$shop->id", 'method' => 'post', 'files' => true])}}
+          {{Form::open(['url' => "/shopreview", 'method' => 'post', 'files' => true])}}
           <div class="review_form_name">投稿者名:{{ Auth::user()->name }}</div>
           {{Form::hidden('shop_id', "$shop->id")}}
           <div class="field">
