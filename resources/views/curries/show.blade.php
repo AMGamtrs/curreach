@@ -40,28 +40,85 @@
         <td>価格</td><td>{{ $curry->price }}円</td>
       </tr>
       <tr>
-        <td>種類</td><td>{{ $curry->curry_type }}</td>
+        <td>種類</td><td>@if ($curry->curry_type == 0)
+         不明
+      @elseif ($curry->curry_type == 1)
+        洋風カレー
+      @elseif ($curry->curry_type == 2)
+        スープカレー
+      @elseif ($curry->curry_type == 3)
+        インドカレー
+      @elseif ($curry->curry_type == 4)
+        ご当地カレー
+      @elseif ($curry->curry_type == 5)
+        その他
+      @endif
+      </td>
       </tr>
       <tr>
-        <td>メイン具材</td><td>{{ $curry->main_ingredient }}</td>
+        <td>メイン具材</td><td>@if ($curry->main_ingredient == 0)
+         不明
+      @elseif ($curry->main_ingredient == 1)
+        チキン
+      @elseif ($curry->main_ingredient == 2)
+        ビーフ
+      @elseif ($curry->main_ingredient == 3)
+        ポーク
+      @elseif ($curry->main_ingredient == 4)
+        マトン
+      @elseif ($curry->main_ingredient == 5)
+        シーフード
+      @elseif ($curry->main_ingredient == 6)
+        野菜
+      @elseif ($curry->main_ingredient == 7)
+        その他
+      @endif</td>
       </tr>
       <tr>
-        <td>カロリー</td><td>{{ $curry->calorie }}</td>
+        <td>カロリー</td><td>{{ $curry->calorie }}kcal</td>
       </tr>
       <tr>
         <td>アレルギー食材</td><td>{{ $curry->allergies }}</td>
       </tr>
       <tr>
-        <td>辛さ</td><td>{{ $curry->hot_rate }}</td>
+        <td>辛さ</td><td>@if ($curry->hot_rate == 0)
+         不明
+      @elseif ($curry->hot_rate == 1)
+        激甘
+      @elseif ($curry->hot_rate == 2)
+        ちょい甘
+      @elseif ($curry->hot_rate == 3)
+        普通
+      @elseif ($curry->hot_rate == 4)
+        ちょい辛
+      @elseif ($curry->hot_rate == 5)
+        激辛
+      @endif</td>
       </tr>
       <tr>
         <td>トッピング</td><td>{{ $curry->topping }}</td>
       </tr>
       <tr>
-        <td>量</td><td>{{ $curry->amount }}</td>
+        <td>大盛り・ハーフ</td><td>@if ($curry->hot_rate == 0)
+         不明
+      @elseif ($curry->hot_rate == 1)
+        可
+      @elseif ($curry->hot_rate == 2)
+        不可
+      @endif</td>
       </tr>
       <tr>
-        <td>ナンor米</td><td>{{ $curry->naan_rice }}</td>
+        <td>ナンor米</td><td>@if ($curry->naan_rice == 0)
+         不明
+      @elseif ($curry->naan_rice == 1)
+        ナン
+      @elseif ($curry->naan_rice == 2)
+        ライス
+      @elseif ($curry->naan_rice == 3)
+        両方
+      @elseif ($curry->naan_rice == 4)
+        その他
+      @endif</td>
       </tr>
     </tbody>
   </table>

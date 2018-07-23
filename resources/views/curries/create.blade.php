@@ -87,16 +87,17 @@
 
         <div class="field">
             <p><span class="col-1">大盛り・ハーフ</span>
-            <span class="col-2"><select name="smoking" size="1">
-              <option value="0">可</option>
-              <option value="1">不可</option>
+            <span class="col-2"><select name="amount" size="1">
+              <option value="0">不明</option>
+              <option value="1">可</option>
+              <option value="2">不可</option>
             </select></span>
             </p>
         </div>
 
         <div class="field">
             <p><span class="col-1">ナン・ライス</span>
-            <span class="col-2"><select name="hot_rate">
+            <span class="col-2"><select name="naan_rice">
               <option value="0">ナン又はライスを選択してください</option>
               <option value="1">ナン</option>
               <option value="2">ライス</option>
