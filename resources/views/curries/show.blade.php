@@ -75,10 +75,20 @@
       @endif</td>
       </tr>
       <tr>
-        <td>カロリー</td><td>{{ $curry->calorie }}kcal</td>
+        <td>カロリー</td><td>@if(!empty($curry->calorie))
+          {{ $curry->calorie }}kcal
+          @else
+          不明
+          @endif
+          </td>
       </tr>
       <tr>
-        <td>アレルギー食材</td><td>{{ $curry->allergies }}</td>
+        <td>アレルギー食材</td><td>@if(!empty($curry->allergies))
+          {{ $curry->allergies }}
+          @else
+          不明
+          @endif
+        </td>
       </tr>
       <tr>
         <td>辛さ</td><td>@if ($curry->hot_rate == 0)
@@ -96,7 +106,12 @@
       @endif</td>
       </tr>
       <tr>
-        <td>トッピング</td><td>{{ $curry->topping }}</td>
+        <td>トッピング</td><td>@if(!empty($curry->topping))
+          {{ $curry->topping }}
+          @else
+          不明
+          @endif
+        </td>
       </tr>
       <tr>
         <td>大盛り・ハーフ</td><td>@if ($curry->hot_rate == 0)
@@ -139,7 +154,7 @@
             </span>
           <div class="review_review">{{ $review->review }} </div>
           @foreach($review->photos()->get() as $photo)
-            <div class="review_img"><img src="/images/reviews/{{ $photo->image }}"></div>
+            <div class="review_img"><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></div>
           @endforeach
         </div>
       @endforeach
