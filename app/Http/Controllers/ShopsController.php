@@ -53,8 +53,11 @@ class ShopsController extends Controller
     $req_ne_lng = floatval($request['map_ne_lng']);
     $req_sw_lng = floatval($request['map_sw_lng']);
 
-    $shops = DB::select(DB::raw("SELECT s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id
-                                  WHERE lat<$req_ne_lat AND lat>$req_sw_lat AND lng<$req_ne_lng AND lng>$req_sw_lng GROUP BY id ORDER BY id DESC LIMIT 20"));
+//    mysql用
+//    $shops = DB::select(DB::raw("SELECT s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id
+//                                  WHERE lat<$req_ne_lat AND lat>$req_sw_lat AND lng<$req_ne_lng AND lng>$req_sw_lng GROUP BY id ORDER BY id DESC LIMIT 20"));
+    $shops = DB::select(DB::raw("SELECT DISTINCT ON(id) s.*, p.shop_id, p.image FROM shops AS s LEFT JOIN photos AS p ON s.id = p.shop_id
+                                  WHERE lat<$req_ne_lat AND lat>$req_sw_lat AND lng<$req_ne_lng AND lng>$req_sw_lng  ORDER BY id DESC LIMIT 20"));
 
      return response()->json($shops);
   }
