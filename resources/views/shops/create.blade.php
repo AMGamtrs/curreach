@@ -1,107 +1,111 @@
 @extends('layout')
 
 @section('content')
-<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
-{{ Form::open(['url' => "/shops", 'method' => 'post', 'files' => true]) }}
-<h3>店舗を登録する</h3>
+<div class="container container-small" style="background-color: #fff; border-radius:5px; border:1px solid #ddd; margin-bottom:20px; padding-bottom:20px;">
+{{ Form::open(['url' => "/shops", 'method' => 'post', 'files' => true, 'class' => 'form-horizontal']) }}
+<h3 class="text-center register-h">店舗を登録する</h3>
 
-<div class="field">
-  <p><span class="col-1">店舗名(必須)</span>
-    <span class="col-2">
-      <input type="text" name="name" value="" required="required" >
-    </span><br>
-  </p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">店舗名(必須)</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="name" value="" required="required" >
+    </div>
 </div>
 
-<div class="field">
-外観写真{{ Form::file('picture') }}
+<div class="form-group field">
+    <label for="icon" class="col-md-4 col-sm-4 control-label">外観写真</label>
+    <div class="col-md-6 col-sm-6">
+        {{ Form::file('picture') }}
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">住所</span>
-  <span class="col-2"><input type="text" name="address"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">住所</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="address" value="">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">営業時間</span>
-  <span class="col-2"><input type="text" name="business_hours"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">営業時間</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="business_hours" value="">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">定休日</span>
-  <span class="col-2"><input type="text" name="regular_holiday"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">定休日</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="regular_holiday" value="">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">座席数</span>
-  <span class="col-2"><input type="text" name="seats"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">座席数</label>
+      <div class="col-md-6 col-sm-6">
+        <div class="input-group">
+          <input class="form-control" type="text" name="seats" value="">
+        <div class="input-group-addon">席</div>
+      </div>
+  </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">公式HP・SNS</span>
-  <span class="col-2"><input type="text" name="homepage"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">公式HP・SNS</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="homepage" value="">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">ピーク時間</span>
-  <span class="col-2"><input type="text" name="peak_time"></span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">ピーク時間</label>
+    <div class="col-md-6 col-sm-6">
+      <input class="form-control" type="text" name="peak_time" value="">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">客層</span>
-  <span class="col-2">
-    <form action="xxx.php" method="post">
-      <label>男性多め←→女性多め<input type="range" min="1" max="5" step="1" name="customer_range">
-      </label>
-    </form>
-  </span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">客層</label>
+    <div class="col-md-6 col-sm-6">
+      男性多め←<div class="text-right pull-right">→女性多め</div><input type="range" min="1" max="5" step="1" name="customer_range">
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">タバコ</span>
-  <span class="col-2">
-    <select name="smoking" size="1">
-      <option value="0">可</option>
-      <option value="1">不可</option>
-      <option value="2">分煙</option>
-    </select>
-  </span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">タバコ</label>
+    <div class="col-md-6 col-sm-6">
+      <select class="form-control" name="smoking" size="1" style="height:34px;">
+        <option value="0">不明</option>
+        <option value="1">可</option>
+        <option value="2">不可</option>
+        <option value="3">分煙</option>
+      </select>
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">充電</span>
-  <span class="col-2">
-    <select name="charging" size="1">
-      <option value="0">不明</option>
-      <option value="1">あり</option>
-      <option value="2">なし</option>
-
-    </select>
-  </span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">充電</label>
+    <div class="col-md-6 col-sm-6">
+      <select class="form-control" name="charging" size="1" style="height:34px;">
+        <option value="0">不明</option>
+        <option value="1">あり</option>
+        <option value="2">なし</option>
+      </select>
+    </div>
 </div>
 
-<div class="field">
-<p><span class="col-1">Wi-Fi</span>
-  <span class="col-2">
-    <select name="wifi" size="1">
-      <option value="0">不明</option>
-      <option value="1">あり</option>
-      <option value="2">なし</option>
-    </select>
-  </span>
-</p>
+<div class="field form-group">
+    <label class="col-md-4 col-sm-4 control-label">Wi-Fi</label>
+    <div class="col-md-6 col-sm-6">
+      <select class="form-control" name="wifi" size="1" style="height:34px;">
+        <option value="0">不明</option>
+        <option value="1">あり</option>
+        <option value="2">なし</option>
+      </select>
+    </div>
 </div>
 
-<div id="map" style="width: 90%; height: 300px"></div>
+<div id="map" style="height: 300px"></div>
 
 <div class="field">
   <div class="form-group">
@@ -111,7 +115,7 @@
 </div>
 
 <div class="actions">
-    <input type="submit" value="登録">
+    <input class="center-block btn btn-default" type="submit" value="登録">
 </div>
 {{ Form::close() }}
 
