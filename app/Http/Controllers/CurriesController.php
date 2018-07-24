@@ -103,23 +103,6 @@ class CurriesController extends Controller
       $recipe->price = $request->price;
       $pr_url = url()->previous();
       $recipe->shop_id = $id1;
-
-      if(!empty($request->picture)){
-        $fileName = $request->picture->getClientOriginalName();
-        // 写真をローカルに保存
-        //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
-        // 写真をドライブに保存
-        $fileData = File::get($request->picture);
-        Storage::disk('curries_google')->put($fileName, $fileData);
-        //写真DBに入力
-        $photo = new Photo();
-        //$photo->image = $fileName;
-        $drivename = Storage::disk('curries_google')->url($fileName);
-        $drivename = substr($drivename, 31, -13);
-        $photo->image = $drivename;
-        $photo->curry_id = $recipe->id;
-        $photo->save();
-      }
       if(!empty($request->curry_type)){
         $recipe->curry_type = $request->curry_type;
       }
@@ -169,6 +152,23 @@ class CurriesController extends Controller
         $recipe->naan_rice = 0;
       }
       $recipe->save();
+      
+      if(!empty($request->picture)){
+        $fileName = $request->picture->getClientOriginalName();
+        // 写真をローカルに保存
+        //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+        // 写真をドライブに保存
+        $fileData = File::get($request->picture);
+        Storage::disk('curries_google')->put($fileName, $fileData);
+        //写真DBに入力
+        $photo = new Photo();
+        //$photo->image = $fileName;
+        $drivename = Storage::disk('curries_google')->url($fileName);
+        $drivename = substr($drivename, 31, -13);
+        $photo->image = $drivename;
+        $photo->curry_id = $recipe->id;
+        $photo->save();
+      }
       return redirect('/shops/'.$id1.'/curries/'.$recipe->id);
   }
 }
