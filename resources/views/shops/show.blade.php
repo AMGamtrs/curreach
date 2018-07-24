@@ -8,8 +8,6 @@
   </div>
 
   <div class="col-xs-6">
-    <div class="container">
-
       <div class="showtop_img single-item">
         @foreach($shop->photos()->get() as $photo)
         <h3>
@@ -17,7 +15,6 @@
         </h3>
         @endforeach
       </div>
-    </div>
   </div>
 
     <!-- 地図を表示 -->
@@ -31,17 +28,34 @@
 
     <tbody>
       <tr>
-        <td class="col-xs-4">営業時間</td><td class="col-xs-8">{{$shop->business_hours}}</td>
+        <td class="col-xs-4">営業時間</td><td class="col-xs-8">@if ($shop->business_hours == null)
+          不明
+        @else
+          {{$shop->business_hours}}
+        @endif
+        </td>
       </tr>
       <tr>
-        <td>席数</td><td>{{$shop->seats}}</td>
+        <td>席数</td><td>@if ($shop->seats == null)
+          不明
+        @else
+          {{$shop->seats}}
+        @endif
+        </td>
       </tr>
       <tr>
-      <td>公式HP・SNS</td><td><a href="{{$shop->homepage}}" style="word-wrap: break-word;">{{$shop->homepage}}</a></td>
+        <td>公式HP・SNS</td><td>@if ($shop->homepage == null)
+          不明
+        @else
+          <a href="{{$shop->homepage}}" style="word-wrap: break-word;">{{$shop->homepage}}</a>
+        @endif
+        </td>
       </tr>
       <td>タバコ</td><td>@if ($shop->smoking == 0)
-         可
+         不明
       @elseif ($shop->smoking == 1)
+        可
+      @elseif ($shop->smoking == 2)
         不可
       @else
         分煙
@@ -50,9 +64,9 @@
       </tr>
       <td>充電</td><td>@if ($shop->charging == 0)
          不明
-      @elseif ($shop->smoking == 1)
+      @elseif ($shop->charging == 1)
          あり
-      @else ($shop->smoking == 2)
+      @else ($shop->charging == 2)
          なし
       @endif
       </td>
@@ -107,7 +121,13 @@
         </div>
       </td>
       </tr>
-      <td>ピーク時間</td><td>{{$shop->peak_time}}</td>
+      <td>ピーク時間</td><td>@if ($shop->peak_time == null)
+        不明
+      @else
+        {{$shop->peak_time}}
+      @endif
+
+      </td>
       </tr>
     </tbody>
   </table>

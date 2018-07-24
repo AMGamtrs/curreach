@@ -69,28 +69,84 @@ class ShopsController extends Controller
 
   public function store(Request $request)
   {
-      $fileName = $request->picture->getClientOriginalName();
-      // 写真をローカルに保存
-      //Image::make($request->picture)->save(public_path() . '/images/shops/' . $fileName);
-      // 写真をドライブに保存
-      $fileData = File::get($request->picture);
-      Storage::disk('shops_google')->put($fileName, $fileData);
-
       $shop = new Shop();
       //店舗DBに入力
       $shop->shop_name = $request->name;
       $shop->lat = $request->lat;
       $shop->lng = $request->lng;
+      $shop->customer = $request->customer_range;
+      if(!empty($request->address)){
+        $shop->address = $request->address;
+      }
+      else{
+        $shop->address = null;
+      }
+      if(!empty($request->business_hours)){
+        $shop->business_hours = $request->business_hours;
+      }
+      else{
+        $shop->business_hours = null;
+      }
+      if(!empty($request->regular_holiday)){
+        $shop->regular_holiday = $request->regular_holiday;
+      }
+      else{
+        $shop->regular_holiday = null;
+      }
+      if(!empty($request->seats)){
+        $shop->seats = $request->seats;
+      }
+      else{
+        $shop->seats = null;
+      }
+      if(!empty($request->homepage)){
+        $shop->homepage = $request->homepage;
+      }
+      else{
+        $shop->homepage = null;
+      }
+      if(!empty($request->smoking)){
+        $shop->smoking = $request->smoking;
+      }
+      else{
+        $shop->smoking = null;
+      }
+      if(!empty($request->charging)){
+        $shop->charging = $request->charging;
+      }
+      else{
+        $shop->charging = null;
+      }
+      if(!empty($request->wifi)){
+        $shop->wifi = $request->wifi;
+      }
+      else{
+        $shop->wifi = null;
+      }
+      if(!empty($request->peak_time)){
+        $shop->peak_time = $request->peak_time;
+      }
+      else{
+        $shop->peak_time = null;
+      }
       $shop->save();
 
-      //写真DBに入力
-      $photo = new Photo();
-      //$photo->image = $fileName;
-      $drivename = Storage::disk('shops_google')->url($fileName);
-      $drivename = substr($drivename, 31, -13);
-      $photo->image = $drivename;
-      $photo->shop_id = $shop->id;
-      $photo->save();
+      if(!empty($request->picture)){
+        $fileName = $request->picture->getClientOriginalName();
+        // 写真をローカルに保存
+        //Image::make($request->picture)->save(public_path() . '/images/shops/' . $fileName);
+        // 写真をドライブに保存
+        $fileData = File::get($request->picture);
+        Storage::disk('shops_google')->put($fileName, $fileData);
+        //写真DBに入力
+        $photo = new Photo();
+        //$photo->image = $fileName;
+        $drivename = Storage::disk('shops_google')->url($fileName);
+        $drivename = substr($drivename, 31, -13);
+        $photo->image = $drivename;
+        $photo->shop_id = $shop->id;
+        $photo->save();
+      }
       return redirect('/shops/'.$shop->id);
   }
 }
