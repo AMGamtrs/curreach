@@ -5,7 +5,7 @@
     <li class="search_free">
       フリーワード検索
       <div>
-        <form class="navbar-form navbar-right" role="search" action='/csearch'>
+        <form class="navbar-form navbar-right" role="search" action='/csearch' onclick="f()" name="freeword">
           <!-- 検索対象指定 -->
           <input name="mode" type="radio" value="curry">カレー
           <input name="mode" type="radio" value="shop">店舗<br>
@@ -125,19 +125,19 @@
     <li><a>禁煙/喫煙の店舗を探す</a>
       <ul>
         <li>
-          <form name="smoking_ng" action='/csearch'>
+          <form name="smoking_ng" action='/ssearch'>
             <input type="hidden" name="smoking" value="1">
             <a href="javascript:rice.submit()">禁煙</a>
           </form>
         </li>
         <li>
-          <form name="smoking_both" action='/csearch'>
+          <form name="smoking_both" action='/ssearch'>
             <input type="hidden" name="smoking" value="2">
             <a href="javascript:othersub.submit()">分煙</a>
           </form>
         </li>
         <li>
-          <form name="smoking_ok" action='/csearch'>
+          <form name="smoking_ok" action='/ssearch'>
             <input type="hidden" name="smoking" value="3">
             <a href="javascript:naan.submit()">喫煙</a>
           </form>
@@ -148,25 +148,25 @@
     <li><a>席数で店舗を探す</a>
       <ul>
         <li>
-          <form name="seats_10" action='/csearch'>
+          <form name="seats_10" action='/ssearch'>
             <input type="hidden" name="seats" value="1">
             <a href="javascript:rice.submit()">0〜10席</a>
           </form>
         </li>
         <li>
-          <form name="seats_20" action='/csearch'>
+          <form name="seats_20" action='/ssearch'>
             <input type="hidden" name="seats" value="2">
             <a href="javascript:othersub.submit()">11〜20席</a>
           </form>
         </li>
         <li>
-          <form name="seats_30" action='/csearch'>
+          <form name="seats_30" action='/ssearch'>
             <input type="hidden" name="seats" value="3">
             <a href="javascript:othersub.submit()">21〜30席</a>
           </form>
         </li>
         <li>
-          <form name="seats_40" action='/csearch'>
+          <form name="seats_40" action='/ssearch'>
             <input type="hidden" name="seats" value="4">
             <a href="javascript:othersub.submit()">31〜席</a>
           </form>
@@ -176,3 +176,13 @@
 
 
   </ul>
+
+<script type="text/javascript">
+function f(){
+  if (document.freeword.mode.value=="curry"){
+    document.freeword.action="/csearch";
+  }else{
+    document.freeword.action="/ssearch";
+  }
+}
+</script>

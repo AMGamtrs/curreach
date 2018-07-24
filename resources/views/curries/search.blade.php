@@ -15,6 +15,19 @@
     <div class="page-header">
       <h1><small>「{{$word}}」の検索結果</small></h1>
     </div>
+    <div class="search_sort">
+      <!-- 検索結果ソート条件 -->
+      <div>並び替え</div>
+      {{ Form::open(['url' => "/csearch", 'method' => 'get']) }}
+        {{Form::radio('sort', 'value_desc', true,['class' => 'sort_button']) }}価格が安い順
+        {{Form::radio('sort', 'value_asc', false,['class' => 'sort_button']) }}価格が高い順<br>
+        {{Form::radio('sort', 'abc_asc', false,['class' => 'sort_button']) }}あいうえお順(昇順)
+        {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
+        {{Form::hidden('mode', $mode)}}
+        {{Form::hidden('word', $word)}}
+        {{Form::submit()}}
+      {{ Form::close() }}
+    </div><!-- search_sort -->
     @foreach ($curries as $curry)
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
@@ -39,6 +52,17 @@
         <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> カレーを登録する店舗を選択してください</strong>
       </div>
     </div>
+      <div class="search_sort">
+      <!-- 検索結果ソート条件 -->
+      <div>並び替え</div>
+      {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
+        {{Form::radio('sort', 'abc_asc', false,['class' => 'sort_button']) }}あいうえお順(昇順)
+        {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
+        {{Form::hidden('mode', $mode)}}
+        {{Form::hidden('word', $word)}}
+        {{Form::submit()}}
+      {{ Form::close() }}
+      </div><!-- search_sort -->
     @foreach ($shops as $shop)
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
@@ -60,6 +84,17 @@
       <div class="page-header">
         <h1><small>「{{$word}}」の検索結果</small></h1>
       </div>
+      <div class="search_sort">
+        <!-- 検索結果ソート条件 -->
+        <div>並び替え</div>
+        {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
+          {{Form::radio('sort', 'abc_asc', false,['class' => 'sort_button']) }}あいうえお順(昇順)
+          {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
+          {{Form::hidden('mode', $mode)}}
+          {{Form::hidden('word', $word)}}
+          {{Form::submit()}}
+        {{ Form::close() }}
+      </div><!-- search_sort -->
       @foreach ($shops as $shop)
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
