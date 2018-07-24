@@ -55,6 +55,27 @@
       </div>
     </div>
     @endforeach
+    @elseif($mode == 2)
+    <!-- 店舗検索モード -->
+      <div class="page-header">
+        <h1><small>「{{$word}}」の検索結果</small></h1>
+      </div>
+      @foreach ($shops as $shop)
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          @if($shop->photos()->exists())
+            <img src="http://drive.google.com/uc?export=view&id={{$curry->photos()->first()->image}}" alt="{{$curry->curry_name}}"/>
+          @else
+            <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+          @endif
+          <div class="caption overflow-hidden">
+            <h4>{{$shop->curry_name}}</h4>
+            <p>{{$shop->address}}</p>
+            <p><a href="/shops/{{$shop->id}}" class="btn btn-warning" role="button">詳しくみる</a></p>
+          </div>
+        </div>
+      </div>
+      @endforeach
     @endif
   </div>
   </div>

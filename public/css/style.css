@@ -332,3 +332,10 @@ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6
     -ms-filter: grayscale(95%);
     filter: grayscale(95%);
 }
+
+/* search_sideber */
+
+li.search_free {
+  height: 100px;
+  border-bottom: 1px solid #eee;
+}
