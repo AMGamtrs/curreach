@@ -184,6 +184,19 @@
           @foreach($review->photos()->get() as $photo)
             <div class="review_img"><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></div>
           @endforeach
+          <div>
+            いいねの数：{{ $review->favorites()->count() }}
+          </div>
+          @if (Auth::check())
+            ログインしてます<br>
+            @if ( $review->favorites()->where('user_id', Auth::user()->id )->exists() > 0 )
+              すでにあります、ボタン押せない
+            @else
+              まだいいねしてない、ボタン押せる
+            @endif
+          @else
+            いいねしたければログインしてください
+          @endif
         </div>
       @endforeach
 
@@ -249,6 +262,26 @@
       position: map_center,
       map: map,
       icon: "{{ asset('assets/images/marker_small.png') }}"
+    });
+  }
+</script>
+<script>
+  function fav(){
+    console.log("fav");
+
+    var fav_data = 1;
+    //ajax通信でDBにいいね書き込み 結果取得
+    $.ajax({
+      url: '/favajax',
+      type: 'GET',
+      dataType: 'json',
+      timeout: 1000,
+      data: fav_data
+    }).done(function(responseData) {
+      //成功時の処理
+      console.log(responseData);
+    }).fail(function(error) {
+            console.log(error);
     });
   }
 </script>

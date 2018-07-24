@@ -36,4 +36,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/ssearch', 'ShopsController@search');
     Route::post('/shopreview', 'ReviewsController@shopreview');
     Route::post('/curryreview', 'ReviewsController@curryreview');
+    Route::get('/favajax', 'FavoritesController@favajax');
 });
