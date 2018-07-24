@@ -197,6 +197,8 @@
                 {{ Form::file('picture') }}
               </div>
           </div>
+          <br>
+          <br>
           <div class="actions">
             <input type="submit" value="投稿する">
           </div>

@@ -56,6 +56,10 @@ div.jumbotron.topimg{
   right: 0;
 }
 
+.slick-track{
+  margin-top: 35px;
+}
+
 .thumbnail img{
   object-fit: cover;
   width: 100%;
