@@ -49,7 +49,7 @@
             if (response['image'] == null){
               response['image'] = '<img src="/images/noimage.png" style="width: 100px; height: 80px">';
             }else{
-              response['image'] = '<img src="http://drive.google.com/uc?export=view&id=' + "response['image']" + '">';
+              response['image'] = '<img src="http://drive.google.com/uc?export=view&id=' + response['image'] + '">';
             }
 
             //店舗住所がないとき用
