@@ -97,77 +97,78 @@ class CurriesController extends Controller
 
   public function store(Request $request, $id1)
   {
-      $fileName = $request->picture->getClientOriginalName();
-      // 写真をローカルに保存
-      //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
-      // 写真をドライブに保存
-      $fileData = File::get($request->picture);
-      Storage::disk('curries_google')->put($fileName, $fileData);
-
       $recipe = new Curry();
       //カレーDBに入力
-      $recipe->curry_name = $request->name;
+      $recipe->curry_name = $request->curry_name;
       $recipe->price = $request->price;
       $pr_url = url()->previous();
       $recipe->shop_id = $id1;
-      if(!empty($recipe->curry_type)){
+
+      if(!empty($request->picture)){
+        $fileName = $request->picture->getClientOriginalName();
+        // 写真をローカルに保存
+        //Image::make($request->picture)->save(public_path() . '/images/curries/' . $fileName);
+        // 写真をドライブに保存
+        $fileData = File::get($request->picture);
+        Storage::disk('curries_google')->put($fileName, $fileData);
+        //写真DBに入力
+        $photo = new Photo();
+        //$photo->image = $fileName;
+        $drivename = Storage::disk('curries_google')->url($fileName);
+        $drivename = substr($drivename, 31, -13);
+        $photo->image = $drivename;
+        $photo->curry_id = $recipe->id;
+        $photo->save();
+      }
+      if(!empty($request->curry_type)){
         $recipe->curry_type = $request->curry_type;
       }
       else{
         $recipe->curry_type = 0;
       }
-      if(!empty($recipe->main_ingredient)){
+      if(!empty($request->main_type)){
         $recipe->main_ingredient = $request->main_type;
       }
       else{
         $recipe->main_ingredient = 0;
       }
-      if(!empty($recipe->calorie)){
-        $recipe->calorie = $request->kcal;
+      if(!empty($request->calorie)){
+        $recipe->calorie = $request->calorie;
       }
       else{
         $recipe->calorie = null;
       }
-      if(!empty($recipe->allergies)){
-        $recipe->allergies = $request->allergy;
+      if(!empty($request->allergies)){
+        $recipe->allergies = $request->allergies;
       }
       else{
         $recipe->allergies = null;
       }
-      if(!empty($recipe->hot_rate)){
-        $recipe->hot_rate = $request->hotflavor;
+      if(!empty($request->hot_rate)){
+        $recipe->hot_rate = $request->hot_rate;
       }
       else{
         $recipe->hot_rate = null;
       }
-      if(!empty($recipe->topping)){
+      if(!empty($request->topping)){
         $recipe->topping = $request->topping;
       }
       else{
         $recipe->topping = null;
       }
-      if(!empty($recipe->amount)){
-        $recipe->amount = $request->size;
+      if(!empty($request->amount)){
+        $recipe->amount = $request->amount;
       }
       else{
         $recipe->amount = null;
       }
-      if(!empty($recipe->naan_rice)){
-        $recipe->naan_rice = $request->naanrice;
+      if(!empty($request->naan_rice)){
+        $recipe->naan_rice = $request->naan_rice;
       }
       else{
         $recipe->naan_rice = 0;
       }
       $recipe->save();
-
-      //写真DBに入力
-      $photo = new Photo();
-      //$photo->image = $fileName;
-      $drivename = Storage::disk('curries_google')->url($fileName);
-      $drivename = substr($drivename, 31, -13);
-      $photo->image = $drivename;
-      $photo->curry_id = $recipe->id;
-      $photo->save();
       return redirect('/shops/'.$id1.'/curries/'.$recipe->id);
   }
 }

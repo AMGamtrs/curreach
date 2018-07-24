@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="contents row">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
         {{ Form::open(['url' => "/shops/$shop->id/curries", 'method' => 'post', 'files' => true, 'class' => 'form-horizontal']) }}
             <h3>
                     カレーを登録する
@@ -56,13 +56,13 @@
 
         <div class="field">
             <p><span class="col-1">カロリー</span>
-              <span class="col-2"><input type="text" name="calorie" value="" required="required" ></span><br>
+              <span class="col-2"><input type="text" name="calorie" value=""></span><br>
             </p>
         </div>
 
         <div class="field">
             <p><span class="col-1">アレルギー食品</span>
-              <span class="col-2"><input type="text" name="allergies" value="" required="required" ></span><br>
+              <span class="col-2"><input type="text" name="allergies" value=""></span><br>
             </p>
         </div>
 
@@ -81,12 +81,12 @@
 
         <div class="field">
             <p><span class="col-1">トッピング</span>
-              <span class="col-2"><input type="text" name="topping" value="" required="required" ></span><br>
+              <span class="col-2"><input type="text" name="topping" value=""></span><br>
             </p>
         </div>
 
         <div class="field">
-            <p><span class="col-1">大盛り・ハーフ</span>
+            <p><span class="col-1">大盛り / ハーフ</span>
             <span class="col-2"><select name="amount" size="1">
               <option value="0">不明</option>
               <option value="1">可</option>
@@ -96,11 +96,11 @@
         </div>
 
         <div class="field">
-            <p><span class="col-1">ナン・ライス</span>
+            <p><span class="col-1">ライス / ナン</span>
             <span class="col-2"><select name="naan_rice">
-              <option value="0">ナン又はライスを選択してください</option>
-              <option value="1">ナン</option>
-              <option value="2">ライス</option>
+              <option value="0">ライス又はナンを選択してください</option>
+              <option value="1">ライス</option>
+              <option value="2">ナン</option>
               <option value="3">両方</option>
               <option value="4">その他</option>
             </select></span>
