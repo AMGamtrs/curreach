@@ -26,12 +26,6 @@
             <a class="navbar-brand" href="/"><img class="logo" src="/images/logo.png" alt="カレーリーチ"></a>
           </div>
 
-          <form class="navbar-form navbar-right" role="search" action='/csearch'>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" name="keyword">
-            </div>
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true" style="font-size:14px;"></span></button>
-          </form>
             <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
               <li class="dropdown">

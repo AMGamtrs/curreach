@@ -2,6 +2,21 @@
   <ul class="sidenav">
     <li><a href="/mapsearch/">地図から探す</a></li>
 
+    <li class="search_free">
+      フリーワード検索
+      <div>
+        <form class="navbar-form navbar-right" role="search" action='/csearch'>
+          <!-- 検索対象指定 -->
+          <input name="mode" type="radio" value="curry">カレー
+          <input name="mode" type="radio" value="shop">店舗<br>
+          <!-- フリーワード入力 -->
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="keyword">
+          </div>
+        </form>
+      </div>
+    </li>
+
     <li><a>カレー種類から探す</a>
       <ul>
         <li>
@@ -106,5 +121,58 @@
         </li>
       </ul>
     </li>
+
+    <li><a>禁煙/喫煙の店舗を探す</a>
+      <ul>
+        <li>
+          <form name="smoking_ng" action='/csearch'>
+            <input type="hidden" name="smoking" value="1">
+            <a href="javascript:rice.submit()">禁煙</a>
+          </form>
+        </li>
+        <li>
+          <form name="smoking_both" action='/csearch'>
+            <input type="hidden" name="smoking" value="2">
+            <a href="javascript:othersub.submit()">分煙</a>
+          </form>
+        </li>
+        <li>
+          <form name="smoking_ok" action='/csearch'>
+            <input type="hidden" name="smoking" value="3">
+            <a href="javascript:naan.submit()">喫煙</a>
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li><a>席数で店舗を探す</a>
+      <ul>
+        <li>
+          <form name="seats_10" action='/csearch'>
+            <input type="hidden" name="seats" value="1">
+            <a href="javascript:rice.submit()">0〜10席</a>
+          </form>
+        </li>
+        <li>
+          <form name="seats_20" action='/csearch'>
+            <input type="hidden" name="seats" value="2">
+            <a href="javascript:othersub.submit()">11〜20席</a>
+          </form>
+        </li>
+        <li>
+          <form name="seats_30" action='/csearch'>
+            <input type="hidden" name="seats" value="3">
+            <a href="javascript:othersub.submit()">21〜30席</a>
+          </form>
+        </li>
+        <li>
+          <form name="seats_40" action='/csearch'>
+            <input type="hidden" name="seats" value="4">
+            <a href="javascript:othersub.submit()">31〜席</a>
+          </form>
+        </li>
+      </ul>
+    </li>
+
 
   </ul>
