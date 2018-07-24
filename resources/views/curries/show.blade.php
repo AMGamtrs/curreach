@@ -159,7 +159,7 @@
 
 
   <div class="col-xs-12">
-    <h2>レビューを投稿する</h2>
+    <h2 >レビューを投稿する</h2>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
         {{ Form::open(['url' => "/curryreview", 'method' => 'post', 'files' => true, 'name' => "rform"]) }}
@@ -189,9 +189,13 @@
                 {{ Form::file('picture') }}
               </div>
           </div>
+          <br>
+
           <div class="actions">
             <input type="submit" value="投稿する">
           </div>
+
+          <br>
         {{ Form::close() }}
       @else
         レビューするにはログインしてください
