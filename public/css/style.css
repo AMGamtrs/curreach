@@ -57,7 +57,7 @@ div.jumbotron.topimg{
 }
 
 .single-item{
-  margin-top: 35px;
+  margin-top: 40px;
 }
 
 .thumbnail img{
@@ -344,15 +344,6 @@ li.search_free {
   border-bottom: 1px solid #eee;
 }
 
-.register-h {
-  background: #ffb613;
-  box-shadow: 0px 0px 0px 5px #ffb613;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  margin-bottom: 30px;
-  color: white;
-}
-
 /* いいね関連 */
 .badge .btn-xs  {
   top: auto;
@@ -418,7 +409,7 @@ button.login_yet {
 }
 @media (min-width: 992px) {
     .container-small {
-        width: 600px;
+        width: 650px;
     }
     .container-large {
         width: 1170px;
@@ -426,9 +417,95 @@ button.login_yet {
 }
 @media (min-width: 1200px) {
     .container-small {
-        width: 600px;
+        width: 650px;
     }
     .container-large {
         width: 1500px;
     }
+}
+
+/* 詳細ページの見出し */
+.showpage-heading {
+  position: relative;
+  background: #ffd98a;
+  padding: 1px 18px 1px 32px;
+  margin-left: 22px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0px 0px 0px 2px #ffd98a;
+  border: dashed 2px white;
+}
+.showpage-heading:before {
+  display: inline-block;
+  position: absolute;
+  padding: 0em;
+  color: white;
+  font-size: 22px;
+  background: #ffa337;
+  font-weight: normal;
+  width: 48px;
+  text-align: center;
+  height: 48px;
+  line-height: 40px;
+  left: -1.0em;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: solid 3px white;
+  border-radius: 50%;
+}
+.showpage-detail:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e032";
+}
+.showpage-menu:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e179";
+}
+.showpage-access:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e062";
+}
+.showpage-review:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e111";
+}
+.showpage-post:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e028";
+}
+.createpage-heading {
+  position: relative;
+  background: #ffd98a;
+  padding: 3px 24px 3px 36px;
+  margin-left: 32px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0px 0px 0px 3px #ffd98a;
+  border: dashed 2px white;
+}
+.createpage-heading:before {
+  display: inline-block;
+  position: absolute;
+  padding: 0em;
+  color: white;
+  font-size: 28px;
+  background: #ffa337;
+  font-weight: normal;
+  width: 54px;
+  text-align: center;
+  height: 54px;
+  line-height: 46px;
+  left: -1.0em;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: solid 3px white;
+  border-radius: 50%;
+}
+.createpage-heading:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e065";
 }
