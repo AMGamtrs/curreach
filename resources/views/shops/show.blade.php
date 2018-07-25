@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px; padding:8px;">
   <div class="col-xs-12">
     <h1>{{ $shop->shop_name }}</h1>
   </div>
@@ -22,7 +22,7 @@
     <!-- この中にお店の詳細情報を追加していく -->
 
 <div class="table-responsive">
-  <h3>詳細情報</h3>
+  <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-detail">詳細情報</span></h3>
 
   <table class="table table-striped table-bordered table-hover table-condensed" style="table-layout:fixed;">
 
@@ -47,7 +47,7 @@
         <td>公式HP・SNS</td><td>@if ($shop->homepage == null)
           不明
         @else
-          <a href="{{$shop->homepage}}" style="word-wrap: break-word;">{{$shop->homepage}}</a>
+          <a class="text-warning" href="{{$shop->homepage}}" style="word-wrap: break-word;">{{$shop->homepage}}</a>
         @endif
         </td>
       </tr>
@@ -137,8 +137,7 @@
 </div>
 
   <div class="col-xs-12">
-    <h2>メニュー</h2>
-      <a class="btn btn-warning" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-menu">メニュー</span></h3>
     <table class="table table-sm ">
   <thead>
     <tr>
@@ -151,14 +150,14 @@
     @foreach($shop->curries()->get() as $curry)
     <tr class="menu-table">
 
-      <td class="col-md-6 col-sm-6 lead " style="vertical-align: middle;"><a href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
+      <td class="col-md-6 col-sm-6 lead " style="vertical-align: middle;"><a class="text-warning" href="/shops/{{$shop->id}}/curries/{{$curry->id}}"> {{$curry->curry_name}} </a></td>
       <td class="col-md-3 col-sm-3 lead " style="vertical-align: middle;"> {{$curry->price}} 円</td>
       <td class="col-md-3 col-sm-3 lead" >
         <a href="/shops/{{$shop->id}}/curries/{{$curry->id}}">
         @if($curry->photos()->exists())
           <img src="http://drive.google.com/uc?export=view&id={{ $curry->photos()->first()->image }}" style="width: 100%; height: 120px; object-fit:cover;">
         @else
-          <img src="/images/noimage.png" style="width: 100%; height: 120px; object-fit:cover;"/>
+          <img src="/images/noimage.png" style="width: 100%; height: 100px; object-fit:cover;"/>
         @endif
         </a>
       </td>
@@ -166,12 +165,14 @@
     @endforeach
   </tbody>
 </table>
-
-    <h2>アクセス</h2>
+<div class="clearfix">
+<a class="btn btn-warning pull-right" href="/shops/{{$shop->id}}/curries/create" role="button">カレーを追加する »</a>
+</div>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-access">アクセス</span></h3>
       <p>{{$shop->address}}</p>
       <div id="map" style="width: 100%; height: 500px;"></div>
 
-    <h2>投稿されたレビュー</h2>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-review">投稿されたレビュー</span></h3>
       @foreach($shop->reviews()->get() as $review)
         <div class="review_box">
           <div class="review_name">投稿者：{{ $review->user->name }}</div>
@@ -205,7 +206,7 @@
         </div>
       @endforeach
 
-    <h2>レビューを投稿する</h2>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-post">レビューを投稿する</span></h3>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
           {{Form::open(['url' => "/shopreview", 'method' => 'post', 'files' => true])}}

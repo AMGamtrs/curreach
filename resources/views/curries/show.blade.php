@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px;">
+<div class="contents row" style="border-radius:5px; border:1px solid #ddd; margin-bottom:20px; padding:8px;">
   <div class="col-xs-12">
     <h1>{{ $curry->curry_name }}</h1>
     <p>
-      <a href="/shops/{{ $curry->shop->id }}">{{ $curry->shop->shop_name }}</a>
+      <a class="text-warning" href="/shops/{{ $curry->shop->id }}">{{ $curry->shop->shop_name }}</a>
     </p>
   </div>
 
@@ -29,7 +29,7 @@
 <div class="col-xs-6">
     <!-- この中にお店の詳細情報を追加していく -->
 <div class="table-responsive">
-  <h3>詳細情報</h3>
+  <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-detail">詳細情報</span></h3>
   <table class="table table-striped table-bordered table-hover table-condensed">
     <thead>
     </thead>
@@ -140,7 +140,7 @@
 
 
   <div class="col-xs-12">
-    <h2>投稿されたレビュー</h2>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-review">投稿されたレビュー</span></h3>
       @foreach($curry->reviews()->get() as $review)
         <div class="review_box">
           <div class="review_name">投稿者：{{ $review->user->name }}</div>
@@ -177,7 +177,7 @@
 
 
   <div class="col-xs-12">
-    <h2 >レビューを投稿する</h2>
+    <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-post">レビューを投稿する</span></h3>
         <!-- ここにレビュー投稿フォーム -->
       @if (Auth::check())
         {{ Form::open(['url' => "/curryreview", 'method' => 'post', 'files' => true, 'name' => "rform"]) }}
