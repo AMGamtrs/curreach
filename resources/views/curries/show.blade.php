@@ -153,6 +153,24 @@
           @foreach($review->photos()->get() as $photo)
             <div class="review_img"><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></div>
           @endforeach
+          <div class="favorite" id="{{ $review->id }}">
+            @if (Auth::check())
+              @if ( $review->favorites()->where('user_id', Auth::user()->id )->exists() > 0 )
+                <button class="btn btn-primary btn-xs fav_btn" type="button">
+                  いいねしました <span class="badge">{{ $review->favorites()->count() }}</span>
+                </button>
+              @else
+                <button class="btn btn-primary btn-xs no_fav_btn" type="button" onClick="fav({{ Auth::user()->id}}, {{$review->id }})">
+                  いいねする <span class="badge">{{ $review->favorites()->count() }}</span>
+                </button>
+              @endif
+            @else
+              <button class="btn btn-primary btn-xs no_fav_btn login_yet" type="button">
+                いいね <span class="badge">{{ $review->favorites()->count() }}</span>
+              </button>
+              <span>いいねするにはログインしてください</span>
+            @endif
+          </div>
         </div>
       @endforeach
   </div>
@@ -204,5 +222,29 @@
   </div>
 
 </div>
+
+<script>
+  function fav(user_id, review_id){
+    var fav_data = { user_id, review_id };
+    //ajax通信でDBにいいね書き込み 結果取得
+    $.ajax({
+      url: '/favajax',
+      type: 'GET',
+      dataType: 'json',
+      timeout: 1000,
+      data: fav_data
+    }).done(function(responseData) {
+      //成功時の処理
+      //いいねボタンの数字更新・クリック済みにする
+      var id = responseData['review_id'];
+      var count = responseData['fav_count'];
+      var review_button = document.getElementById(id);
+      var html = "<button class='btn btn-primary btn-xs fav_btn' type='button'>いいねしました <span class='badge'>" + count + "</span></button>"
+      review_button.innerHTML = html;
+    }).fail(function(error) {
+            console.log(error);
+    });
+  }
+</script>
 
 @endsection
