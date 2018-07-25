@@ -353,6 +353,57 @@ li.search_free {
   color: white;
 }
 
+/* いいね関連 */
+.badge .btn-xs  {
+  top: auto;
+}
+
+button.fav_btn {
+  border-color: #b7b2a3;
+  background-color: #b7b2a3;
+  background-image: none;
+  pointer-events : none;
+}
+
+.fav_btn > .badge {
+  color: #b7b2a3;
+}
+
+button.no_fav_btn {
+  border-color: #f7a104;
+  background-color: #f7a104;
+  background-image: none;
+}
+
+.no_fav_btn > .badge {
+  color: #f7a104;
+}
+
+button.no_fav_btn:hover {
+  border-color: #fbc500;
+  background-color: #fbc500;
+  background-image: none;
+}
+
+button.no_fav_btn:active {
+  border-color: #fbc500;
+  background-color: #fbc500;
+  background-image: none;
+}
+
+button.no_fav_btn:focus {
+  border-color: #fbc500;
+  background-color: #fbc500;
+  background-image: none;
+}
+
+button.login_yet {
+  border-color: #f7a104;
+  background-color: #f7a104;
+  background-image: none;
+  pointer-events : none;
+}
+
 /* 小さい・大きいコンテナ */
 .container-small, .container-large {
     max-width: 100%;
