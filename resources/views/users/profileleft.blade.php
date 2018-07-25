@@ -30,7 +30,7 @@
     @else
       <a href="/users/{{Auth::user()->id}}/bookmarks" class="list-group-item">
     @endif
-        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span><strong> ブックマーク一覧</strong>
+        <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span><strong> ブックマーク一覧</strong>
       </a>
     @if(Request::path() == "users/".Auth::user()->id."/profile")
       <a href="/users/{{Auth::user()->id}}/profile" class="list-group-item list-group-item-warning">

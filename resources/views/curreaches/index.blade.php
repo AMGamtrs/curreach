@@ -41,7 +41,7 @@
     <div class="col-md-8">
       <div class="panel panel-default" style="overflow:visible;">
         <div>
-          <span class="glyphicon glyphicon-cutlery glyphicon-h" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-king glyphicon-h" aria-hidden="true"></span>
           <h2 class="lead top-h2">人気の店舗</h2>
           <ul class="slick-box3">
             @foreach ($shops as $shop)
@@ -68,7 +68,7 @@
         </div>
         <hr>
         <div>
-          <span class="glyphicon glyphicon-cutlery glyphicon-h" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-king glyphicon-h" aria-hidden="true"></span>
           <h2 class="lead top-h2">人気のカレー</h2>
           <ul class="slick-box3">
             @foreach ($curries as $curry)

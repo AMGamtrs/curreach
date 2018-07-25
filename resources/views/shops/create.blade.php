@@ -3,7 +3,7 @@
 @section('content')
 <div class="container container-small" style="background-color: #fff; border-radius:5px; border:1px solid #ddd; margin-bottom:20px; padding-bottom:20px;">
 {{ Form::open(['url' => "/shops", 'method' => 'post', 'files' => true, 'class' => 'form-horizontal']) }}
-<h3 class="text-center register-h">店舗を登録する</h3>
+<h3 class="text-center" style="margin-top:25px; margin-bottom:30px;"><span class="createpage-heading">店舗を登録</span></h3>
 
 <div class="field form-group">
     <label class="col-md-4 col-sm-4 control-label">店舗名(必須)</label>
@@ -42,7 +42,7 @@
 
 <div class="field form-group">
     <label class="col-md-4 col-sm-4 control-label">座席数</label>
-      <div class="col-md-6 col-sm-6">
+      <div class="col-md-5 col-sm-5">
         <div class="input-group">
           <input class="form-control" type="text" name="seats" value="">
         <div class="input-group-addon">席</div>
@@ -73,7 +73,7 @@
 
 <div class="field form-group">
     <label class="col-md-4 col-sm-4 control-label">タバコ</label>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-5 col-sm-5">
       <select class="form-control" name="smoking" size="1" style="height:34px;">
         <option value="0">不明</option>
         <option value="1">可</option>
@@ -85,7 +85,7 @@
 
 <div class="field form-group">
     <label class="col-md-4 col-sm-4 control-label">充電</label>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-5 col-sm-5">
       <select class="form-control" name="charging" size="1" style="height:34px;">
         <option value="0">不明</option>
         <option value="1">あり</option>
@@ -96,7 +96,7 @@
 
 <div class="field form-group">
     <label class="col-md-4 col-sm-4 control-label">Wi-Fi</label>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-5 col-sm-5">
       <select class="form-control" name="wifi" size="1" style="height:34px;">
         <option value="0">不明</option>
         <option value="1">あり</option>

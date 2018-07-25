@@ -7,7 +7,7 @@
       <div>
         <form class="navbar-form navbar-right" role="search" action='/csearch' onclick="f()" name="freeword">
           <!-- 検索対象指定 -->
-          <input name="mode" type="radio" value="curry">カレー
+          <input name="mode" type="radio" value="curry" checked>カレー
           <input name="mode" type="radio" value="shop">店舗<br>
           <!-- フリーワード入力 -->
           <div class="form-group">

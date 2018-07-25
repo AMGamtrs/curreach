@@ -15,42 +15,71 @@
         <div class="page-header"><h2>投稿レビュー</h2></div>
 
         <h3>店舗のレビュー</h3>
-<div class="col-md-offset-1">
-        @foreach ($shop_reviews as $review)
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
-      @if($review->shop->photos()->exists())
-        <img src="http://drive.google.com/uc?export=view&id={{$review->shop->photos()->first()->image}}" alt="{{$review->shop->shop_name}}" style="width:120px;height:120px;object-fit:cover;"/>
-      @else
-        <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
-      @endif
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">{{$review->shop->shop_name}}</h4>
-    <p>{{$review->review}}</p>
-  </div>
-</div>
-@endforeach
-</div>
+        <div class="clearfix">
+          @foreach ($shop_reviews as $review)
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="textonphoto">
+                <a href="/shops/{{$review->shop->id}}">
+                  @if($review->shop->photos()->exists())
+                    <img src="http://drive.google.com/uc?export=view&id={{$review->shop->photos()->first()->image}}" alt="{{$review->shop->shop_name}}" style="height:120px;"/>
+                  @else
+                    <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li" style="height:120px;"/>
+                  @endif
+                </a>
+                <p style="width:100%">
+                  {{$review->shop->shop_name}}<br/>
+                  <span class="star-rating">
+                    <span class="star-rating-front" style="width: {{(round($review->shop->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                    <span class="star-rating-back">★★★★★</span>
+                  </span>
+                </p>
+                <div class="caption overflow-hidden">
+                  <div style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size: 12px;">
+                    {{$review->review}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+
+        {{ $shop_reviews->links() }}
 
         <h3>カレーのレビュー</h3>
-
+        <div class="clearfix">
         @foreach ($curry_reviews as $review)
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
-            @if($review->curry->photos()->exists())
-              <img src="http://drive.google.com/uc?export=view&id={{$review->curry->photos()->first()->image}}" alt="{{$review->curry->curry_name}}"/>
-            @else
-              <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
-            @endif
-            <div class="caption overflow-hidden">
-              <h4>{{$review->curry->curry_name}}</h4>
+            <div class="textonphoto">
+              <a href="/shops/{{$review->curry->shop_id}}/curries/{{$review->curry->id}}">
+                @if($review->curry->photos()->exists())
+                  <img src="http://drive.google.com/uc?export=view&id={{$review->curry->photos()->first()->image}}" alt="{{$review->curry->curry_name}}" style="height:120px;"/>
+                @else
+                  <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li" style="height:120px;"/>
+                @endif
+              </a>
+              <p style="width:100%">
+                {{$review->curry->curry_name}}<br/>
+                <span class="star-rating">
+                  <span class="star-rating-front" style="width: {{(round($review->curry->reviews()->avg('rate')))*2}}0%">★★★★★</span>
+                  <span class="star-rating-back">★★★★★</span>
+                </span>
+              </p>
+              <div class="caption overflow-hidden">
+                <div style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size: 12px;">
+                  {{$review->review}}
+                </div>
+              </div>
             </div>
           </div>
         </div>
         @endforeach
+      </div>
+
+      <div class="text-center">
+        {{ $curry_reviews->links() }}
       </div>
 
     </div>
