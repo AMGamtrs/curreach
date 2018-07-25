@@ -24,7 +24,7 @@ class Review extends Model
       return $this->hasMany(Photo::class);
     }
 
-    public function Favorites(){
+    public function favorites(){
       return $this->hasMany(Favorite::class);
     }
 }

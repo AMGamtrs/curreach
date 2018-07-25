@@ -5,16 +5,15 @@
 <div class="container-fulid">
   <div class="row">
 
-    <div class="col-md-2 text-center col-md-offset-1" style="background-color: #FFFFF0; border-radius:5px; margin-bottom:20px;">
+    <div class="col-md-2 text-center col-md-offset-1" style="background-color: #FFFFF0; border-radius:10px; margin-bottom:20px;">
       @include('users.profileleft')
     </div>
 
-    <div class="col-md-7 col-md-offset-1" style="background-color: #FFFFF0; border-radius:5px; margin-bottom:20px;">
-      <div class="col-md-offset-1">
+    <div class="col-md-7 col-md-offset-1" style="background-color: #FFFFF0; border-radius:10px; margin-bottom:20px; padding:0 50px 30px;">
 
-        <div class="page-header"><h2>投稿レビュー</h2></div>
+      <div class="page-header"><h2>投稿レビュー</h2></div>
 
-        <h3>店舗のレビュー</h3>
+        <h3 style="margin-top:25px; margin-bottom:30px;"><span class="createpage-heading createpage-knife">店舗のレビュー</span></h3>
         <div class="clearfix">
           @foreach ($shop_reviews as $review)
           <div class="col-sm-6 col-md-4">
@@ -47,7 +46,7 @@
 
         {{ $shop_reviews->links() }}
 
-        <h3>カレーのレビュー</h3>
+        <h3 style="margin-top:25px; margin-bottom:30px;"><span class="createpage-heading createpage-knife">カレーのレビュー</span></h3>
         <div class="clearfix">
         @foreach ($curry_reviews as $review)
         <div class="col-sm-6 col-md-4">

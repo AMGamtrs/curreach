@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container container-small" style="background-color: #fff; border-radius:5px; border:1px solid #ddd; margin-bottom:20px; padding-bottom:20px;">
+<div class="container container-small" style="background-color: #fff; border-radius:10px; border:1px solid #ddd; margin-bottom:20px; padding-bottom:20px;">
 {{ Form::open(['url' => "/shops", 'method' => 'post', 'files' => true, 'class' => 'form-horizontal']) }}
 <h3 class="text-center" style="margin-top:25px; margin-bottom:30px;"><span class="createpage-heading">店舗を登録</span></h3>
 
