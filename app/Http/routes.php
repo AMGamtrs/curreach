@@ -22,6 +22,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/mapsearch', 'ShopsController@mapsearch');
     Route::get('/mapajax', 'ShopsController@mapajax');
     Route::get('/users', 'Auth\AuthController@login');
+    Route::post('/users/reedit', 'UsersController@reedit');
     Route::get('/users/{id}', 'UsersController@show');
     Route::get('/users/{id}/bookmarks', 'UsersController@bookmarks');
     Route::get('/users/{id}/likes', 'UsersController@likes');
