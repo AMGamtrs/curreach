@@ -1,7 +1,7 @@
 
 <div class="side_list">
   <ul class="sidenav">
-    <li><a href="/mapsearch/">地図から探す</a></li>
+    <li><a href="/mapsearch/"><span class="glyphicon glyphicon-map-marker"></span>地図から探す</a></li>
 
     <li class="search_free">
       フリーワード検索

@@ -329,8 +329,10 @@ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6
   padding-top: 5px;
   padding-left: 3px;
   font-size: 120%;
-  color: #FFF;
-  background-color: #333;
+  color: #eeedea;
+  background-color: #211;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
 }
 
 .grayscale {
@@ -339,6 +341,27 @@ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6
     -o-filter: grayscale(95%);
     -ms-filter: grayscale(95%);
     filter: grayscale(95%);
+}
+
+.fukidashi_shopname{
+  font-size: 120%;
+  background-color: #e6a211;
+  color: #fff;
+  padding-left: 4px;
+}
+
+.list_title .glyphicon-map-marker{
+  margin-right: 5px;
+}
+
+.map_wrapper{
+  border: solid 1px #ddd;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.fukidashi_shopname .glyphicon-ok-sign{
+  margin-right: 5px;
 }
 
 /* search_sideber */

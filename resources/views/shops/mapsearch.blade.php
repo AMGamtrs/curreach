@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-2 col-md-offset-1 sidebar"><!-- 左メニュー -->
     <div class="panel panel-default">
-      <p class="list_title">検索結果</p>
+      <p class="list_title"><span class="glyphicon glyphicon-map-marker"></span>検索結果</p>
       <div class="list_box" >
         <ul class="shop_list sideMenu nav nav-sidebar">
         </ul>
@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-8"><!-- 右地図表示領域 -->
+  <div class="col-md-8 map_wrapper"><!-- 右地図表示領域 -->
     <!-- 地図を表示する -->
     <div id="map" style="width: 100%; height: 500px"></div>
 
@@ -65,12 +65,12 @@
           });
           //吹き出し表示
           var infoWnd = new google.maps.InfoWindow({
-            content: '<p class="fukidashi_shopname">' + response['shop_name'] + '</p>'
+            content: '<p class="fukidashi_shopname"><span class="glyphicon glyphicon-ok-sign"></span>' + response['shop_name'] + '</p>'
                      + '<p class="img_fukidashi">' + response['image'] + '</p>'
                      + "<p >住所："+ response['address'] +"</p>"
-                     + "<p class='fukidashi_shopname'><a href='/shops/"+ response['id'] +"'>店舗情報を見る</a></p>"
+                     + "<p class='fukidashi_link'><a href='/shops/"+ response['id'] +"'><span class='glyphicon glyphicon-arrow-right'></span>店舗情報を見る</a></p>"
                      ,
-            maxWidth: 180 ,
+            maxWidth: 170 ,
           });
           //マーカクリック時の処理
           google.maps.event.addListener(markers[i], "click", function(){
