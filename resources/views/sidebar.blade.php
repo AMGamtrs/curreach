@@ -1,11 +1,12 @@
 
+<div class="side_list">
   <ul class="sidenav">
-    <li><a href="/mapsearch/">地図から探す</a></li>
+    <li><a href="/mapsearch/"><span class="glyphicon glyphicon-map-marker"></span>地図から探す</a></li>
 
     <li class="search_free">
       フリーワード検索
       <div>
-        <form class="navbar-form navbar-right" role="search" action='/csearch' onclick="f()" name="freeword">
+        <form class="search_free_form" role="search" action='/csearch' onclick="f()" name="freeword">
           <!-- 検索対象指定 -->
           <input name="mode" type="radio" value="curry" checked>カレー
           <input name="mode" type="radio" value="shop">店舗<br>
@@ -176,6 +177,7 @@
 
 
   </ul>
+</div>
 
 <script type="text/javascript">
 function f(){
