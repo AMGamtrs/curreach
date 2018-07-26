@@ -32,9 +32,31 @@ class CurriesController extends Controller
       $ctype = $request->curry_type;
       $mtype = $request->main_type;
       $rtype = $request->ricenaan_type;
+
+      // 並び替え機能
+      if(!empty($request->sort)){
+        switch ($request->sort) {
+          case "abc_asc":
+            $sort_alg = array("key" => "curry_name", "order" => "ASC",);
+            break;
+          case "abc_desc":
+            $sort_alg = array("key" => "curry_name", "order" => "DESC",);
+            break;
+          case "value_asc":
+            $sort_alg = array("key" => "price", "order" => "ASC",);
+            break;
+          case "value_desc":
+            $sort_alg = array("key" => "price", "order" => "DESC",);
+            break;
+        }
+      }
+      else{
+        $sort_alg = array("key" => "id", "order" => "ASC",);
+      }
+
       // ジャンルで検索(カレー種類)
       if(!empty($ctype)){
-        $curries = Curry::where('curry_type', $ctype)->paginate(15);
+        $curries = Curry::where('curry_type', $ctype)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
         switch ($ctype){
           case 1:
           $word = "洋風カレー";break;
@@ -51,7 +73,7 @@ class CurriesController extends Controller
       }
       // ジャンルで検索(メイン具材)
       elseif(!empty($mtype)){
-        $curries = Curry::where('main_ingredient', $mtype)->paginate(15);
+        $curries = Curry::where('main_ingredient', $mtype)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
         switch ($mtype){
           case 1:
           $word = "チキン";break;
@@ -72,7 +94,7 @@ class CurriesController extends Controller
       }
       // ジャンルで検索(ライスorナン)
       elseif(!empty($rtype)){
-        $curries = Curry::where('naan_rice', $rtype)->paginate(15);
+        $curries = Curry::where('naan_rice', $rtype)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
         switch ($rtype){
           case 1:
           $word = "ライス";break;
@@ -84,7 +106,7 @@ class CurriesController extends Controller
         $word = 'ライス/ナン：'.$word;
       }
       else{
-        $curries = Curry::where('curry_name', 'LIKE', "%$word%")->paginate(15);
+        $curries = Curry::where('curry_name', 'LIKE', "%$word%")->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
       }
       return view('curries.search')->with(array('curries' => $curries, 'word' => $word, 'mode' => 0));
   }
@@ -152,7 +174,7 @@ class CurriesController extends Controller
         $recipe->naan_rice = 0;
       }
       $recipe->save();
-      
+
       if(!empty($request->picture)){
         $fileName = $request->picture->getClientOriginalName();
         // 写真をローカルに保存

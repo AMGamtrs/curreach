@@ -28,16 +28,65 @@ class ShopsController extends Controller
   public function search(Request $request)
   {
       $word = $request->keyword;
+      $smtype = $request->smoking;
+      $setype = $request->seats;
       $register = $request->register;
-      // カレー登録のための検索時
-      if(!empty($register)){
-        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->paginate(15);
-        return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 1));
+
+      // 並び替え機能
+      if(!empty($request->sort)){
+        switch ($request->sort) {
+          case "abc_asc":
+            $sort_alg = array("key" => "shop_name", "order" => "ASC",);
+            break;
+          case "abc_desc":
+            $sort_alg = array("key" => "shop_name", "order" => "DESC",);
+            break;
+        }
       }
       else{
-        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->paginate(15);
-        return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 2));
+        $sort_alg = array("key" => "id", "order" => "ASC",);
       }
+
+      // カレー登録のための検索時
+      if(!empty($register)){
+        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+        return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 1));
+      }
+      // ジャンルで検索(喫煙・禁煙)
+      if(!empty($smtype)){
+        $shops = Shop::where('smoking', $smtype)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+        switch ($smtype){
+          case 1:
+          $word = "喫煙";break;
+          case 2:
+          $word = "禁煙";break;
+          case 3:
+          $word = "分煙";break;
+        }
+        $word = '喫煙/禁煙：'.$word;
+      }
+      // ジャンルで検索(席数)
+      elseif(!empty($setype)){
+        switch ($setype){
+          case 1:
+          $shops = Shop::whereBetween('seats', [1, 10])->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+          $word = "0〜10席";break;
+          case 2:
+          $shops = Shop::whereBetween('seats', [11, 20])->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+          $word = "11〜20席";break;
+          case 3:
+          $shops = Shop::whereBetween('seats', [21, 30])->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+          $word = "21〜30席";break;
+          case 4:
+          $shops = Shop::where('seats', '>=', 31)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+          $word = "31席〜";break;
+        }
+        $word = '席数：'.$word;
+      }
+      else{
+        $shops = Shop::where('shop_name', 'LIKE', "%$word%")->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+      }
+      return view('curries.search')->with(array('shops' => $shops, 'word' => $word, 'mode' => 2));
   }
 
   public function mapsearch()
