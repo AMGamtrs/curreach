@@ -123,24 +123,24 @@
       </ul>
     </li>
 
-    <li><a>禁煙/喫煙の店舗を探す</a>
+    <li><a>喫煙/禁煙の店舗を探す</a>
       <ul>
         <li>
-          <form name="smoking_ng" action='/ssearch'>
+          <form name="smoking_ok" action='/ssearch'>
             <input type="hidden" name="smoking" value="1">
-            <a href="javascript:rice.submit()">禁煙</a>
+            <a href="javascript:smoking_ok.submit()">喫煙</a>
+          </form>
+        </li>
+        <li>
+          <form name="smoking_ng" action='/ssearch'>
+            <input type="hidden" name="smoking" value="2">
+            <a href="javascript:smoking_ng.submit()">禁煙</a>
           </form>
         </li>
         <li>
           <form name="smoking_both" action='/ssearch'>
-            <input type="hidden" name="smoking" value="2">
-            <a href="javascript:othersub.submit()">分煙</a>
-          </form>
-        </li>
-        <li>
-          <form name="smoking_ok" action='/ssearch'>
             <input type="hidden" name="smoking" value="3">
-            <a href="javascript:naan.submit()">喫煙</a>
+            <a href="javascript:smoking_both.submit()">分煙</a>
           </form>
         </li>
       </ul>
@@ -151,25 +151,25 @@
         <li>
           <form name="seats_10" action='/ssearch'>
             <input type="hidden" name="seats" value="1">
-            <a href="javascript:rice.submit()">0〜10席</a>
+            <a href="javascript:seats_10.submit()">0〜10席</a>
           </form>
         </li>
         <li>
           <form name="seats_20" action='/ssearch'>
             <input type="hidden" name="seats" value="2">
-            <a href="javascript:othersub.submit()">11〜20席</a>
+            <a href="javascript:seats_20.submit()">11〜20席</a>
           </form>
         </li>
         <li>
           <form name="seats_30" action='/ssearch'>
             <input type="hidden" name="seats" value="3">
-            <a href="javascript:othersub.submit()">21〜30席</a>
+            <a href="javascript:seats_30.submit()">21〜30席</a>
           </form>
         </li>
         <li>
           <form name="seats_40" action='/ssearch'>
             <input type="hidden" name="seats" value="4">
-            <a href="javascript:othersub.submit()">31〜席</a>
+            <a href="javascript:seats_40.submit()">31席〜</a>
           </form>
         </li>
       </ul>
