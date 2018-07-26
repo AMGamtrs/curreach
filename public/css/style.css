@@ -37,6 +37,10 @@ body{
   color: #e2e0da;/*ナビバーリンクの色*/
 }
 
+.navbar-right{
+  margin-right: 10px;
+}
+
 div.jumbotron.topimg{
   box-shadow: 0px 0px 700px rgba(72,60,56,0.5);/*背景グラデカゲ*/
 }
@@ -52,7 +56,7 @@ div.jumbotron.topimg{
 }
 
 .slick-dots {
-	text-align: center;
+  text-align: center;
   right: 0;
 }
 
@@ -132,8 +136,8 @@ div.jumbotron.topimg{
   transition: 0.5s;
 }
 .sidenav li ul li:hover a {/*layer-2*/
-  color: orange;
-  background: #afc6e2;
+  /*color: orange;
+  background: #afc6e2;*/
 }
 .sidenav li:hover > ul > li {
   overflow: visible;
@@ -339,10 +343,65 @@ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6
 
 /* search_sideber */
 
+div.side_top{
+  color:#fff; /*#211;*/
+  background-color: #00000000;
+
+}
+
+.side_top h4 {
+  margin-top: -10px;
+  font-weight:100;
+  font-size: 85%;
+  font-family: cursive;
+  text-shadow: 0px 0px 1px #000;
+}
+
+.side_top h3 {
+  font-weight:100;
+  text-shadow: 0px 0px 1px #000;
+}
+
 li.search_free {
+  color:#333;
+  background-color: #fff;
   height: 100px;
+  padding: 3px;
   border-bottom: 1px solid #eee;
 }
+
+form.search_free_form{
+  padding: 5px;
+  float: none;
+}
+
+.register-h {
+  background: #ffb613;
+  box-shadow: 0px 0px 0px 5px #ffb613;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.sidenav li a {
+  background-color: #fff;
+}
+
+.sidenav li a:hover {
+  background-color: #ffdf9d;
+  color: #000;
+}
+
+.sidenav li ul li a {
+  background-color: #fff;
+}
+
+.sidenav li ul li a:hover {
+  background-color: #ffdf9d;
+  color: #000;
+}
+
 
 /* いいね関連 */
 .badge .btn-xs  {

@@ -16,9 +16,11 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-2 col-md-offset-1 sideover" style="background-color:#F7E7B0; font-weight:bold;">
-      <h3 class="text-center" style="font-weight:100; font-family: cursive;">カレー検索</h3>
-      <h4 class="text-center" style="font-weight:100; font-family: cursive;">* curry search *</h4>
+    <div class="col-md-2 col-md-offset-1 sideover side_top">
+      <div class="side_title">
+        <h3 class="text-center" style="font-weight:100;">カレー検索</h3>
+        <h4 class="text-center side_top">* curry search *</h4>
+      </div>
 
       @include('sidebar')
     </div>
