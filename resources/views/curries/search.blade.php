@@ -18,11 +18,11 @@
     <!-- カレー検索モード -->
     @if($mode == 0)
     <div class="page-header">
-      <h1><small>「{{$word}}」の検索結果</small></h1>
+      <h1 class="result_title"><small>「{{$word}}」の検索結果</small></h1>
     </div>
     <div class="search_sort">
       <!-- 検索結果ソート条件 -->
-      <div>並び替え</div>
+      <div class="search_sort_title"><span class="glyphicon glyphicon-retweet"></span>並び替え</div>
       {{ Form::open(['url' => "/csearch", 'method' => 'get']) }}
         {{Form::radio('sort', 'value_asc', true,['class' => 'sort_button']) }}価格が安い順
         {{Form::radio('sort', 'value_desc', false,['class' => 'sort_button']) }}価格が高い順<br>
