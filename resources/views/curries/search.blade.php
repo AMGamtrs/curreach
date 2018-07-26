@@ -70,7 +70,7 @@
     </div>
       <div class="search_sort">
       <!-- 検索結果ソート条件 -->
-      <div>並び替え</div>
+      <div class="search_sort_title"><span class="glyphicon glyphicon-retweet"></span>並び替え</div>
       {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
         {{Form::radio('sort', 'abc_asc', true,['class' => 'sort_button']) }}あいうえお順(昇順)
         {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
@@ -110,7 +110,7 @@
       </div>
       <div class="search_sort">
         <!-- 検索結果ソート条件 -->
-        <div>並び替え</div>
+        <div class="search_sort_title"><span class="glyphicon glyphicon-retweet"></span>並び替え</div>
         {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
           {{Form::radio('sort', 'abc_asc', true,['class' => 'sort_button']) }}あいうえお順(昇順)
           {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)

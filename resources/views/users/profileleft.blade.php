@@ -2,9 +2,9 @@
 
 <div style="height:120px;">
   @if(!empty(Auth::user()->icon))
-    <img src="http://drive.google.com/uc?export=view&id={{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px;">
+    <img src="http://drive.google.com/uc?export=view&id={{ Auth::user()->icon }}" alt="プロフィール写真" class="img-circle" style="width:100px; height:100px; object-fit:cover;">
   @else
-    <img src="/images/profile.png" alt="プロフィール写真" class="img-circle grayscale" style="width:120px;">
+    <img src="/images/profile.png" alt="プロフィール写真" class="img-circle grayscale" style="width:100px;">
   @endif
 </div>
 

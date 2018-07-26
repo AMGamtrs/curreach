@@ -36,12 +36,20 @@
                 <div class="caption overflow-hidden">
                   <div style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size: 12px;">
                     {{$review->review}}
+                    <div class="favorite" id="{{ $review->id }}">
+                      <button class="btn btn-primary btn-xs no_fav_btn login_yet" type="button">
+                        いいね <span class="badge">{{ $review->favorites()->count() }}</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           @endforeach
+          @if (count($shop_reviews)==0)
+           まだレビューは投稿されていません
+          @endif
         </div>
 
         {{ $shop_reviews->links() }}
@@ -69,12 +77,20 @@
               <div class="caption overflow-hidden">
                 <div style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size: 12px;">
                   {{$review->review}}
+                  <div class="favorite" id="{{ $review->id }}">
+                    <button class="btn btn-primary btn-xs no_fav_btn login_yet" type="button">
+                      いいね <span class="badge">{{ $review->favorites()->count() }}</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         @endforeach
+        @if (count($shop_reviews)==0)
+         まだレビューは投稿されていません
+        @endif
       </div>
 
       <div class="text-center">

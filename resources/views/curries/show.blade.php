@@ -173,6 +173,9 @@
           </div>
         </div>
       @endforeach
+      @if (count($curry->reviews()->get())==0)
+       まだレビューがありません
+      @endif
   </div>
 
 

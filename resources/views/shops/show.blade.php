@@ -205,6 +205,9 @@
           </div>
         </div>
       @endforeach
+      @if (count($shop->reviews()->get())==0)
+       まだレビューがありません
+      @endif
 
     <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-post">レビューを投稿する</span></h3>
         <!-- ここにレビュー投稿フォーム -->

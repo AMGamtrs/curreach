@@ -55,6 +55,9 @@
             </div>
           </div>
         @endforeach
+        @if (count($shoplikes)==0)
+         まだいいねを送っていません
+        @endif
         <div class="text-center">{{ $shoplikes->links() }}</div>
     </div>
 
