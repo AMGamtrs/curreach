@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Auth;
 use App\User;
 use App\Review;
+use DB;
 use Image;
 use Storage;
 use File;
@@ -39,7 +40,10 @@ class UsersController extends Controller
 
   public function likes()
   {
-      return view('users.likes');
+      $id = Auth::user()->id;
+      $shoplikes = Auth::user()->favorites()->where('favorites.user_id', $id)->orderBy('updated_at', 'DESC')->paginate(5);
+      //$shoplikes = DB::table('favorites')->join('reviews', 'favorites.user_id', '=', 'reviews.id')->where('reviews.id', $id)->whereNotNull('reviews.shop_id')->get();
+      return view('users.likes')->with('shoplikes', $shoplikes);
   }
 
   public function profile()

@@ -475,6 +475,18 @@ button.login_yet {
   font-family: 'Glyphicons Halflings';
   content: "\e028";
 }
+.showpage-icon:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e060";
+}
+.showpage-mail:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\2709";
+}
+.showpage-birth:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e109";
+}
 .createpage-heading {
   position: relative;
   background: #ffd98a;
@@ -495,7 +507,7 @@ button.login_yet {
   width: 54px;
   text-align: center;
   height: 54px;
-  line-height: 46px;
+  line-height: 48px;
   left: -1.0em;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -507,5 +519,13 @@ button.login_yet {
 }
 .createpage-heading:before {
   font-family: 'Glyphicons Halflings';
-  content: "\e065";
+  content: "\270f";
+}
+.createpage-knife:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e179";
+}
+.createpage-likes:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e125";
 }
