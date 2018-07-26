@@ -93,7 +93,7 @@ div.jumbotron.topimg{
 }
 @media (min-width: 992px){
   .sidenav {
-    height: 360px;
+    height: 480px;
   }
 }
 .sidenav li {
@@ -610,4 +610,8 @@ button.login_yet {
 .createpage-likes:before {
   font-family: 'Glyphicons Halflings';
   content: "\e125";
+}
+
+.search_sort {
+  margin-bottom: 20px;
 }

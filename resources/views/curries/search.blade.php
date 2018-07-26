@@ -41,7 +41,7 @@
         @if(!empty($_GET['ricenaan_type']))
           {{Form::hidden('ricenaan_type', $_GET['ricenaan_type']) }}
         @endif
-        {{Form::submit()}}
+        {{Form::submit('ソート')}}
       {{ Form::close() }}
     </div><!-- search_sort -->
     @foreach ($curries as $curry)
@@ -72,7 +72,7 @@
       <!-- 検索結果ソート条件 -->
       <div>並び替え</div>
       {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
-        {{Form::radio('sort', 'abc_asc', false,['class' => 'sort_button']) }}あいうえお順(昇順)
+        {{Form::radio('sort', 'abc_asc', true,['class' => 'sort_button']) }}あいうえお順(昇順)
         {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
         {{Form::hidden('mode', $mode)}}
         @if(!empty($_GET['keyword']))
@@ -84,7 +84,7 @@
         @if(!empty($_GET['seats']))
           {{Form::hidden('seats', $_GET['seats']) }}
         @endif
-        {{Form::submit()}}
+        {{Form::submit('ソート')}}
       {{ Form::close() }}
       </div><!-- search_sort -->
     @foreach ($shops as $shop)
@@ -112,7 +112,7 @@
         <!-- 検索結果ソート条件 -->
         <div>並び替え</div>
         {{ Form::open(['url' => "/ssearch", 'method' => 'get']) }}
-          {{Form::radio('sort', 'abc_asc', false,['class' => 'sort_button']) }}あいうえお順(昇順)
+          {{Form::radio('sort', 'abc_asc', true,['class' => 'sort_button']) }}あいうえお順(昇順)
           {{Form::radio('sort', 'abc_desc', false,['class' => 'sort_button']) }}あいうえお順(降順)
           {{Form::hidden('mode', $mode)}}
           @if(!empty($_GET['keyword']))
@@ -124,7 +124,7 @@
           @if(!empty($_GET['seats']))
             {{Form::hidden('seats', $_GET['seats']) }}
           @endif
-          {{Form::submit()}}
+          {{Form::submit('ソート')}}
         {{ Form::close() }}
       </div><!-- search_sort -->
       @foreach ($shops as $shop)
