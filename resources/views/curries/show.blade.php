@@ -144,7 +144,6 @@
       @foreach($curry->reviews()->get() as $review)
         <div class="review_box">
           <div class="review_name">投稿者：{{ $review->user->name }}</div>
-          <div class="review_rate">評価：{{$review->rate}}</div>
             <span class="star-rating">
               <span class="star-rating-front" style="width: {{ ($review->rate)*2 }}0%">★★★★★</span>
               <span class="star-rating-back">★★★★★</span>
@@ -157,18 +156,18 @@
             @if (Auth::check())
               @if ( $review->favorites()->where('user_id', Auth::user()->id )->exists() > 0 )
                 <button class="btn btn-primary btn-xs fav_btn" type="button">
-                  いいねしました <span class="badge">{{ $review->favorites()->count() }}</span>
+                  いいねしました <span class="glyphicon glyphicon-thumbs-up"></span><span class="badge">{{ $review->favorites()->count() }}</span>
                 </button>
               @else
                 <button class="btn btn-primary btn-xs no_fav_btn" type="button" onClick="fav({{ Auth::user()->id}}, {{$review->id }})">
-                  いいねする <span class="badge">{{ $review->favorites()->count() }}</span>
+                  いいねする <span class="glyphicon glyphicon-thumbs-up"></span><span class="badge">{{ $review->favorites()->count() }}</span>
                 </button>
               @endif
             @else
               <button class="btn btn-primary btn-xs no_fav_btn login_yet" type="button">
-                いいね <span class="badge">{{ $review->favorites()->count() }}</span>
+                いいね <span class="glyphicon glyphicon-thumbs-up"></span><span class="badge">{{ $review->favorites()->count() }}</span>
               </button>
-              <span>いいねするにはログインしてください</span>
+              <span  class="fav_loginyet">いいねするにはログインしてください</span>
             @endif
           </div>
         </div>
