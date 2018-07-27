@@ -94,13 +94,13 @@ class CurriesController extends Controller
       }
       // ジャンルで検索(ライスorナン)
       elseif(!empty($rtype)){
-        $curries = Curry::where('naan_rice', $rtype)->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
+        $curries = Curry::where('naan_rice', $rtype)->orWhere('naan_rice', '3')->orderBy($sort_alg["key"], $sort_alg["order"])->paginate(15);
         switch ($rtype){
           case 1:
           $word = "ライス";break;
           case 2:
           $word = "ナン";break;
-          case 3:
+          case 4:
           $word = "その他";break;
         }
         $word = 'ライス/ナン：'.$word;

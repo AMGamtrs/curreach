@@ -8,13 +8,19 @@
   </div>
 
   <div class="col-xs-6">
-      <div class="showtop_img single-item">
-        @foreach($shop->photos()->get() as $photo)
-        <h3>
-          <img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}">
-        </h3>
-        @endforeach
-      </div>
+    <div class="container">
+
+        @if($shop->photos()->exists())
+              <div class="showtop_img single-item">
+          @foreach($shop->photos()->get() as $photo)
+            <h3><img src="http://drive.google.com/uc?export=view&id={{ $photo->image }}"></h3>
+          @endforeach
+        </div>
+        @else
+            <img src="http://drive.google.com/uc?export=view&id=1FWi7Bz-kfcYlSyibXfSF0-o92NJG3-li"/>
+        @endif
+
+    </div>
   </div>
 
     <!-- 地図を表示 -->
@@ -204,6 +210,9 @@
           </div>
         </div>
       @endforeach
+      @if (count($shop->reviews()->get())==0)
+       まだレビューがありません
+      @endif
 
     <h3 style="margin-bottom:15px;"><span class="showpage-heading showpage-post">レビューを投稿する</span></h3>
         <!-- ここにレビュー投稿フォーム -->

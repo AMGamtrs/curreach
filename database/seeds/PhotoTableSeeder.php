@@ -53,6 +53,11 @@ class PhotoTableSeeder extends Seeder
   ['id' => '38', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '1', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
   ['id' => '39', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '7', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
   ['id' => '40', 'shop_id' => '0', 'curry_id' => '0', 'review_id' => '16', 'image' => '1-wsSZEKUd-ONCCJPmssx7dY1tcTv7NBf', ],
+  ['id' => '41', 'shop_id' => '10', 'curry_id' => '0', 'review_id' => '0', 'image' => '1wbWRClDo1L70mBqbrgb7jvbUBMqDLVic', ],
+  ['id' => '42', 'shop_id' => '11', 'curry_id' => '0', 'review_id' => '0', 'image' => '1qKN3V0g9nfsEWLkRPjateyDEXSRBsWpi', ],
+  ['id' => '43', 'shop_id' => '0', 'curry_id' => '22', 'review_id' => '0', 'image' => '1wrfIdGC5R9-qd2zeEWXM2EiyC8EQjqR_', ],
+  ['id' => '44', 'shop_id' => '0', 'curry_id' => '23', 'review_id' => '0', 'image' => '1q63QAEK3X45ta3b9xY2j7U9jocIlp9Q2', ],
+  ['id' => '45', 'shop_id' => '13', 'curry_id' => '0', 'review_id' => '0', 'image' => '13fn2hEMB5O8qchwuDOdANH377V9gwT3r', ],
 ];
 
       DB::table('photos')->insert($photos);
