@@ -450,6 +450,7 @@ button.no_fav_btn {
 
 .no_fav_btn > .badge {
   color: #f7a104;
+  margin-left: 5px;
 }
 
 button.no_fav_btn:hover {
@@ -475,6 +476,15 @@ button.login_yet {
   background-color: #f7a104;
   background-image: none;
   pointer-events : none;
+}
+
+.fav_loginyet{
+  font-size: 90%;
+  color: #706c57;
+}
+
+.favorite .glyphicon .glyphicon-thumbs-up {
+  padding-right: 5px;
 }
 
 /* 小さい・大きいコンテナ */
